@@ -3,6 +3,7 @@ from CSVinfo import *
 import csv
 from GPUData import *
 from MemoryData import *
+from StorageData import *
 
 # Ratio : CPU, GPU, RAM, Storage, Motherboard
 USE_CSE_RATIO = {
@@ -71,6 +72,11 @@ class BuildInfo:
     def set_memory(self, memory):
         self.memory = memory
     
+    def get_storage_recommendation(self):
+        return self.get_recommendation(1, self.storage_filepath, StorageData.get_storage_price, \
+                                       StorageData.get_storage_performance_score, \
+                                       STORAGE_PERFORMANCE_SCORE)
+
     def set_storage(self, storage):
         self.storage = storage
     

@@ -1,9 +1,10 @@
-from CPUData import *
-from CSVinfo import *
+from CPUData         import *
+from CSVinfo         import *
+from GPUData         import *
+from MemoryData      import *
+from MotherboardData import *
+from StorageData     import *
 import csv
-from GPUData import *
-from MemoryData import *
-from StorageData import *
 
 # Ratio : CPU, GPU, RAM, Storage, Motherboard
 USE_CSE_RATIO = {
@@ -53,7 +54,7 @@ class BuildInfo:
         self.gpu = gpu
     
     def get_memory_recommendation(self):
-        initial_recommendation = self.get_recommendation(1, self.memory_filepath, \
+        initial_recommendation = self.get_recommendation(2, self.memory_filepath, \
                                                          MemoryData.get_memory_price, \
                                                          MemoryData.get_memory_performance_score, \
                                                          MEMORY_PERFORMANCE_SCORE)
@@ -73,12 +74,55 @@ class BuildInfo:
         self.memory = memory
     
     def get_storage_recommendation(self):
-        return self.get_recommendation(1, self.storage_filepath, StorageData.get_storage_price, \
+        return self.get_recommendation(3, self.storage_filepath, StorageData.get_storage_price, \
                                        StorageData.get_storage_performance_score, \
                                        STORAGE_PERFORMANCE_SCORE)
 
     def set_storage(self, storage):
         self.storage = storage
+    
+    def get_motherboard_recommendation(self):
+        cost_delta = BASE_COST_DELTA
+        recommended_parts = []
+        target_part_cost = self.target_cost * self.cost_ratio[4]
+
+        cpu_socket = self.cpu[CPU_SOCKET]
+        crossfire_required = self.gpu[GPU_MANUFACTURER] == 'AMD' and self.gpu[GPU_SLI_CROSSFIRE] == 'Yes'
+        sli_required = self.gpu[GPU_MANUFACTURER] == 'Nvidia' and self.gpu[GPU_SLI_CROSSFIRE] == 'Yes'
+        memory_size = MemoryData.extract_num_data(self.memory[MEMORY_SIZE], 0, 'G')
+        memory_type = 'DDR4' if self.memory[MEMORY_IS_DDR4] == 'TRUE' else 'DDR3'
+
+        # Get atleast three recommendations
+        while (len(recommended_parts) < 1) and (cost_delta < target_part_cost):
+            recommended_parts = []
+            is_first_row = True
+
+            with open(self.motherboard_filepath) as input_file:
+                input_file_buffer = csv.reader(input_file, dialect='excel')
+                for row in input_file_buffer:
+                    # skip the first header row
+                    if is_first_row:
+                        is_first_row = False
+                        continue
+                    
+                    # check if motherboard is within budget and meets specification
+                    if (abs(MotherboardData.get_motherboard_price(row) - target_part_cost) <= cost_delta) and \
+                       (cpu_socket in row[MOTHERBOARD_CPU_SOCKET]) and \
+                       (not (crossfire_required and row[MOTHERBOARD_CROSSFIRE_SUPPORT] == 'No')) and \
+                       (not (sli_required and row[MOTHERBOARD_SLI_SUPPORT] == 'No')) and \
+                       (memory_size <= MotherboardData.extract_num_data(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY], 0, 'G')) and \
+                       (memory_type in row[MOTHERBOARD_MEMORY_TYPE]):
+                        recommended_parts.append(row)
+            
+            # increase cost delta for next iteration
+            cost_delta *= 2
+                
+        # Calculate performance scores and sort
+        for row in recommended_parts:
+            row.append(MotherboardData.get_motherboard_performance_score(row))
+        recommended_parts.sort(key=lambda x:x[MOTHERBOARD_PERFORMANCE_SCORE], reverse=True)
+
+        return recommended_parts
     
     def set_motherboard(self, motherboard):
         self.motherboard = motherboard

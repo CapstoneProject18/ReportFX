@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from BuildInfo import *
 
-bi = BuildInfo('Datasets/Intel_CPUs_clean.csv', 'Datasets/All_GPUs_Clean.csv', 'Datasets/memory_clean.csv', 'Datasets/storage_clean.csv', '')
+bi = BuildInfo('Datasets/Intel_CPUs_clean.csv', 'Datasets/All_GPUs_Clean.csv', 'Datasets/memory_clean.csv', 'Datasets/storage_clean.csv', 'Datasets/motherboard_clean.csv')
 bi.set_base_info(1000, 'home')
 
 cpu_recommendation = bi.get_cpu_recommendation()
@@ -26,3 +26,9 @@ storage_recommendation = bi.get_storage_recommendation()
 for row in storage_recommendation:
     print(row[STORAGE_NAME] + ', ' + row[STORAGE_PRICES])
 bi.set_storage(storage_recommendation[0])
+
+print()
+motherboard_recommendation = bi.get_motherboard_recommendation()
+for row in motherboard_recommendation:
+    print(row[MOTHERBOARD_NAME] + ', ' + row[MOTHERBOARD_PRICES])
+bi.set_motherboard(motherboard_recommendation[0])

@@ -1,0 +1,507 @@
+CAS Latency,ECC,Heat Spreader,Manufacturer,Name,Price/GB,Prices,Size,Speed,is_ddr4,ddr3_speed,ddr4_speed,ddr_speed
+9,No,Yes,Corsair,Corsair Vengeance 16GB (2 x 8GB) DDR3-1866 Memory,$6.43,"[102.88, 103.52, 112.99, 139.99, 161.09]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,Yes,No,Kingston,Kingston 16GB (1 x 16GB) Registered DDR3-1600 Memory,$9.41,[150.49],16GB (1 x 16GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) Registered DDR3-1600 Memory,$8.25,"[32.99, 29.98]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair XMS3 4GB (2 x 2GB) DDR3-1600 Memory,$13.75,[54.99],4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+7,No,No,Mushkin,Mushkin 2GB (1 x 2GB) DDR3-1066 Memory,$10.99,[21.99],2GB (1 x 2GB),DDR3-1066,False,1066.0,,1066
+9,No,Yes,Corsair,Corsair XMS3 4GB (2 x 2GB) DDR3-1333 Memory,$11.25,[44.99],4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+8,No,Yes,Corsair,Corsair Dominator GT 4GB (2 x 2GB) DDR3-2000 Memory,$38.75,[154.99],4GB (2 x 2GB),DDR3-2000,False,2000.0,,2000
+9,No,Yes,Corsair,Corsair Vengeance Pro 16GB (4 x 4GB) DDR3-2400 Memory,$18.75,[299.99],16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,No,G.Skill,G.Skill 2GB (1 x 2GB) DDR3-1333 Memory,$8.49,"[15.99, 20.97]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Kingston,Kingston Predator Series 16GB (4 x 4GB) DDR3-1866 Memory,$15.01,[240.21],16GB (4 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair XMS 6GB (3 x 2GB) DDR3-2000 Memory,$31.73,[190.36],6GB (3 x 2GB),DDR3-2000,False,2000.0,,2000
+9,No,No,Wintec,Wintec Value 2GB (1 x 2GB) DDR3-1333 Memory,$14.03,[19.99],2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+9,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1333 Memory,$12.36,[98.85],8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2666 Memory,$23.12,[184.99],8GB (2 x 4GB),DDR3-2666,False,2666.0,,2666
+9,No,Yes,Corsair,Corsair XMS3 2GB (2 x 1GB) DDR3-1333 Memory,$27.50,[54.99],2GB (2 x 1GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-1866 Memory,$5.72,"[182.99, 187.97]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+9,Yes,No,Wintec,Wintec 4GB (1 x 4GB) Registered DDR3-1333 Memory,$14.00,[55.99],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Mushkin,Mushkin Blackline 32GB (4 x 8GB) DDR3-1600 Memory,$6.25,"[199.88, 219.98]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Corsair,Corsair Dominator Platinum 64GB (8 x 8GB) DDR3-2400 Memory,$15.78,[1009.99],64GB (8 x 8GB),DDR3-2400,False,2400.0,,2400
+11,No,No,Wintec,Wintec Value 8GB (1 x 8GB) DDR3-1600 Memory,$7.00,[55.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Samsung,Samsung 2GB (1 x 2GB) DDR3-1333 Memory,$11.93,[23.86],2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Kingston,Kingston 2GB (2 x 1GB) DDR3-1333 Memory,$14.99,[29.99],2GB (2 x 1GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) Registered DDR3-1600 Memory,$13.83,[55.33],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,No,Crucial,Crucial Ballistix Sport 4GB (1 x 4GB) DDR3-1866 Memory,$10.95,[35.7],4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-1600 Memory,$13.75,[109.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Corsair,Corsair XMS 6GB (3 x 2GB) DDR3-1333 Memory,$9.16,[54.99],6GB (3 x 2GB),DDR3-1333,False,1333.0,,1333
+8,No,Yes,Corsair,Corsair Vengeance 6GB (3 x 2GB) DDR3-1600 Memory,$12.50,[74.99],6GB (3 x 2GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Crucial,Crucial 4GB (1 x 4GB) Registered DDR3-1333 Memory,$18.23,[72.91],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Mushkin,Mushkin Stealth 8GB (2 x 4GB) DDR3-1600 Memory,$6.74,"[53.88, 52.99, 57.97]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,G.Skill,G.Skill ECO Series 4GB (2 x 2GB) DDR3-1333 Memory,$8.24,"[31.99, 36.97]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+10,No,No,G.Skill,G.Skill Ripjaws Series 4GB (1 x 4GB) DDR3-1866 Memory,$6.25,[24.99],4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+10,No,No,G.Skill,G.Skill Ripjaws Series 8GB (2 x 4GB) DDR3-1866 Memory,$6.75,"[53.99, 56.15, 58.48]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+13,Yes,Yes,Wintec,Wintec 32GB (1 x 32GB) Registered DDR3-1866 Memory,$6.88,"[220.0, 219.99]",32GB (1 x 32GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Dominator 24GB (6 x 4GB) DDR3-1600 Memory,$9.58,[229.99],24GB (6 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (4 x 4GB) DDR3-2133 Memory,$12.19,[194.99],16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+10,No,No,G.Skill,G.Skill Ripjaws Series 8GB (1 x 8GB) DDR3-1866 Memory,$7.00,[55.99],8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+8,No,Yes,Crucial,Crucial Ballistix 3GB (3 x 1GB) DDR3-1600 Memory,$41.66,[124.99],3GB (3 x 1GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Mushkin,Mushkin Essentials 4GB (2 x 2GB) DDR3-1333 Memory,$8.47,"[33.88, 36.98, 38.99, 44.98]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Patriot,Patriot Signature 4GB (1 x 4GB) DDR3-1333 Memory,$6.50,"[25.99, 24.0]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,No,Corsair,Corsair Mac Memory 32GB (4 x 8GB) DDR3-1866 Memory,$6.25,"[199.99, 199.99, 269.99, 279.99]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,AMD,AMD R9 2400 16GB (2 x 8GB) DDR3-2400 Memory,$11.56,[176.99],16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Vengeance 6GB (3 x 2GB) DDR3-1600 Memory,$9.16,[54.99],6GB (3 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Dominator Platinum 16GB (4 x 4GB) DDR3-2800 Memory,$39.37,[629.99],16GB (4 x 4GB),DDR3-2800,False,2800.0,,2800
+11,No,No,Patriot,Patriot Signature 8GB (2 x 4GB) DDR3-1600 Memory,$7.38,[55.2],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 64GB (4 x 16GB) Registered DDR3-1600 Memory,$7.25,"[463.99, 510.99, 560.0]",64GB (4 x 16GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX Fury Red 8GB (2 x 4GB) DDR3-1333 Memory,$8.62,"[68.99, 65.41]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Kingston,Kingston Savage 4GB (1 x 4GB) DDR3-1866 Memory,$10.24,"[39.99, 39.99, 34.98]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Mushkin,Mushkin Blackline 8GB (2 x 4GB) DDR3-2400 Memory,$6.25,[49.99],8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+7,No,No,Mushkin,Mushkin 4GB (2 x 2GB) DDR3-1066 Memory,$6.25,"[23.99, 27.98, 28.97, 29.47]",4GB (2 x 2GB),DDR3-1066,False,1066.0,,1066
+9,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-3200 Memory,$95.00,[759.99],8GB (2 x 4GB),DDR3-3200,False,3200.0,,3200
+10,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (2 x 8GB) DDR3-1866 Memory,$6.44,[102.97],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,G.Skill,G.Skill Trident X Series 16GB (2 x 8GB) DDR3-2400 Memory,$6.74,"[107.88, 111.97, 112.99, 124.93]",16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Vengeance LP 16GB (2 x 8GB) DDR3-1600 Memory,$5.62,"[89.89, 92.99, 109.99, 134.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,G.Skill,G.Skill Ares Series 16GB (2 x 8GB) DDR3-2400 Memory,$6.31,"[100.89, 100.99, 119.13]",16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+10,No,Yes,Kingston,Kingston HyperX Fury Blue 8GB (1 x 8GB) DDR3-1600 Memory,$6.75,"[53.99, 48.17, 64.95, 68.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Samsung,Samsung 4GB (1 x 4GB) Registered DDR3-1333 Memory,$3.00,"[7.52, 35.62]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,G.Skill,G.Skill AEGIS 8GB (1 x 8GB) DDR3-1600 Memory,$6.25,"[49.97, 48.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (1 x 8GB) DDR3-1333 Memory,$5.75,"[46.02, 49.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (4 x 4GB) DDR3-1600 Memory,$6.25,"[99.99, 100.88, 109.99, 109.99]",16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury White 8GB (1 x 8GB) DDR3-1866 Memory,$7.80,"[54.4, 66.99, 67.99]",8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,No,Mushkin,Mushkin Essentials 4GB (1 x 4GB) DDR3-1333 Memory,$6.36,"[20.91, 25.88, 24.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,No,Corsair,Corsair ValueSelect 8GB (1 x 8GB) DDR3-1600 Memory,$6.37,"[49.99, 49.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Kingston,Kingston Savage 8GB (1 x 8GB) DDR3-2400 Memory,$9.25,"[73.99, 73.99, 82.99]",8GB (1 x 8GB),DDR3-2400,False,2400.0,,2400
+11,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-1866 Memory,$6.25,[49.99],8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,G.Skill,G.Skill Trident X Series 32GB (4 x 8GB) DDR3-2400 Memory,$6.72,"[214.99, 219.97, 220.09]",32GB (4 x 8GB),DDR3-2400,False,2400.0,,2400
+10,No,Yes,Crucial,Crucial Ballistix Sport XT 16GB (2 x 8GB) DDR3-1866 Memory,$7.38,[109.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,G.Skill,G.Skill Trident X Series 8GB (2 x 4GB) DDR3-2400 Memory,$7.37,[58.99],8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Kingston,Kingston Savage 8GB (2 x 4GB) DDR3-1866 Memory,$8.82,"[70.59, 70.59, 78.99]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair XMS3 8GB (1 x 8GB) DDR3-1333 Memory,$6.25,"[48.99, 48.99, 57.87, 69.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Dominator Platinum 32GB (4 x 8GB) DDR3-1866 Memory,$7.50,"[231.43, 279.99]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Vengeance 16GB (2 x 8GB) DDR3-1600 Memory,$6.25,"[99.99, 99.99, 134.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury Blue 16GB (2 x 8GB) DDR3-1866 Memory,$6.44,"[102.99, 102.99, 129.95, 136.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Crucial,Crucial Ballistix Elite 8GB (1 x 8GB) DDR3-2133 Memory,$8.50,"[67.99, 69.99, 102.87]",8GB (1 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,Team,Team Elite Plus 16GB (2 x 8GB) DDR3-1600 Memory,$5.31,"[84.97, 85.89, 85.99, 97.98]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Tactical 16GB (2 x 8GB) DDR3-1866 Memory,$7.72,[123.56],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1600 Memory,$6.50,"[24.99, 28.97]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair XMS3 8GB (2 x 4GB) DDR3-1333 Memory,$7.14,"[57.13, 57.99, 54.99, 74.99]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Corsair,Corsair 8GB (2 x 4GB) DDR3-1600 Memory,$6.87,"[53.99, 60.51, 69.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Patriot,Patriot Viper 3 8GB (2 x 4GB) DDR3-2133 Memory,$6.62,[52.99],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+10,No,Yes,Kingston,Kingston HyperX Fury Red 16GB (2 x 8GB) DDR3-1600 Memory,$6.78,"[108.49, 111.9, 119.99, 136.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 12GB (3 x 4GB) DDR3-1600 Memory,$9.17,[109.99],12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 8GB (2 x 4GB) DDR3-1600 Memory,$12.49,[99.95],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Team,Team Elite 8GB (1 x 8GB) DDR3-1600 Memory,$5.87,[45.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+7,No,No,Mushkin,Mushkin 4GB (2 x 2GB) DDR3-1066 Memory,$7.82,"[31.27, 27.49]",4GB (2 x 2GB),DDR3-1066,False,1066.0,,1066
+9,No,No,Wintec,Wintec Value 8GB (2 x 4GB) DDR3-1333 Memory,$6.50,[51.99],8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,AMD,AMD R5 Entertainment Series 16GB (2 x 8GB) DDR3-1600 Memory,$10.90,[174.41],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,AMD,AMD R5 Entertainment Series 4GB (1 x 4GB) DDR3-1600 Memory,$12.62,[50.5],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance Performance 8GB (2 x 4GB) DDR3-2133 Memory,$10.62,[84.99],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+10,No,Yes,G.Skill,G.Skill Sniper Series 16GB (2 x 8GB) DDR3-1600 Memory,$5.62,"[89.89, 94.99, 120.47]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Mushkin,Mushkin ECO2 8GB (2 x 4GB) DDR3-1600 Memory,$6.37,"[50.97, 51.99, 55.88]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston Savage 16GB (2 x 8GB) DDR3-1866 Memory,$6.94,"[110.99, 118.92, 126.34, 149.99, 146.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,G.Skill,G.Skill Ares Series 8GB (2 x 4GB) DDR3-2133 Memory,$6.75,"[53.99, 59.92]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance 12GB (3 x 4GB) DDR3-1600 Memory,$7.50,"[89.99, 82.99, 114.99]",12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Kingston,Kingston 2GB (1 x 2GB) DDR3-1333 Memory,$8.99,"[16.99, 18.99]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,Kingston,Kingston HyperX Fury Blue 4GB (1 x 4GB) DDR3-1866 Memory,$8.25,"[32.99, 34.99, 28.99, 36.99]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-1600 Memory,$7.61,"[60.88, 59.99, 66.9, 59.99, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+7,No,Yes,G.Skill,G.Skill Ripjaws Series 16GB (4 x 4GB) DDR3-1066 Memory,$6.80,"[108.88, 108.99, 113.97]",16GB (4 x 4GB),DDR3-1066,False,1066.0,,1066
+9,No,Yes,Corsair,Corsair Vengeance LP 16GB (2 x 8GB) DDR3-1600 Memory,$7.06,[112.99],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 4GB (2 x 2GB) DDR3-1600 Memory,$6.50,"[25.99, 27.0, 35.99]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,No,G.Skill,G.Skill NS Series 4GB (1 x 4GB) DDR3-1600 Memory,$7.24,"[28.97, 27.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-2133 Memory,$7.62,"[59.99, 66.58, 79.95, 79.99]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,No,Kingston,Kingston Value 4GB (1 x 4GB) DDR3-1333 Memory,$6.25,[25.0],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-1600 Memory,$7.62,"[59.99, 58.0, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Crucial,Crucial Ballistix Sport XT 8GB (1 x 8GB) DDR3-1866 Memory,$6.87,"[54.99, 54.99]",8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Kingston,Kingston Savage 4GB (1 x 4GB) DDR3-2400 Memory,$10.25,"[40.99, 43.99, 43.99, 43.99]",4GB (1 x 4GB),DDR3-2400,False,2400.0,,2400
+11,No,Yes,Kingston,Kingston Savage 16GB (2 x 8GB) DDR3-2133 Memory,$7.75,"[123.99, 144.99, 163.99]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,Corsair,Corsair Dominator Platinum 32GB (4 x 8GB) DDR3-2400 Memory,$8.44,"[269.99, 269.99, 299.95]",32GB (4 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,No,Patriot,Patriot Signature 4GB (1 x 4GB) DDR3-1333 Memory,$6.75,"[26.99, 24.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Crucial,Crucial Ballistix Sport 8GB (2 x 4GB) DDR3-1600 Memory,$7.12,[55.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill Value Series 8GB (2 x 4GB) DDR3-1333 Memory,$6.25,"[48.99, 55.76]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ares Series 32GB (4 x 8GB) DDR3-1866 Memory,$6.16,"[196.97, 199.95]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-2133 Memory,$6.28,"[200.99, 205.97]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+10,No,Yes,G.Skill,G.Skill Trident X Series 16GB (4 x 4GB) DDR3-2400 Memory,$7.30,"[116.88, 121.97, 124.99]",16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair XMS3 2GB (1 x 2GB) DDR3-1333 Memory,$9.49,"[17.99, 24.99]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,IBM,IBM 16GB (1 x 16GB) Registered DDR3-1600 Memory,$25.46,[407.38],16GB (1 x 16GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Team,Team Vulcan 8GB (2 x 4GB) DDR3-1600 Memory,$6.25,[48.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill Value Series 8GB (1 x 8GB) DDR3-1333 Memory,$5.75,"[44.99, 49.97]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+11,No,No,G.Skill,G.Skill Value 8GB (1 x 8GB) DDR3-1600 Memory,$6.12,"[47.99, 50.97, 51.84]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ares Series 8GB (2 x 4GB) DDR3-1866 Memory,$6.87,"[54.99, 61.72]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Patriot,Patriot Signature 8GB (2 x 4GB) DDR3-1600 Memory,$6.12,[49.0],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Mushkin,Mushkin Blackline 16GB (2 x 8GB) DDR3-2400 Memory,$6.25,[99.99],16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,G.Skill,G.Skill Trident X Series 16GB (2 x 8GB) DDR3-2133 Memory,$6.56,"[104.99, 116.53]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Kingston,Kingston 16GB (2 x 8GB) DDR3-1600 Memory,$6.35,"[101.67, 102.98, 103.99, 104.99, 104.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Kingston,Kingston Savage 8GB (1 x 8GB) DDR3-2133 Memory,$8.25,"[65.99, 73.49, 73.49, 81.99]",8GB (1 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,Mushkin,Mushkin ECO2 8GB (2 x 4GB) DDR3-1600 Memory,$6.12,"[47.99, 49.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 32GB (4 x 8GB) DDR3-1866 Memory,$6.62,"[211.99, 229.0, 274.99]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (2 x 8GB) DDR3-1866 Memory,$8.12,[129.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ripjaws X Series 32GB (4 x 8GB) DDR3-2400 Memory,$6.37,"[203.99, 208.97]",32GB (4 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Vengeance Pro 16GB (2 x 8GB) DDR3-1600 Memory,$5.93,"[94.88, 94.99, 104.99, 109.99, 139.99, 146.03]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Avexir,Avexir Core Series 4GB (1 x 4GB) DDR3-1600 Memory,$8.49,[32.99],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical 32GB (4 x 8GB) DDR3-1600 Memory,$5.94,[189.99],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance LP 8GB (2 x 4GB) DDR3-1866 Memory,$8.12,[64.99],8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,Kingston,Kingston HyperX FURY 4GB (1 x 4GB) DDR3-1600 Memory,$8.74,"[33.99, 36.99, 33.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair XMS 16GB (2 x 8GB) DDR3-1333 Memory,$6.25,"[99.99, 93.99, 134.99]",16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,Kingston,Kingston HyperX Fury Red 8GB (1 x 8GB) DDR3-1600 Memory,$6.62,"[53.0, 51.99, 64.99, 64.99, 67.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-2400 Memory,$6.87,[439.99],64GB (8 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,G.Skill,G.Skill Ripjaws Series 12GB (3 x 4GB) DDR3-1600 Memory,$6.83,"[81.99, 83.97, 87.7, 89.9]",12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,VisionTek,VisionTek 2GB (1 x 2GB) DDR3-1600 Memory,$14.95,"[29.89, 29.99, 29.99, 29.38]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 2GB (1 x 2GB) DDR3-1600 Memory,$8.99,"[17.99, 20.99, 19.99, 15.6]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,PNY,PNY Anarchy 16GB (2 x 8GB) DDR3-1600 Memory,$5.08,[73.19],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (4 x 4GB) DDR3-1600 Memory,$6.50,"[103.99, 108.97, 119.0, 123.56]",16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 4GB (2 x 2GB) DDR3-1600 Memory,$7.00,"[28.0, 33.98]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+12,No,Yes,Corsair,Corsair Dominator Platinum 32GB (4 x 8GB) DDR3-2666 Memory,$12.34,"[394.99, 405.38]",32GB (4 x 8GB),DDR3-2666,False,2666.0,,2666
+11,Yes,No,Crucial,Crucial 8GB (1 x 8GB) DDR3-1600 Memory,$8.00,"[63.99, 69.99, 64.92, 76.13]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ares Series 8GB (2 x 4GB) DDR3-1600 Memory,$6.36,"[50.89, 53.99, 61.95]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Dominator Platinum 32GB (4 x 8GB) DDR3-1600 Memory,$7.03,"[224.99, 232.73, 279.99]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,G.Skill,G.Skill Sniper Series 16GB (4 x 4GB) DDR3-2400 Memory,$6.87,"[109.99, 114.97, 122.08, 130.46]",16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (4 x 4GB) DDR3-2400 Memory,$24.06,[384.99],16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+11,No,No,Patriot,Patriot Signature 2GB (1 x 2GB) DDR3-1600 Memory,$7.50,"[14.99, 12.99]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Kingston,Kingston Beast 32GB (4 x 8GB) DDR3-2133 Memory,$10.95,[335.99],32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,PNY,PNY XLR8 8GB (2 x 4GB) DDR3-1600 Memory,$11.25,[89.98],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Sport 16GB (4 x 4GB) DDR3-1600 Memory,$8.75,"[139.99, 149.99]",16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ares Series 4GB (1 x 4GB) DDR3-1600 Memory,$6.72,"[26.87, 25.99, 30.97]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Corsair,Corsair ValueSelect 2GB (1 x 2GB) DDR3-1333 Memory,$7.99,"[14.99, 14.99]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Corsair,Corsair 8GB (1 x 8GB) DDR3-1600 Memory,$6.37,"[49.99, 49.99, 64.38, 64.99, 65.49]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-1600 Memory,$7.62,"[59.99, 65.99, 59.99, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Sniper Series 16GB (2 x 8GB) DDR3-2133 Memory,$6.25,"[99.99, 104.97]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1600 Memory,$10.47,[41.89],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical 16GB (2 x 8GB) DDR3-1600 Memory,$6.56,"[104.98, 108.36]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 8GB (1 x 8GB) DDR3-1600 Memory,$6.37,"[50.0, 51.0, 69.99, 79.22]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury White 8GB (2 x 4GB) DDR3-1600 Memory,$8.00,"[63.99, 63.99, 72.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ares Series 16GB (2 x 8GB) DDR3-2133 Memory,$6.12,"[97.88, 99.99]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+7,No,Yes,G.Skill,G.Skill Trident X 16GB (2 x 8GB) DDR3-1600 Memory,$6.81,[108.99],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Team,Team Elite 8GB (2 x 4GB) DDR3-1333 Memory,$6.24,"[49.88, 49.99, 58.98]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (2 x 4GB) DDR3-1600 Memory,$6.50,"[51.99, 56.97]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (2 x 8GB) DDR3-2133 Memory,$5.94,"[94.99, 102.88]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair XMS3 8GB (2 x 4GB) DDR3-1600 Memory,$7.62,"[59.99, 67.5, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Patriot,Patriot Viper 3 16GB (2 x 8GB) DDR3-1600 Memory,$5.69,"[89.99, 89.99, 99.0]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-2133 Memory,$7.62,"[59.99, 59.99, 73.95, 79.99]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,ADATA,ADATA XPG V1.0 8GB (2 x 4GB) DDR3-1600 Memory,$6.61,"[52.88, 53.99, 62.41]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX FURY 16GB (2 x 8GB) DDR3-1600 Memory,$6.62,"[105.99, 121.99, 121.99, 136.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Mushkin,Mushkin Blackline 16GB (2 x 8GB) DDR3-2133 Memory,$5.81,[92.97],16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+8,No,Yes,Crucial,Crucial Ballistix Tactical 8GB (1 x 8GB) DDR3-1600 Memory,$6.75,"[53.98, 54.61]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (2 x 4GB) DDR3-1333 Memory,$7.00,"[55.99, 60.48]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,No,G.Skill,G.Skill Value 8GB (2 x 4GB) DDR3-1600 Memory,$6.25,"[48.99, 54.37]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury Black 4GB (1 x 4GB) DDR3-1600 Memory,$8.00,"[31.99, 26.54, 36.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair XMS3 4GB (1 x 4GB) DDR3-1600 Memory,$8.49,"[32.99, 29.99, 39.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Kingston,Kingston 16GB (2 x 8GB) DDR3-1333 Memory,$7.75,"[123.99, 126.83]",16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance Pro 32GB (4 x 8GB) DDR3-1866 Memory,$6.09,[194.99],32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Vengeance 4GB (1 x 4GB) DDR3-1600 Memory,$7.75,"[29.99, 28.99, 39.99, 39.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 8GB (2 x 4GB) DDR3-2400 Memory,$7.11,"[56.89, 56.99, 61.97]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+10,No,Yes,Kingston,Kingston HyperX Fury White 16GB (2 x 8GB) DDR3-1600 Memory,$5.90,"[94.41, 94.41, 136.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Crucial,Crucial Ballistix Elite 4GB (1 x 4GB) DDR3-2133 Memory,$9.75,"[38.99, 38.99]",4GB (1 x 4GB),DDR3-2133,False,2133.0,,2133
+8,No,Yes,G.Skill,G.Skill Trident X 16GB (2 x 8GB) DDR3-1866 Memory,$7.00,"[111.99, 116.97, 124.3]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,G.Skill,G.Skill NS Series 8GB (2 x 4GB) DDR3-1600 Memory,$6.25,"[48.99, 53.97, 54.37]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury White 4GB (1 x 4GB) DDR3-1866 Memory,$8.50,"[33.99, 32.59]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Patriot,Patriot Signature 8GB (1 x 8GB) DDR3-1600 Memory,$6.25,"[49.99, 54.0]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (1 x 8GB) DDR3-1600 Memory,$6.62,[52.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1333 Memory,$7.24,"[24.49, 54.48]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,G.Skill,G.Skill Ares Series 8GB (2 x 4GB) DDR3-2400 Memory,$6.74,"[53.88, 54.99, 61.03]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+11,No,Yes,Avexir,Avexir Core Series 4GB (1 x 4GB) DDR3-1600 Memory,$6.74,"[26.97, 29.99, 29.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance LP 8GB (2 x 4GB) DDR3-1600 Memory,$7.62,"[59.99, 56.0, 65.32, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (2 x 4GB) DDR3-1600 Memory,$7.25,"[57.97, 58.99, 66.17]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Corsair,Corsair 4GB (1 x 4GB) DDR3-1333 Memory,$7.39,"[29.56, 29.99, 31.88, 34.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance 4GB (1 x 4GB) DDR3-1600 Memory,$7.50,"[29.98, 29.99, 39.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ares Series 32GB (4 x 8GB) DDR3-2133 Memory,$6.12,"[195.99, 200.97]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+10,No,Yes,Kingston,Kingston 8GB (1 x 8GB) DDR3-1600 Memory,$10.70,[77.56],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Sniper Series 8GB (2 x 4GB) DDR3-2133 Memory,$6.87,"[54.99, 59.97, 61.03]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 16GB (2 x 8GB) DDR3-2133 Memory,$6.25,"[99.99, 104.97]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+8,No,Yes,Crucial,Crucial Ballistix Tactical 8GB (2 x 4GB) DDR3-1600 Memory,$8.87,"[69.99, 69.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 16GB (4 x 4GB) DDR3-1600 Memory,$7.50,"[119.99, 112.99, 149.99]",16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Corsair,Corsair Vengeance Performance 8GB (2 x 4GB) DDR3-2133 Memory,$6.75,"[53.98, 58.31, 69.99]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-2133 Memory,$6.28,"[200.88, 205.97, 214.99]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,Kingston,Kingston Savage 8GB (2 x 4GB) DDR3-2400 Memory,$10.12,"[80.99, 80.99, 87.99]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (2 x 8GB) DDR3-1866 Memory,$7.81,"[124.97, 136.38, 139.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair XMS3 4GB (1 x 4GB) DDR3-1333 Memory,$7.75,"[29.99, 35.98, 39.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Kingston,Kingston HyperX Fury Blue 16GB (2 x 8GB) DDR3-1333 Memory,$7.18,[106.7],16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-1600 Memory,$5.78,[369.99],64GB (8 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX Fury Blue 8GB (1 x 8GB) DDR3-1333 Memory,$8.51,"[59.99, 67.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,No,G.Skill,G.Skill 16GB (2 x 8GB) DDR3-1333 Memory,$5.81,[92.99],16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Trident 8GB (2 x 4GB) DDR3-2400 Memory,$7.37,"[58.99, 63.97, 65.47]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair Vengeance 4GB (2 x 2GB) DDR3-1600 Memory,$8.25,"[32.0, 32.0, 44.99]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Kingston,Kingston 32GB (4 x 8GB) DDR3-1333 Memory,$6.59,"[202.85, 221.69]",32GB (4 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Kingston,Kingston Impact Black Series 8GB (1 x 8GB) DDR3-1600 Memory,$7.02,"[48.11, 66.99, 67.95, 70.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Kingston,Kingston 32GB (2 x 16GB) Registered DDR3-1333 Memory,$7.19,"[230.0, 261.98]",32GB (2 x 16GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 8GB (2 x 4GB) DDR3-1866 Memory,$9.62,"[76.99, 69.05, 99.95]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Kingston,Kingston Predator Series 8GB (2 x 4GB) DDR3-1866 Memory,$14.30,[106.13],8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,AMD,AMD R5 Entertainment 16GB (2 x 8GB) DDR3-1600 Memory,$5.58,[81.17],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2133 Memory,$7.87,"[61.99, 61.99, 74.99]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Kingston,Kingston 8GB (1 x 8GB) DDR3-1600 Memory,$6.88,"[55.01, 60.99, 68.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Corsair,Corsair Vengeance 16GB (2 x 8GB) DDR3-2133 Memory,$8.44,[134.99],16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,Corsair,Corsair XMS3 4GB (1 x 4GB) DDR3-1600 Memory,$10.00,"[39.99, 34.7]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX Fury White 4GB (1 x 4GB) DDR3-1333 Memory,$8.99,"[34.99, 28.8, 36.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,No,Samsung,Samsung 4GB (1 x 4GB) DDR3-1600 Memory,$7.75,"[30.99, 25.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 24GB (3 x 8GB) Registered DDR3-1600 Memory,$9.34,"[216.0, 215.99]",24GB (3 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (8 x 4GB) DDR3-1600 Memory,$6.37,"[203.88, 203.99, 208.97]",32GB (8 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Patriot,Patriot 4GB (1 x 4GB) DDR3-1600 Memory,$6.00,"[23.99, 26.99, 24.0]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+7,No,No,G.Skill,G.Skill Ripjaws X Series 16GB (4 x 4GB) DDR3-1333 Memory,$6.50,[103.99],16GB (4 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-1600 Memory,$6.25,"[49.98, 59.99, 58.0, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1333 Memory,$8.25,"[32.99, 41.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance 4GB (2 x 2GB) DDR3-1600 Memory,$8.99,"[34.99, 32.99, 44.99, 45.66]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance LP 16GB (2 x 8GB) DDR3-1600 Memory,$5.62,[89.99],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix 8GB (1 x 8GB) DDR3-1866 Memory,$7.17,[49.18],8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2133 Memory,$6.87,"[54.99, 49.05]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance 8GB (4 x 2GB) DDR3-1600 Memory,$7.50,"[59.99, 89.99]",8GB (4 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws Series 4GB (2 x 2GB) DDR3-1600 Memory,$7.72,"[30.87, 30.99, 34.97]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Mushkin,Mushkin Stealth 16GB (2 x 8GB) DDR3-1600 Memory,$5.30,"[84.88, 89.97, 94.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Sniper Series 32GB (4 x 8GB) DDR3-2133 Memory,$6.28,"[200.88, 200.99, 205.97]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+11,Yes,No,Kingston,Kingston 32GB (4 x 8GB) DDR3-1600 Memory,$7.22,[222.82],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Crucial,Crucial Ballistix Tactical 16GB (2 x 8GB) DDR3-2133 Memory,$7.25,"[112.99, 112.99, 200.24]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,No,HP,HP 16GB (1 x 16GB) Registered DDR3-1333 Memory,$6.87,"[109.99, 249.99, 269.18]",16GB (1 x 16GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-2133 Memory,$6.12,"[195.99, 200.97]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance 16GB (4 x 4GB) DDR3-2133 Memory,$8.12,"[129.99, 124.1]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-2133 Memory,$6.23,"[398.99, 404.38]",64GB (8 x 8GB),DDR3-2133,False,2133.0,,2133
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$7.24,"[57.88, 60.24, 65.99, 58.36, 68.99, 69.95, 73.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2800 Memory,$14.37,"[114.99, 114.99, 124.99]",8GB (2 x 4GB),DDR3-2800,False,2800.0,,2800
+9,No,Yes,Corsair,Corsair XMS3 4GB (2 x 2GB) DDR3-1600 Memory,$10.74,"[41.99, 34.99, 44.99]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Sport 4GB (2 x 2GB) DDR3-1600 Memory,$7.75,"[29.99, 36.98, 46.98]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury White 8GB (1 x 8GB) DDR3-1600 Memory,$7.76,"[62.09, 61.31, 69.89, 68.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-2666 Memory,$17.50,"[139.99, 139.99, 139.99]",8GB (2 x 4GB),DDR3-2666,False,2666.0,,2666
+9,No,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1333 Memory,$7.25,[29.0],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,PNY,PNY Optima 4GB (1 x 4GB) DDR3-1333 Memory,$10.86,[38.96],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+7,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1066 Memory,$6.75,"[25.99, 27.97]",4GB (1 x 4GB),DDR3-1066,False,1066.0,,1066
+10,No,Yes,Corsair,Corsair Vengeance Performance 16GB (2 x 8GB) DDR3-1866 Memory,$5.62,[89.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Kingston,Kingston Black Series 8GB (2 x 4GB) DDR3-1600 Memory,$21.02,[159.98],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,Yes,Kingston,Kingston 32GB (1 x 32GB) Registered DDR3-1600 Memory,$7.55,"[241.49, 387.43, 405.99, 457.99, 466.99]",32GB (1 x 32GB),DDR3-1600,False,1600.0,,1600
+12,No,Yes,Corsair,Corsair Vengeance Pro Series 16GB (4 x 4GB) DDR3-2666 Memory,$13.75,"[219.99, 219.99]",16GB (4 x 4GB),DDR3-2666,False,2666.0,,2666
+9,No,Yes,Kingston,Kingston HyperX Fury Black 4GB (1 x 4GB) DDR3-1333 Memory,$8.99,"[34.99, 27.99, 36.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance Performance 32GB (4 x 8GB) DDR3-1866 Memory,$6.09,[194.99],32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,No,G.Skill,G.Skill 8GB (2 x 4GB) DDR3-1600 Memory,$6.37,"[49.99, 55.52]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,Yes,Yes,Crucial,Crucial 32GB (1 x 32GB) Registered DDR3-1333 Memory,$9.98,[319.36],32GB (1 x 32GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,Patriot,Patriot Viper 3 32GB (4 x 8GB) DDR3-2133 Memory,$6.48,"[199.0, 229.94]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+13,Yes,No,Kingston,Kingston 16GB (1 x 16GB) Registered DDR3-1866 Memory,$8.31,"[132.99, 133.13, 133.77, 143.55]",16GB (1 x 16GB),DDR3-1866,False,1866.0,,1866
+11,No,No,Crucial,Crucial 6GB (3 x 2GB) DDR3-1600 Memory,$8.50,[49.99],6GB (3 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,G.Skill,G.Skill Ripjaws Series 4GB (1 x 4GB) DDR3-2133 Memory,$6.75,[26.99],4GB (1 x 4GB),DDR3-2133,False,2133.0,,2133
+9,Yes,No,Kingston,Kingston 8GB (1 x 8GB) DDR3-1333 Memory,$6.86,"[54.9, 54.99, 58.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Kingston,Kingston Impact Black Series 8GB (2 x 4GB) DDR3-1600 Memory,$7.61,"[60.84, 53.83, 65.99, 68.24, 73.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) DDR3-1600 Memory,$7.43,"[59.46, 64.99, 70.0, 86.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (4 x 2GB) DDR3-1600 Memory,$7.25,"[58.01, 61.99, 62.97]",8GB (4 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 16GB (4 x 4GB) DDR3-2133 Memory,$8.12,[129.99],16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (4 x 4GB) DDR3-2800 Memory,$12.46,"[199.29, 279.99]",16GB (4 x 4GB),DDR3-2800,False,2800.0,,2800
+9,No,No,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-2933 Memory,$18.75,"[149.99, 185.38]",8GB (2 x 4GB),DDR3-2933,False,2933.0,,2933
+13,Yes,Yes,Wintec,Wintec 16GB (2 x 8GB) Registered DDR3-1866 Memory,$10.37,"[165.0, 165.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ripjaws Series 8GB (2 x 4GB) DDR3-2133 Memory,$6.75,"[53.99, 59.92, 60.82]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,G.Skill,G.Skill Ares Series 16GB (4 x 4GB) DDR3-2400 Memory,$6.75,"[107.99, 112.97]",16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+7,No,No,Crucial,Crucial 2GB (1 x 2GB) DDR3-1066 Memory,$6.00,"[12.0, 19.99, 21.99, 21.45, 25.98]",2GB (1 x 2GB),DDR3-1066,False,1066.0,,1066
+9,No,No,G.Skill,G.Skill 4GB (2 x 2GB) DDR3-1333 Memory,$6.97,"[27.88, 27.99]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Crucial,Crucial 16GB (2 x 8GB) Registered DDR3-1600 Memory,$7.41,[118.5],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Mushkin,Mushkin Blackline 16GB (2 x 8GB) DDR3-1600 Memory,$6.87,[109.89],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Mushkin,Mushkin Essentials 16GB (1 x 16GB) DDR3-1600 Memory,$12.49,"[199.89, 209.78, 209.89, 209.89]",16GB (1 x 16GB),DDR3-1600,False,1600.0,,1600
+11,No,No,VisionTek,VisionTek 8GB (1 x 8GB) DDR3-1600 Memory,$10.87,"[86.99, 88.98, 90.86, 88.36, 98.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX 16GB (4 x 4GB) DDR3-1600 Memory,$13.00,[208.05],16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston Savage 32GB (4 x 8GB) DDR3-1600 Memory,$7.75,"[247.99, 247.02, 290.99]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance Pro 16GB (4 x 4GB) DDR3-2133 Memory,$11.87,"[189.99, 277.99]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+11,Yes,No,Kingston,Kingston 16GB (4 x 4GB) Registered DDR3-1600 Memory,$7.87,[117.87],16GB (4 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$10.50,[79.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Wintec,Wintec Value 16GB (2 x 8GB) DDR3-1333 Memory,$5.87,[93.99],16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-2400 Memory,$6.37,[407.99],64GB (8 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 16GB (4 x 4GB) DDR3-2133 Memory,$6.69,"[106.99, 111.97]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Crucial,Crucial Ballistix Sport 4GB (2 x 2GB) DDR3-1600 Memory,$7.75,"[29.99, 39.89]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance Performance 8GB (2 x 4GB) DDR3-1600 Memory,$7.62,"[59.99, 59.99, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 32GB (4 x 8GB) Registered DDR3-1600 Memory,$8.00,"[255.87, 292.86, 287.99]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Mushkin,Mushkin Blackline 16GB (4 x 4GB) DDR3-2133 Memory,$5.31,[84.97],16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Kingston,Kingston HyperX Fury White 8GB (2 x 4GB) DDR3-1333 Memory,$8.50,"[67.99, 67.99, 72.99]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Mushkin,Mushkin Stealth 8GB (2 x 4GB) DDR3-1600 Memory,$5.37,"[42.99, 51.89, 51.99, 65.5]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+13,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1866 Memory,$6.50,"[26.0, 26.99, 29.0, 34.97]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Silicon Power,Silicon Power 8GB (2 x 4GB) DDR3-2133 Memory,$11.34,[82.54],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,Yes,No,Mushkin,Mushkin PROLINE 16GB (1 x 16GB) Registered DDR3-1333 Memory,$5.00,"[79.98, 109.82, 115.76]",16GB (1 x 16GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1600 Memory,$8.50,"[33.99, 38.63, 43.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Sport XT 16GB (2 x 8GB) DDR3-1600 Memory,$6.56,"[104.99, 99.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1333 Memory,$7.24,[24.49],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 8GB (4 x 2GB) DDR3-2133 Memory,$8.00,"[63.99, 64.1, 68.97]",8GB (4 x 2GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Mushkin,Mushkin Essentials 2GB (1 x 2GB) DDR3-1600 Memory,$7.49,"[13.99, 16.06, 18.97]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill 8GB (1 x 8GB) DDR3-1333 Memory,$5.87,[45.99],8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Crucial,Crucial 8GB (2 x 4GB) DDR3-1600 Memory,$13.00,[103.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,ADATA,ADATA XPG V2 16GB (2 x 8GB) DDR3-2400 Memory,$8.64,[130.15],16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+9,No,Yes,Corsair,Corsair XMS3 8GB (2 x 4GB) DDR3-2000 Memory,$15.62,[124.99],8GB (2 x 4GB),DDR3-2000,False,2000.0,,2000
+11,No,Yes,Kingston,Kingston 16GB (2 x 8GB) DDR3-1866 Memory,$6.25,"[100.0, 130.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,ADATA,ADATA Premier Series 16GB (2 x 8GB) DDR3-1600 Memory,$6.37,[93.88],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix 4GB (2 x 2GB) DDR3-2133 Memory,$40.00,[160.0],4GB (2 x 2GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair XMS3 8GB (4 x 2GB) DDR3-1600 Memory,$10.00,"[79.99, 99.99]",8GB (4 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill 6GB (3 x 2GB) DDR3-1333 Memory,$7.16,"[41.99, 46.97, 48.3]",6GB (3 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,G.Skill,G.Skill 4GB (2 x 2GB) DDR3-1333 Memory,$8.74,"[33.99, 42.08]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Dominator GT 12GB (3 x 4GB) DDR3-2000 Memory,$16.25,[194.99],12GB (3 x 4GB),DDR3-2000,False,2000.0,,2000
+9,No,Yes,Corsair,Corsair Vengeance 64GB (8 x 8GB) DDR3-1600 Memory,$6.42,"[401.83, 549.99]",64GB (8 x 8GB),DDR3-1600,False,1600.0,,1600
+13,No,No,Mushkin,Mushkin Essentials 32GB (4 x 8GB) DDR3-1866 Memory,$4.69,"[149.99, 195.99]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Wintec,Wintec One 16GB (2 x 8GB) DDR3-1600 Memory,$6.00,[95.99],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+12,No,No,Mushkin,Mushkin Stealth 16GB (4 x 4GB) DDR3-2800 Memory,$30.37,[485.99],16GB (4 x 4GB),DDR3-2800,False,2800.0,,2800
+9,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-1600 Memory,$13.12,"[104.99, 144.98]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,G.Skill,G.Skill 16GB (2 x 8GB) DDR3-1600 Memory,$5.87,"[93.99, 100.74]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX Fury Red 8GB (1 x 8GB) DDR3-1333 Memory,$7.78,"[54.1, 68.99, 67.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-1600 Memory,$10.00,[79.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+7,No,No,Kingston,Kingston ValueRAM 4GB (2 x 2GB) DDR3-1066 Memory,$9.50,[38.0],4GB (2 x 2GB),DDR3-1066,False,1066.0,,1066
+9,No,No,GeIL,GeIL Green Series 8GB (1 x 8GB) DDR3-1333 Memory,$9.50,[75.99],8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,ADATA,ADATA XPG V2 8GB (2 x 4GB) DDR3-1600 Memory,$6.62,"[51.99, 54.97]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,ADATA,ADATA XPG V2 16GB (2 x 8GB) DDR3-2600 Memory,$27.62,[442.0],16GB (2 x 8GB),DDR3-2600,False,2600.0,,2600
+9,No,Yes,ADATA,ADATA XPG V2 16GB (2 x 8GB) DDR3-1600 Memory,$6.25,[99.99],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Micron,Micron 4GB (1 x 4GB) DDR3-1600 Memory,$6.35,"[21.0, 180.0]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+12,No,No,Mushkin,Mushkin Stealth 8GB (2 x 4GB) DDR3-2800 Memory,$28.75,[229.99],8GB (2 x 4GB),DDR3-2800,False,2800.0,,2800
+12,No,Yes,G.Skill,G.Skill Trident X Series 16GB (4 x 4GB) DDR3-2800 Memory,$41.12,[657.99],16GB (4 x 4GB),DDR3-2800,False,2800.0,,2800
+9,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-2133 Memory,$24.37,[194.99],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance LP 16GB (4 x 4GB) DDR3-2133 Memory,$8.12,[129.99],16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance LP 16GB (4 x 4GB) DDR3-1866 Memory,$7.50,[119.99],16GB (4 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair XMS 64GB (8 x 8GB) DDR3-1600 Memory,$6.02,[384.99],64GB (8 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill 6GB (3 x 2GB) DDR3-1600 Memory,$8.50,"[49.99, 55.48]",6GB (3 x 2GB),DDR3-1600,False,1600.0,,1600
+12,No,Yes,Corsair,Corsair Dominator Platinum 8GB (2 x 4GB) DDR3-2800 Memory,$33.12,[264.99],8GB (2 x 4GB),DDR3-2800,False,2800.0,,2800
+12,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2933 Memory,$47.50,[379.99],8GB (2 x 4GB),DDR3-2933,False,2933.0,,2933
+13,Yes,No,Crucial,Crucial 32GB (2 x 16GB) Registered DDR3-1866 Memory,$6.59,"[211.0, 230.98, 283.99, 300.96]",32GB (2 x 16GB),DDR3-1866,False,1866.0,,1866
+11,No,No,Crucial,Crucial 2GB (1 x 2GB) DDR3-1600 Memory,$15.49,"[30.99, 30.99]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+13,Yes,No,Mushkin,Mushkin Proline 16GB (2 x 8GB) DDR3-1866 Memory,$9.00,[143.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,No,PNY,PNY 4GB (1 x 4GB) DDR3-1333 Memory,$8.75,"[34.99, 31.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,Corsair,Corsair Vengeance Pro 16GB (2 x 8GB) DDR3-2133 Memory,$6.87,"[109.99, 136.97]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Patriot,Patriot Signature 16GB (2 x 8GB) DDR3-1600 Memory,$6.38,[94.0],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1600 Memory,$8.46,"[33.84, 34.97, 35.99, 35.0, 43.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill 2GB (1 x 2GB) DDR3-1600 Memory,$7.50,"[14.99, 16.62, 18.6]",2GB (1 x 2GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Klevv,Klevv Neo 8GB (2 x 4GB) DDR3-2133 Memory,$5.62,[44.99],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 8GB (2 x 4GB) DDR3-1866 Memory,$10.03,[72.08],8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,No,G.Skill,G.Skill 8GB (1 x 8GB) DDR3-1333 Memory,$6.25,"[49.97, 50.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ripjaws X Series 32GB (4 x 8GB) DDR3-1866 Memory,$6.19,[197.99],32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,V7,V7 8GB (1 x 8GB) DDR3-1600 Memory,$5.77,[46.16],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Kingston,Kingston 8GB (2 x 4GB) DDR3-1600 Memory,$7.42,"[59.39, 59.36, 65.0]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance Pro 32GB (4 x 8GB) DDR3-1600 Memory,$6.56,"[209.99, 202.08, 249.99, 264.99]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 8GB (2 x 4GB) DDR3-1866 Memory,$9.62,"[76.99, 99.95]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Dominator Platinum 32GB (4 x 8GB) DDR3-1600 Memory,$12.97,[414.99],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Mushkin,Mushkin Proline 32GB (1 x 32GB) Registered DDR3-1333 Memory,$6.87,"[219.98, 299.87]",32GB (1 x 32GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,PNY,PNY 8GB (1 x 8GB) DDR3-1866 Memory,$8.59,[60.59],8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,AMD,AMD R5 Entertainment Series 8GB (1 x 8GB) DDR3-1600 Memory,$10.84,[78.69],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Transcend,Transcend 4GB (1 x 4GB) DDR3-1333 Memory,$9.77,[39.06],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+13,Yes,No,Kingston,Kingston 64GB (4 x 16GB) Registered DDR3-1866 Memory,$8.05,"[506.9, 620.0]",64GB (4 x 16GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ripjaws 32GB (4 x 8GB) DDR3-2133 Memory,$6.37,"[203.99, 208.97, 226.42]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,G.Skill,G.Skill Ripjaws 32GB (4 x 8GB) DDR3-1333 Memory,$5.62,"[179.99, 184.97]",32GB (4 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Dominator 16GB (2 x 8GB) DDR3-1866 Memory,$8.46,"[126.97, 139.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,PNY,PNY 8GB (1 x 8GB) DDR3-1600 Memory,$11.25,[89.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+13,Yes,No,Samsung,Samsung 16GB (1 x 16GB) Registered DDR3-1866 Memory,$9.25,[147.99],16GB (1 x 16GB),DDR3-1866,False,1866.0,,1866
+13,No,No,Mushkin,Mushkin Essentials 16GB (2 x 8GB) DDR3-1866 Memory,$6.44,[102.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Mushkin,Mushkin ECO2 8GB (1 x 8GB) DDR3-1600 Memory,$5.62,"[44.99, 47.88]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance LP 4GB (1 x 4GB) DDR3-1600 Memory,$7.75,"[29.99, 28.99, 39.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Kingston,Kingston HyperX Fury Black 8GB (2 x 4GB) DDR3-1333 Memory,$6.18,"[49.43, 55.99, 68.99, 68.99, 72.99]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+7,No,Yes,G.Skill,G.Skill Ripjaws X Series 8GB (2 x 4GB) DDR3-1600 Memory,$7.25,"[57.99, 64.36]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ares Series 16GB (2 x 8GB) DDR3-1600 Memory,$5.93,"[94.88, 94.99, 99.97]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Sniper 8GB (2 x 4GB) DDR3-1333 Memory,$6.75,"[53.99, 58.0]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance LP 8GB (1 x 8GB) DDR3-1600 Memory,$6.37,"[50.97, 52.0, 58.91, 69.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill Ripjaws Series 16GB (2 x 8GB) DDR3-1600 Memory,$5.93,"[94.88, 94.99, 94.99, 98.97]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,AMD,AMD R5 Entertainment 8GB (2 x 4GB) DDR3-1600 Memory,$7.08,[47.99],8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,G.Skill,G.Skill Ripjaws Z Series 16GB (4 x 4GB) DDR3-2133 Memory,$6.75,"[107.99, 108.97, 113.9]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Crucial,Crucial 8GB (2 x 4GB) DDR3-1600 Memory,$6.12,"[48.98, 51.99, 51.17]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 16GB (2 x 8GB) DDR3-1600 Memory,$7.00,[111.98],16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Corsair,Corsair 4GB (2 x 2GB) DDR3-1333 Memory,$7.75,"[29.99, 34.89, 28.99, 37.98, 39.99]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+11,No,No,Mushkin,Mushkin Essentials 8GB (4 x 2GB) DDR3-1600 Memory,$7.24,"[57.89, 76.99]",8GB (4 x 2GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-2133 Memory,$6.72,[429.99],64GB (8 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Crucial,Crucial Ballistix Sport 8GB (2 x 4GB) DDR3-1600 Memory,$8.37,"[66.99, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 16GB (2 x 8GB) DDR3-1866 Memory,$6.87,"[109.99, 114.97, 129.48]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-1866 Memory,$6.87,"[219.99, 221.28, 224.97]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Kingston,Kingston 8GB (1 x 8GB) DDR3-2133 Memory,$7.56,"[60.48, 69.99, 79.24]",8GB (1 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,No,Patriot,Patriot Signature 8GB (1 x 8GB) DDR3-1600 Memory,$5.75,"[46.03, 39.88, 48.98]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 12GB (3 x 4GB) Registered DDR3-1600 Memory,$10.79,[114.99],12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill AEGIS 8GB (2 x 4GB) DDR3-1333 Memory,$6.12,"[47.99, 52.97]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$8.14,"[65.1, 65.99, 71.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Sniper Gaming Series 12GB (3 x 4GB) DDR3-1600 Memory,$6.75,"[80.99, 85.97]",12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+13,Yes,No,Crucial,Crucial 8GB (1 x 8GB) DDR3-1866 Memory,$8.75,[70.0],8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,G.Skill,G.Skill 8GB (2 x 4GB) DDR3-1600 Memory,$5.75,"[45.99, 50.97]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Patriot,Patriot Signature 8GB (1 x 8GB) DDR3-1600 Memory,$5.50,[44.0],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Mushkin,Mushkin 16GB (2 x 8GB) DDR3-1333 Memory,$7.49,"[119.89, 133.99, 138.98]",16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,G.Skill,G.Skill Ares Series 8GB (2 x 4GB) DDR3-1333 Memory,$6.87,"[54.97, 54.99, 62.95]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,No,PNY,PNY 8GB (1 x 8GB) DDR3-1600 Memory,$8.02,[56.08],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Crucial,Crucial Ballistix Elite 8GB (2 x 4GB) DDR3-2133 Memory,$9.50,"[75.99, 79.0, 75.99]",8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+8,No,Yes,G.Skill,G.Skill 4GB (2 x 2GB) DDR3-1333 Memory,$8.49,"[32.99, 35.18, 37.5]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Dominator GT 12GB (3 x 4GB) DDR3-1600 Memory,$9.37,"[103.6, 114.99]",12GB (3 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Mushkin,Mushkin 2GB (1 x 2GB) DDR3-1333 Memory,$10.94,"[21.87, 21.89, 21.99]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1333 Memory,$5.43,"[21.74, 27.98, 21.74, 31.99, 29.95, 32.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1600 Memory,$8.59,"[34.34, 37.07]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+7,No,No,G.Skill,G.Skill Ripjaws X Series 8GB (2 x 4GB) DDR3-1333 Memory,$7.12,"[56.99, 61.8]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-1600 Memory,$7.37,"[57.99, 57.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 4GB (2 x 2GB) DDR3-2000 Memory,$16.25,[64.99],4GB (2 x 2GB),DDR3-2000,False,2000.0,,2000
+11,Yes,No,Kingston,Kingston 16GB (1 x 16GB) Registered DDR3-1600 Memory,$8.82,[133.0],16GB (1 x 16GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$7.75,"[61.99, 62.12, 67.99, 71.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 32GB (4 x 8GB) Registered DDR3-1600 Memory,$8.00,"[255.87, 288.0]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Corsair,Corsair 4GB (1 x 4GB) DDR3-1333 Memory,$7.25,"[28.99, 28.99, 39.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,AMD,AMD Radeon R5 Entertainment Series 4GB (1 x 4GB) DDR3-1600 Memory,$13.04,[52.14],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1333 Memory,$8.70,"[34.79, 35.99, 36.99, 37.0, 52.99]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Mushkin,Mushkin Silverline 16GB (2 x 8GB) DDR3-1333 Memory,$5.62,[89.89],16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$8.57,"[60.58, 73.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$7.50,"[59.98, 55.41]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Kingston,Kingston ValueRAM 4GB (2 x 2GB) DDR3-1333 Memory,$6.25,[24.99],4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+13,Yes,Yes,Mushkin,Mushkin 64GB (4 x 16GB) Registered DDR3-1866 Memory,$6.25,[399.98],64GB (4 x 16GB),DDR3-1866,False,1866.0,,1866
+11,No,No,Crucial,Crucial 8GB (2 x 4GB) DDR3-1600 Memory,$6.50,"[51.99, 54.0, 53.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$7.38,"[59.07, 71.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 16GB (4 x 4GB) DDR3-2133 Memory,$6.62,"[105.99, 110.97, 117.64, 125.86]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+11,Yes,No,Kingston,Kingston 32GB (4 x 8GB) DDR3-1600 Memory,$7.34,[226.73],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1600 Memory,$6.75,"[25.99, 27.97]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,No,Crucial,Crucial 2GB (2 x 1GB) DDR3-1333 Memory,$17.00,[25.99],2GB (2 x 1GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Crucial,Crucial 8GB (1 x 8GB) Registered DDR3-1600 Memory,$6.64,"[53.09, 64.99, 61.95]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 64GB (8 x 8GB) DDR3-2400 Memory,$6.87,"[439.99, 445.66]",64GB (8 x 8GB),DDR3-2400,False,2400.0,,2400
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) Registered DDR3-1600 Memory,$9.00,"[35.99, 36.61, 40.99, 40.99, 46.0]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$5.68,"[45.41, 56.99, 64.36, 71.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Kingston,Kingston 8GB (1 x 8GB) DDR3-2133 Memory,$8.76,"[61.99, 82.8]",8GB (1 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1600 Memory,$7.00,"[26.99, 28.97]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Kingston,Kingston 48GB (3 x 16GB) Registered DDR3-1333 Memory,$8.92,[420.0],48GB (3 x 16GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-2133 Memory,$7.04,"[225.38, 244.99]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+8,No,Yes,G.Skill,G.Skill Ripjaws Series 4GB (2 x 2GB) DDR3-1600 Memory,$8.74,"[33.99, 38.97]",4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Elite 4GB (1 x 4GB) DDR3-1866 Memory,$10.54,"[33.99, 44.55]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,G.Skill,G.Skill Trident 16GB (4 x 4GB) DDR3-2400 Memory,$7.31,"[116.99, 121.97]",16GB (4 x 4GB),DDR3-2400,False,2400.0,,2400
+11,No,Yes,Kingston,Kingston 4GB (1 x 4GB) DDR3-1866 Memory,$7.35,"[29.4, 38.99]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Corsair,Corsair Dominator Platinum 16GB (4 x 4GB) DDR3-2666 Memory,$12.50,"[199.99, 199.99, 264.99]",16GB (4 x 4GB),DDR3-2666,False,2666.0,,2666
+9,No,No,Patriot,Patriot Mac Series 16GB (2 x 8GB) DDR3-1333 Memory,$5.81,"[92.99, 93.9, 95.98]",16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+9,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1333 Memory,$8.40,"[59.07, 71.99]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+8,No,Yes,G.Skill,G.Skill 4GB (2 x 2GB) DDR3-1333 Memory,$8.74,"[33.99, 38.97, 42.08]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair XMS3 4GB (2 x 2GB) DDR3-1333 Memory,$8.50,"[33.99, 33.99, 33.99]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,Kingston,Kingston 8GB (2 x 4GB) DDR3-2800 Memory,$48.85,[390.78],8GB (2 x 4GB),DDR3-2800,False,2800.0,,2800
+13,Yes,No,Kingston,Kingston 32GB (4 x 8GB) Registered DDR3-1866 Memory,$10.20,"[317.99, 317.99]",32GB (4 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ares Series 32GB (4 x 8GB) DDR3-2400 Memory,$6.37,"[203.88, 203.99, 208.97]",32GB (4 x 8GB),DDR3-2400,False,2400.0,,2400
+11,No,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1600 Memory,$7.00,"[27.98, 26.99, 27.99, 26.0, 29.95, 27.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Corsair,Corsair Vengeance 32GB (4 x 8GB) DDR3-2133 Memory,$8.91,[284.99],32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Crucial,Crucial Ballistix Tactical Tracer 4GB (1 x 4GB) DDR3-1866 Memory,$10.00,"[39.99, 39.99]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Mushkin,Mushkin Silverline 16GB (2 x 8GB) DDR3-1600 Memory,$7.00,"[111.98, 149.86]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Corsair,Corsair Vengeance Performance 8GB (2 x 4GB) DDR3-1866 Memory,$7.50,[59.99],8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,Yes,No,Kingston,Kingston 64GB (4 x 16GB) Registered DDR3-1333 Memory,$7.39,"[473.18, 568.04]",64GB (4 x 16GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Kingston,Kingston 8GB (1 x 8GB) Registered DDR3-1600 Memory,$9.88,[71.0],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (2 x 8GB) DDR3-2133 Memory,$5.00,"[79.99, 99.99]",16GB (2 x 8GB),DDR3-2133,False,2133.0,,2133
+11,No,Yes,G.Skill,G.Skill Sniper Series 8GB (2 x 4GB) DDR3-2400 Memory,$6.87,"[54.99, 59.94, 59.97]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+11,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (8 x 4GB) DDR3-2133 Memory,$6.59,[210.99],32GB (8 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair Vengeance 16GB (2 x 8GB) DDR3-1600 Memory,$5.93,"[94.88, 95.01, 99.99, 99.99, 114.0, 114.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (2 x 8GB) DDR3-1333 Memory,$6.50,[103.99],16GB (2 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,No,G.Skill,G.Skill Ripjaws Series 8GB (2 x 4GB) DDR3-1600 Memory,$6.75,"[53.97, 54.99, 62.47]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+12,No,Yes,Corsair,Corsair Vengeance Pro 32GB (4 x 8GB) DDR3-2800 Memory,$15.62,"[499.99, 499.99, 519.99]",32GB (4 x 8GB),DDR3-2800,False,2800.0,,2800
+9,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2133 Memory,$8.12,[64.99],8GB (2 x 4GB),DDR3-2133,False,2133.0,,2133
+9,No,No,Crucial,Crucial 1GB (1 x 1GB) DDR3-1333 Memory,$14.92,[9.95],1GB (1 x 1GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,ADATA,ADATA XPG V1.0 16GB (2 x 8GB) DDR3-1866 Memory,$6.00,[95.99],16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill AEGIS 4GB (1 x 4GB) DDR3-1600 Memory,$6.75,"[25.99, 25.35, 30.97]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance Pro 16GB (2 x 8GB) DDR3-1866 Memory,$6.75,"[107.99, 109.93, 107.99, 134.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,No,Kingston,Kingston 4GB (1 x 4GB) DDR3-1600 Memory,$7.00,"[26.99, 27.99, 26.99, 39.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1600 Memory,$7.38,"[29.5, 47.22]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Corsair,Corsair 4GB (1 x 4GB) DDR3-1600 Memory,$8.24,"[31.99, 34.99, 27.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Avexir,Avexir Core Series 8GB (2 x 4GB) DDR3-1600 Memory,$7.04,"[56.33, 55.99, 61.97]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+8,No,Yes,Crucial,Crucial Ballistix Tactical 32GB (4 x 8GB) DDR3-1600 Memory,$7.27,"[232.69, 232.69]",32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill AEGIS 8GB (1 x 8GB) DDR3-1333 Memory,$6.12,"[47.99, 52.97]",8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+9,No,No,Super Talent,Super Talent 4GB (1 x 4GB) DDR3-1333 Memory,$8.00,[31.99],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,No,G.Skill,G.Skill NS 4GB (2 x 2GB) DDR3-1333 Memory,$7.25,"[27.99, 27.45, 32.97]",4GB (2 x 2GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ares Series 16GB (4 x 4GB) DDR3-2133 Memory,$6.94,"[110.97, 114.99, 127.62]",16GB (4 x 4GB),DDR3-2133,False,2133.0,,2133
+11,Yes,Yes,Crucial,Crucial 32GB (1 x 32GB) DDR3-1600 Memory,$8.47,[265.95],32GB (1 x 32GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Team,Team Elite 4GB (1 x 4GB) DDR3-1600 Memory,$7.25,[27.99],4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Crucial,Crucial Ballistix Sport XT 8GB (2 x 4GB) DDR3-1600 Memory,$7.50,"[59.99, 64.0, 61.23]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 8GB (2 x 4GB) DDR3-1600 Memory,$7.37,"[57.99, 57.99, 66.99, 70.0, 74.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 8GB (1 x 8GB) DDR3-1600 Memory,$5.50,"[43.99, 49.99, 49.99, 54.99, 49.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury Blue 16GB (2 x 8GB) DDR3-1600 Memory,$6.17,"[98.69, 98.79, 91.12, 117.99, 129.95, 136.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Patriot,Patriot Viper 3 8GB (1 x 8GB) DDR3-1600 Memory,$5.62,"[44.99, 44.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Avexir,Avexir Core Series 16GB (2 x 8GB) DDR3-1600 Memory,$5.69,"[90.99, 100.03, 102.13, 139.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Vengeance 16GB (2 x 8GB) DDR3-1866 Memory,$6.37,"[101.88, 101.99, 139.99]",16GB (2 x 8GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,Avexir,Avexir Core Series 16GB (2 x 8GB) DDR3-1600 Memory,$6.92,"[110.64, 116.99, 139.99]",16GB (2 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 4GB (1 x 4GB) DDR3-1600 Memory,$7.25,"[28.99, 32.99, 32.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,G.Skill,G.Skill Ripjaws X Series 4GB (1 x 4GB) DDR3-1866 Memory,$7.25,"[27.99, 99.95]",4GB (1 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,No,G.Skill,G.Skill Value Series 4GB (1 x 4GB) DDR3-1333 Memory,$6.25,"[23.99, 27.97, 27.59, 69.48]",4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+10,No,Yes,G.Skill,G.Skill Ripjaws Z Series 32GB (4 x 8GB) DDR3-1600 Memory,$5.69,[181.99],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Patriot,Patriot Signature 2GB (1 x 2GB) DDR3-1333 Memory,$9.24,"[13.99, 23.79]",2GB (1 x 2GB),DDR3-1333,False,1333.0,,1333
+11,Yes,Yes,Crucial,Crucial 64GB (2 x 32GB) DDR3-1866 Memory,$9.29,[594.3],64GB (2 x 32GB),DDR3-1866,False,1866.0,,1866
+11,No,Yes,G.Skill,G.Skill Ripjaws X Series 16GB (2 x 8GB) DDR3-2400 Memory,$6.49,"[103.8, 103.99, 105.97]",16GB (2 x 8GB),DDR3-2400,False,2400.0,,2400
+10,No,Yes,Kingston,Kingston HyperX FURY 8GB (2 x 4GB) DDR3-1600 Memory,$8.00,"[64.02, 65.19, 69.99, 72.99]",8GB (2 x 4GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair Dominator 32GB (4 x 8GB) DDR3-1600 Memory,$10.94,[349.99],32GB (4 x 8GB),DDR3-1600,False,1600.0,,1600
+10,No,Yes,Kingston,Kingston HyperX Fury Red 8GB (1 x 8GB) DDR3-1866 Memory,$7.37,"[58.99, 51.99, 67.99, 78.28]",8GB (1 x 8GB),DDR3-1866,False,1866.0,,1866
+10,No,Yes,Kingston,Kingston HyperX Fury Blue 8GB (2 x 4GB) DDR3-1866 Memory,$8.02,"[55.99, 65.99, 72.99]",8GB (2 x 4GB),DDR3-1866,False,1866.0,,1866
+9,No,Yes,Kingston,Kingston Savage 8GB (1 x 8GB) DDR3-1600 Memory,$6.81,"[54.5, 54.79, 59.87, 54.79, 72.99]",8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+11,No,Yes,Corsair,Corsair Vengeance Pro 8GB (2 x 4GB) DDR3-2400 Memory,$8.12,"[64.99, 58.95, 79.99]",8GB (2 x 4GB),DDR3-2400,False,2400.0,,2400
+9,No,No,G.Skill,G.Skill Value Series 8GB (2 x 4GB) DDR3-1333 Memory,$6.62,"[52.99, 59.34]",8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,Yes,Corsair,Corsair Vengeance Pro 32GB (4 x 8GB) DDR3-2133 Memory,$5.94,"[189.97, 184.99, 221.99, 274.99]",32GB (4 x 8GB),DDR3-2133,False,2133.0,,2133
+9,No,Yes,Corsair,Corsair XMS3 6GB (3 x 2GB) DDR3-1333 Memory,$7.50,[44.99],6GB (3 x 2GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Corsair,Corsair Dominator GT 8GB (2 x 4GB) DDR3-2000 Memory,$31.87,[254.99],8GB (2 x 4GB),DDR3-2000,False,2000.0,,2000
+9,Yes,No,Kingston,Kingston 8GB (1 x 8GB) DDR3-1333 Memory,$14.44,[115.52],8GB (1 x 8GB),DDR3-1333,False,1333.0,,1333
+11,Yes,No,Mushkin,Mushkin PROLINE 16GB (1 x 16GB) Registered DDR3-1600 Memory,$5.18,"[82.89, 110.87, 116.98]",16GB (1 x 16GB),DDR3-1600,False,1600.0,,1600
+11,No,No,Crucial,Crucial 1GB (1 x 1GB) DDR3-1600 Memory,$18.78,[18.78],1GB (1 x 1GB),DDR3-1600,False,1600.0,,1600
+11,Yes,No,Kingston,Kingston 4GB (1 x 4GB) Registered DDR3-1600 Memory,$8.25,"[32.99, 45.99]",4GB (1 x 4GB),DDR3-1600,False,1600.0,,1600
+9,Yes,No,Kingston,Kingston 4GB (1 x 4GB) Registered DDR3-1333 Memory,$9.30,[29.95],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+9,No,Yes,Crucial,Crucial Ballistix Sport 8GB (2 x 4GB) DDR3-1333 Memory,$8.75,[69.98],8GB (2 x 4GB),DDR3-1333,False,1333.0,,1333
+8,No,Yes,Corsair,Corsair Dominator 4GB (2 x 2GB) DDR3-1600 Memory,$15.00,[59.99],4GB (2 x 2GB),DDR3-1600,False,1600.0,,1600
+9,No,No,G.Skill,G.Skill 4GB (1 x 4GB) DDR3-1333 Memory,$6.25,[24.99],4GB (1 x 4GB),DDR3-1333,False,1333.0,,1333
+11,No,No,Transcend,Transcend JetRam 8GB (1 x 8GB) DDR3-1600 Memory,$8.87,[70.99],8GB (1 x 8GB),DDR3-1600,False,1600.0,,1600
+9,No,Yes,Corsair,Corsair XMS3 8GB (4 x 2GB) DDR3-1333 Memory,$7.50,[59.99],8GB (4 x 2GB),DDR3-1333,False,1333.0,,1333

@@ -1,0 +1,15 @@
+{% extends "Head.html" %}
+
+{% block content %}
+<p>Step2</p>
+{% if request.GET.val2 %}
+    <h1>Get variable is present </h1>
+    <form action="" method="get">
+        <p>Value1</p><input name="val1" id="val1" type="text">
+        <button type="submit">Submit</button>
+    </form>
+{% else %}
+    <h1>Missing Get Variable</h1>
+{% endif %}
+
+{% endblock %}

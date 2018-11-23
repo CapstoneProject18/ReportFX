@@ -2,12 +2,18 @@
 
 {% block content %}
 <p>Step2</p>
-{% if request.GET.val1 %}
-    <h1>Get variable is present </h1>
-    <form action="Step3" method="get">
-        <p>Value1</p><input name="val2" id="val2" type="text">
-        <button type="submit">Submit</button>
-    </form>
+{% if request.GET.CPU %}
+<h1>GPU selection </h1>
+<p>Please select any one GPU from the list of recommended set of GPU</p>
+<form action="Step3" method="get">
+    <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+    <input type="hidden" name="CPU" value={{request.GET.CPU}}> <br>
+    <input type="radio" name="GPU" value={{GPU1_model}}> {{GPU1}}<br>
+    <input type="radio" name="GPU" value={{GPU2_model}}> {{GPU2}}<br>
+    <input type="radio" name="GPU" value={{GPU3_model}}> {{GPU3}}<br><br><br>
+
+    <button type="submit">Submit</button>
+</form>
 {% else %}
     <h1>Missing Get Variable</h1>
 {% endif %}

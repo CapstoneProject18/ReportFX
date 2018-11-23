@@ -1,16 +1,21 @@
 {% extends "Head.html" %}
 
 {% block content %}
-{% if request.GET.price %}
+<!-- {% if request.GET.price %}
     <h1>Price is set to {{ request.GET.price }}</h1>
 {% endif %}
 {% if request.GET.UC %}
     <h1>Use Case is {{ request.GET.UC }}</h1>
-{% endif %}
-<p>Hey i am akshat {{CPU1}}&nbsp;{{CPU1_model}}<br>{{CPU2}}&nbsp;{{CPU2_model}}<br>{{CPU3}}&nbsp;{{CPU3_model}}</p>
-
+{% endif %} -->
+<!-- <p>Hey i am akshat {{CPU1}}&nbsp;{{CPU1_model}}<br>{{CPU2}}&nbsp;{{CPU2_model}}<br>{{CPU3}}&nbsp;{{CPU3_model}}</p> -->
+<h1>CPU selection </h1>
+<p>Please select any one CPU from the list of recommended set of CPU</p>
 <form action="Step2" method="get">
-    <p>Value1</p><input name="val1" id="val1" type="text">
+    <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+    
+    <input type="radio" name="CPU" value={{CPU1_model}}> {{CPU1}}<br>
+    <input type="radio" name="CPU" value={{CPU2_model}}> {{CPU2}}<br>
+    <input type="radio" name="CPU" value={{CPU3_model}}> {{CPU3}}<br><br><br>
     <button type="submit">Submit</button>
 </form>
 {% endblock %}

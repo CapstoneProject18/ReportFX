@@ -5,8 +5,11 @@ from BuildInfo import BuildInfo
 # Create your views here.
 BI = BuildInfo()
 
-
 def index(request):
+    return render(request,'web/welcomePage.html')
+
+def Step1(request):
+        
     request.session['price'] = '500'
     price = int(request.session.get('price'))
 

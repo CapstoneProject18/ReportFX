@@ -7,9 +7,102 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   
-  
-      <link rel="stylesheet" href="css/style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font: 15px/1.25 'Open Sans' sans-serif;
+  background: #2a3644;
+}
+section {
+  text-align: center;
+  padding: 150px 0px 150px 0px;
+}
+section > button {
+  background: #20b9a4;
+  display: block;
+  margin: 10em auto;
+  width: 200px;
+  font-size: 16.996px;
+  line-height: 20px;
+  padding: 12px 18px 13px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+  cursor: pointer;
+}
+section > button:hover {
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.pop {
+  display: none;
+  position: fixed;
+  text-align: center;
+  top: 10.3%;
+  left: 10.3%;
+  width: 80%;
+  height: 80%;
+  background: #ffffff;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  outline: 10px solid rgba(0, 0, 0, 0.1);
+}
+.pop > h1 {
+  padding: 30px 30px 10px 30px;
+  color: #2a3644;
+  font-size: 100%;
+}
+.pop > p {
+  padding-left: 30px;
+  font-size: 100%;
+  color: #777;
+}
+.pop table {
+  margin: 5em auto;
+}
+.pop table td {
+  padding: 20px;
+}
+.pop > span {
+  cursor: pointer;
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  background: #cccccc;
+  color: #ffffff;
+  padding: 6px 8px 0px 9px;
+  width: 30px;
+  height: 30px;
+}
+#submit {
+  height: 4em;
+  width: 8em;
+  border-radius: 1em;
+}
 
+  </style>
   
 </head>
 
@@ -21,7 +114,7 @@
 
 <div class="pop">
   <span>✖</span>
-  <form id="form" method="get">
+  <form id="form" action="Step1" method="get">
     <table>
       <tr>
         <td><input type="radio" name="type" value="workstation"> Workstation</td>
@@ -41,10 +134,18 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
   
+<script>
+   $(document).ready(function () {
+     $("button").click(function () {
+         $(".pop").fadeIn(300);
+         positionPopup();
+     });
 
-    <script  src="js/index.js"></script>
-
-
+     $(".pop > span").click(function () {
+         $(".pop").fadeOut(300);
+     });
+ });
+</script>
 
 
 </body>

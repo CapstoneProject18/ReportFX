@@ -8,6 +8,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^$',views.index,name='index'),
+    url(r'^welcome',views.welcome,name='welcome'),
     url(r'^Step2$',views.Step2,name='step2'),
     url(r'^Step3$',views.Step3,name='step3')
     ]

@@ -1,6 +1,10 @@
 from CSVinfo import *
 
-class MemoryData:    
+class MemoryData:
+    '''
+    This class contains only static methods. Methods name are descriptive of their function.
+    Additional required information, wherever necessary, has been specified.
+    '''
     def get_memory_price(row):
         return MemoryData.extract_num_data(row[MEMORY_PRICES], 1, ',')
     
@@ -13,6 +17,10 @@ class MemoryData:
          else abs(MemoryData.get_memory_ddr3_speed(row) / 100))
 
     def extract_num_data(col, start, str):
+        '''
+        Returns the value in 'col' as a float. The value is converted starting from the index
+        'start' and ending at the index before the first occurence of 'str'.
+        '''
         if str not in col:
             return 0
         return float(col[start:col.find(str)])

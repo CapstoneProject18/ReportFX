@@ -1,20 +1,51 @@
-{% extends "Head.html" %}
+{% extends "web/Head.html" %}
 
 {% block content %}
-<p>Step2</p>
 {% if request.GET.CPU %}
-<h1>RAM selection </h1>
-<p>Please select any one RAM from the list of recommended set of RAM</p>
-<form action="Step3" method="get">
-    <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
-    <input type="hidden" name="CPU" value={{request.GET.CPU}}> <br>
-    <input type="hidden" name="GPU" value={{request.GET.GPU}}>{{request.GET.GPU}} <br>
-    <!-- <input type="radio" name="RAM" value={{RAM1}}> {{RAM1}}<br>
-    <input type="radio" name="RAM" value={{RAM2}}> {{RAM2}}<br>
-    <input type="radio" name="RAM" value={{RAM3}}> {{RAM3}}<br><br><br> -->
+<h1  class="text-center">RAM selection </h1>
+<p class="text-center" style='color:red'>* Please select any one RAM from the list of recommended set of RAM</p>
+<br>
+<div class="row">
+    <div class='col-md-6'>
+        <form action="Step4" method="get">
+            <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+            <input type="hidden" name="CPU" value={{request.GET.CPU}}> 
+            <input type="hidden" name="GPU" value={{request.GET.GPU}}> 
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>RAM Name</th>
+                        <th>Make</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  onclick="document.getElementById('RadioOne').click();">
+                        <td> <input id="RadioOne" type="radio"
+                                name="RAM" value="0" required> {{RAM1}}</td>
+                        <td>{{RAM1_model}}</td>
+                    </tr>
+                    <tr onclick="document.getElementById('RadioTwo').click();">
+                        <td ><input id="RadioTwo" type="radio"
+                                name="RAM" value="1" required> {{RAM2}}</td>
+                        <td>{{RAM2_model}}</td>       
+                    </tr>
+                    <tr onclick="document.getElementById('RadioThree').click();">
+                        <td ><input id='RadioThree' type="radio"
+                                name="RAM" value="2" required> {{RAM3}}</td>
+                                <td>{{RAM3_model}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center">
+                <button type="submit" class='btn btn-lg btn-info center-block'>Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-6'>
 
-    <button type="submit">Submit</button>
-</form>
+        {{Graph|safe}}
+    </div>
+</div>
 {% else %}
     <h1>Missing Get Variable</h1>
 {% endif %}

@@ -1,0 +1,99 @@
+{% extends "web/Head.html" %}
+
+{% block content %}
+<script type="text/javascript">
+    document.getElementById("cpuButton").onclick = function () {
+        location.href = {{ CPU_URL }
+    };
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("gpuButton").onclick = function () {
+        location.href = {{ GPU_URL }
+    };
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("memoryButton").onclick = function () {
+        location.href = {{ Memory_URL }
+    }
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("storageButton").onclick = function () {
+        location.href = {{ Storage_URL }
+    }
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("motherboardButton").onclick = function () {
+        location.href = {{ Motherboard_URL }
+    }
+    };
+</script>
+
+
+
+<br>
+
+<div class="row" style="margin-top: 50px">
+    <div class='col-md-12'>
+
+        <table class="table">
+            <tbody>
+                    <tr>
+                            <th>Part</th>
+                            <th>Buy</th>
+                            <th>Score</th>
+                          </tr>
+                <tr>
+                    <td>{{CPU}} </td>
+                    <td>
+                        <a href={{CPU_URL}}><img id="cpuButton" src="static/css/images.png" style="width: 25%;">
+                            </a> 
+                    </td>
+                    <td rowspan="5" style="vertical-align: middle">{{Score}} </td>
+                </tr>
+                <tr>
+                    <td>{{GPU}} </td>
+                    <td>
+                            <a href={{GPU_URL}}><img id="gpuButton" src="static/css/images.png" style="width: 25%;">
+                                </a> 
+                        </td>
+                   
+                </tr>
+                <tr>
+                    <td>{{Memory}} </td>
+                    <td>
+                            <a href={{Memory_URL}}><img id="memoryButton" src="static/css/images.png" style="width: 25%;">
+                                </a> 
+                        </td>
+                   
+                </tr>
+                <tr>
+                    <td>{{Storage}} </td>
+                    <td>
+                            <a href={{Storage_URL}}><img id="storageButton" src="static/css/images.png" style="width: 25%;">
+                                </a> 
+                        </td>
+                   
+                </tr>
+                <tr>
+                    <td>{{Motherboard}} </td>
+                    <td>
+                            <a href={{Motherboard_URL}}><img id="motherboardButton" src="static/css/images.png" style="width: 25%;">
+                                </a> 
+                        </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+                <form action="Step7" method="get">
+                <button type="submit" class='btn btn-lg btn-info center-block'>Save as PDF</button></form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

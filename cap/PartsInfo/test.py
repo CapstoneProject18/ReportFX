@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from BuildInfo import *
 
-bi = BuildInfo('Datasets/Intel_CPUs_clean.csv', 'Datasets/All_GPUs_Clean.csv', 'Datasets/memory_clean.csv', 'Datasets/storage_clean.csv', 'Datasets/motherboard_clean.csv')
+bi = BuildInfo('../datasets/cpu_clean.csv', '../datasets/gpu_clean.csv', '../datasets/memory_clean.csv', '../datasets/storage_clean.csv', '../datasets/motherboard_clean.csv')
 bi.set_base_info(1000, 'home')
 
 cpu_recommendation = bi.get_cpu_recommendation()

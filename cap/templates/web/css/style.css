@@ -9,16 +9,20 @@
 }
 body {
   font: 15px/1.25 'Open Sans' sans-serif;
-  background: #2a3644;
+  background-image: url("index.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100%;
 }
 section {
   text-align: center;
-  padding: 150px 0px 150px 0px;
+  padding: 150px 0px 120px 0px;
 }
 section > button {
   background: #20b9a4;
   display: block;
-  margin: 10em auto;
+  margin: 01.5em auto;
+  margin-bottom: 0em;
   width: 200px;
   font-size: 16.996px;
   line-height: 20px;
@@ -44,10 +48,10 @@ section > button:hover {
   display: none;
   position: fixed;
   text-align: center;
-  top: 10.3%;
-  left: 10.3%;
-  width: 80%;
-  height: 80%;
+  top: 20.3%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
   background: #ffffff;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -67,7 +71,7 @@ section > button:hover {
   color: #777;
 }
 .pop table {
-  margin: 5em auto;
+  margin: 3em auto;
 }
 .pop table td {
   padding: 20px;
@@ -90,4 +94,28 @@ section > button:hover {
   height: 4em;
   width: 8em;
   border-radius: 1em;
+}
+
+#title{
+  text-align:center;
+  width:100%;
+  height:2em;
+}
+
+#title h1{
+  font-size:4em;
+  font-family: 'Raleway', sans-serif;
+  color:#FFFFFF;
+  padding:.1em;
+  margin-top:.5em;
+}
+
+#stage{
+  text-align: center;
+  position: relative;
+}
+#logo{
+  z-index:-1;
+  height:17em;
+  filter: invert(100%);
 }

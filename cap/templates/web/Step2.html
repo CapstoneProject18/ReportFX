@@ -1,13 +1,52 @@
-{% extends "Head.html" %}
+{% extends "web/Head.html" %}
 
 {% block content %}
-<p>Step2</p>
-{% if request.GET.val1 %}
-    <h1>Get variable is present </h1>
-    <form action="Step3" method="get">
-        <p>Value1</p><input name="val2" id="val2" type="text">
-        <button type="submit">Submit</button>
-    </form>
+
+{% if request.GET.CPU %}
+<h1  class="text-center">GPU selection </h1>
+<p class="text-center" style='color:red'>* Please select any one GPU from the list of recommended set of GPU</p>
+<br>
+<div class="row">
+    <div class='col-md-6'>
+        <form action="Step3" method="get">
+            <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+            <input type="hidden" name="CPU" value={{request.GET.CPU}}> 
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>GPU Name</th>
+                        <th>Make</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  onclick="document.getElementById('RadioOne').click();">
+                        <td> <input id="RadioOne" type="radio"
+                                name="GPU" value="0" required> {{GPU1}}</td>
+                        <td>{{GPU1_model}}</td>
+                    </tr>
+                    <tr onclick="document.getElementById('RadioTwo').click();">
+                        <td ><input id="RadioTwo" type="radio"
+                                name="GPU" value="1" required> {{GPU2}}</td>
+                        <td>{{GPU2_model}}</td>       
+                    </tr>
+                    <tr onclick="document.getElementById('RadioThree').click();">
+                        <td ><input id='RadioThree' type="radio"
+                                name="GPU" value="2" required> {{GPU3}}</td>
+                                <td>{{GPU3_model}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center">
+                <button type="submit" class='btn btn-lg btn-info center-block'>Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-6'>
+
+        {{Graph|safe}}
+    </div>
+</div>
 {% else %}
     <h1>Missing Get Variable</h1>
 {% endif %}

@@ -1,3 +1,8 @@
+# ================================================================================================
+# This file specifies indices for the CSV files files of various parts. This is done to simplify
+# access into and analysis of the data into those files.
+# ================================================================================================
+
 CPU_PROCESSOR_FAMILY, \
 CPU_PROCESSOR_NUMBER, \
 CPU_LAUNCH_DATE, \

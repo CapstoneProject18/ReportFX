@@ -57,40 +57,12 @@ section > button:hover {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.pop {
-  display: none;
-  position: fixed;
+
+.popmenu{
+  margin:10em auto;
   text-align: center;
-  top: 20.3%;
-  left: 35%;
-  width: 30%;
-  height: 60%;
-  background: #bebcbc;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  color: 	#4f5b66;
 }
 
-.pop form{
-  margin:3em auto;
-}
-.pop > span {
-  cursor: pointer;
-  position: absolute;
-  top: 4%;
-  right: 4%;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-  background: #cccccc;
-  color: #ffffff;
-  padding: 6px 8px 0px 9px;
-  width: 30px;
-  height: 30px;
-}
 #submit {
   height: 4em;
   width: 8em;
@@ -113,10 +85,8 @@ section > button:hover {
 
 #stage{
   text-align: center;
-  position: relative;
 }
 #logo{
-  z-index:-1;
   height:17em;
   filter: invert(100%);
 }
@@ -149,30 +119,41 @@ section > button:hover {
     </div>
   </div>
   <section>
-    <button class="reg">Get started</button>
+    <button class="reg" data-toggle="modal" data-target="#myModal">Get started</button>
   </section>
 
-  <div class="pop">
-    <span>✖</span>
-    <form id="form" action="Step1" method="get">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4"><h5>Use Case</h5></div>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="popmenu modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="row headspace">
-          <div class="col-lg-4"><input type="radio" value="work" name="type"><h6>Work</h6></div>
-          <div class="col-lg-4"><input type="radio" value="home" name="type"><h6>Home</h6></div>
-          <div class="col-lg-4"><input type="radio" value="game" name="type"><h6>Game</h6></div>
-        </div>
-        <div class="row headspace">
-          <div class="col-lg-4"><h6>Price:</h6></div>
-          <div class="col-lg-4"><input type="number"></div>
-        </div>
-        <div class="row headspace">
-          <div class="col-lg-12"><button type="Submit" class="btn btn-default btn-lg">Submit</button></div>
+        <div class="modal-body">
+            <div class="container">
+            <form id="form" action="Step1" method="get">
+          <div class="row">
+            <div class="col-lg-4"><h6>Use Case</h6></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-4"><input type="radio" value="work" name="type"><h6>Work</h6></div>
+            <div class="col-lg-4"><input type="radio" value="home" name="type"><h6>Home</h6></div>
+            <div class="col-lg-4"><input type="radio" value="game" name="type"><h6>Game</h6></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-4"><h6>Price:</h6></div>
+            <div class="col-lg-4"><input type="number" name="price"></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-12"><button type="Submit" class="btn btn-default btn-lg">Go...!!!</button></div>
+          </div>
+        </form>
+      </div>
         </div>
       </div>
-    </form>
+  
+    </div>
   </div>
 
 </body>

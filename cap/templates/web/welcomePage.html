@@ -1,51 +1,193 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>ReportFX</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font: 15px/1.25 'Open Sans' sans-serif;
+  background-image: url("https://cdn-images-1.medium.com/max/1600/1*XJKdLzmrWwpsK8oa0KjfEA.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100%;
+}
+section {
+  text-align: center;
+  padding: 150px 0px 120px 0px;
+}
+section > button {
+  background: #20b9a4;
+  display: block;
+  margin: 01.5em auto;
+  margin-bottom: 0em;
+  width: 200px;
+  font-size: 16.996px;
+  line-height: 20px;
+  padding: 12px 18px 13px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+  cursor: pointer;
+}
+section > button:hover {
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.pop {
+  display: none;
+  position: fixed;
+  text-align: center;
+  top: 20.3%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
+  background: #bebcbc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  outline: 10px solid rgba(0, 0, 0, 0.1);
+}
+.pop > h1 {
+  padding: 30px 30px 10px 30px;
+  color: #2a3644;
+  font-size: 100%;
+}
+.pop > p {
+  padding-left: 30px;
+  font-size: 100%;
+  color: #777;
+}
+.pop table {
+  margin: 3em auto;
+}
+.pop table td {
+  padding: 20px;
+}
+.pop > span {
+  cursor: pointer;
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  background: #cccccc;
+  color: #ffffff;
+  padding: 6px 8px 0px 9px;
+  width: 30px;
+  height: 30px;
+}
+#submit {
+  height: 4em;
+  width: 8em;
+  border-radius: 1em;
+}
+
+#title{
+  text-align:center;
+  width:100%;
+  height:2em;
+}
+
+#title h1{
+  font-size:4em;
+  font-family: 'Raleway', sans-serif;
+  color:#FFFFFF;
+  padding:.1em;
+  margin-top:.5em;
+}
+
+#stage{
+  text-align: center;
+  position: relative;
+}
+#logo{
+  z-index:-1;
+  height:17em;
+  filter: invert(100%);
+}
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> 
-  <script src="js/index.js"></script>
-  
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script>
+    $(document).ready(function () {
+      $("button").click(function () {
+        $(".pop").fadeIn(300);
+        positionPopup();
+      });
+
+      $(".pop > span").click(function () {
+        $(".pop").fadeOut(300);
+      });
+    });
+  </script>
+
 </head>
 
 <body>
   <div id="stage">
-  <img id="logo" src="https://www.rubiconglobal.com/wp-content/themes/rubicon/images/news/default-logo-nobackground.png?fbclid=IwAR0Aq3AROTsXEw6xmOmkkVazQA6OM2ivhQwpMLQjDwIhAMoBZCSTBICUJtQ"/>
-  <div id="title"><h1>ReportFX</h1></div>
+    <img id="logo" src="https://www.rubiconglobal.com/wp-content/themes/rubicon/images/news/default-logo-nobackground.png?fbclid=IwAR0Aq3AROTsXEw6xmOmkkVazQA6OM2ivhQwpMLQjDwIhAMoBZCSTBICUJtQ" />
+    <div id="title">
+      <h1>ReportFX</h1>
+    </div>
   </div>
   <section>
-  <button class="reg">Build My PC</button>
-</section>
+    <button class="reg">Get started</button>
+  </section>
 
-<div class="pop">
-  <span>✖</span>
-  <form id="form" action="Step1" method="get">
-    <table>
-      <tr>
-        <td>Use Case :</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="type" value="workstation"> Workstation</td>
-        <td><input type="radio" name="type" value="workstation"> Gaming</td>
-        <td><input type="radio" name="type" value="workstation"> Home</td>
-      </tr>
-      <tr>
-        <td>
-          Price:
-        </td>
-        <td><input type="number" name="price"></td>
-      </tr>
-    </table>
-    <input type="submit" value="Go..!!!" id="submit"/>
-  </form>
-</div>
+  <div class="pop">
+    <span>✖</span>
+    <form id="form" action="Step1" method="get">
+      <table class="table-responsive">
+        <tr>
+          <td>Use Case :</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="type" value="workstation" required> Workstation</td>
+          <td><input type="radio" name="type" value="workstation" required> Gaming</td>
+          <td><input type="radio" name="type" value="workstation" required> Home</td>
+        </tr>
+        <tr>
+          <td>
+            Price:
+          </td>
+          <td><input type="number" name="price" required></td>
+        </tr>
+      </table>
+      <input type="submit" value="Go" id="submit" />
+    </form>
+  </div>
 
 </body>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 </html>

@@ -1,0 +1,48 @@
+{% extends "web/Head.html" %}
+
+{% block content %}
+<br>
+<h1 class="text-center">CPU selection </h1>
+<p class="text-center" style='color:red'>* Please select any one CPU from the list of recommended set of CPU</p>
+<div class="row">
+    <div class='col-md-6'>
+        <form action="Step2" method="get">
+            <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>CPU Name</th>
+                        <th>Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  onclick="document.getElementById('RadioOne').click();">
+                        <td> <input id="RadioOne" type="radio"
+                                name="CPU" value="0" required> {{CPU1}}</td>
+                        <td>{{CPU1_model}}</td>
+                    </tr>
+                    <tr onclick="document.getElementById('RadioTwo').click();">
+                        <td ><input id="RadioTwo" type="radio"
+                                name="CPU" value="1" required> {{CPU2}}</td>
+                        <td>{{CPU2_model}}</td>       
+                    </tr>
+                    <tr onclick="document.getElementById('RadioThree').click();">
+                        <td ><input id='RadioThree' type="radio"
+                                name="CPU" value="2" required> {{CPU3}}</td>
+                                <td>{{CPU3_model}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center">
+                <button type="submit" class='btn btn-lg btn-info center-block'>Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-6'>
+
+        {{Graph|safe}}
+    </div>
+</div>
+{% endblock %}

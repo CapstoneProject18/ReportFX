@@ -1,6 +1,10 @@
 from CSVinfo import *
 
 class GPUData:
+    '''
+    This class contains only static methods. Methods name are descriptive of their function.
+    Additional required information, wherever necessary, has been specified.
+    '''
     def get_gpu_price(row):
         return float(row[GPU_RELEASE_PRICE][1:])
     
@@ -22,6 +26,10 @@ class GPUData:
         abs(GPUData.get_gpu_vga_connection(row) * 5)
 
     def extract_num_data(col, start, str):
+        '''
+        Returns the value in 'col' as a float. The value is converted starting from the index
+        'start' and ending at the index before the first occurence of 'str'.
+        '''
         if str not in col:
             return 0
         

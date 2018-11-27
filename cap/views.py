@@ -137,3 +137,26 @@ def createAmazonURL(cpu_name,gpu_name,memory_name,storage_name,motherboard_name)
     motherboard_url = base_url + motherboard_name.replace(" ","+")
     return cpu_url,gpu_url,memory_url,storage_url,motherboard_url
 
+
+cart_content = dict()
+def Step8(request):
+    cpu = BI.get_cpu()
+    gpu = BI.get_gpu()
+    memory = BI.get_memory()
+    storage = BI.get_storage()
+    if(gpu!=None):
+        cart_content['GPU'] = gpu[GPU_NAME]
+    if(cpu!=None):
+        cart_content['CPU'] = cpu[CPU_PROCESSOR_FAMILY]
+    if(memory!=None):
+        cart_content['RAM'] = memory[MEMORY_NAME]
+    if(storage!=None):
+        cart_content['HDD'] = storage[STORAGE_NAME]
+
+
+
+ #   if(SSD!=None):
+ #       cart_content['SSD'] = SSD
+    print(cart_content)
+    return render(request,'web/cart.html',{'cart_content':cart_content})
+    

@@ -30,5 +30,6 @@ def index(request):
     if(SSD!=None):
         cart_content['SSD'] = SSD
     print(cart_content)
+
     return render(request,'cart.html',{'cart_content':cart_content})
     

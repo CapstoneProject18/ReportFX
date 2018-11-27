@@ -6,7 +6,6 @@ CAP_DIR = os.path.join(os.getcwd(),'cap')
 sys.path.append(os.path.join(CAP_DIR,'PartsInfo')) #Path to BuildInfo directory
 from django.shortcuts import render
 from BuildInfo import BuildInfo
-import CSVinfo as cs
 from CSVinfo import *
 import logging
 from plotly.offline import plot
@@ -23,11 +22,11 @@ logger = logging.getLogger(__name__)
 baseURL = CAP_DIR + '/datasets/'
 
 BI = BuildInfo(baseURL+'cpu_clean.csv',baseURL+'gpu_clean.csv',baseURL+'memory_clean.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean.csv')
-CPU = 0
-GPU= 0
-RAM = 0
-STORAGE = 0
-MB = 0
+CPU = -1
+GPU= -1
+RAM = -1
+STORAGE = -1
+MB = -1
 def index(request):
     return render(request,'web/welcomePage.html')
 
@@ -35,10 +34,10 @@ def Step1(request):
     BI.set_base_info(int(request.GET.get('price')),request.GET.get('type'))
     res = BI.get_cpu_recommendation()
     my_plot_div = plot([go.Bar(
-            x=[res[0][cs.CPU_PROCESSOR_NUMBER],res[1][cs.CPU_PROCESSOR_NUMBER],res[2][cs.CPU_PROCESSOR_NUMBER]],
-            y=[res[0][cs.CPU_PERFORMANCE_SCORE],res[1][cs.CPU_PERFORMANCE_SCORE], res[2][cs.CPU_PERFORMANCE_SCORE]]
+            x=[res[0][CPU_PROCESSOR_NUMBER],res[1][CPU_PROCESSOR_NUMBER],res[2][CPU_PROCESSOR_NUMBER]],
+            y=[res[0][CPU_PERFORMANCE_SCORE],res[1][CPU_PERFORMANCE_SCORE], res[2][CPU_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step1.html',{'CPU1': res[0][0],'CPU1_model': res[0][cs.CPU_PROCESSOR_NUMBER],'CPU2': res[1][0],'CPU2_model': res[1][cs.CPU_PROCESSOR_NUMBER],'CPU3': res[2][0],'CPU3_model': res[2][cs.CPU_PROCESSOR_NUMBER],'Graph': my_plot_div})
+    return render(request,'web/Step1.html',{'CPU1': res[0][0],'CPU1_model': res[0][CPU_PROCESSOR_NUMBER],'CPU2': res[1][0],'CPU2_model': res[1][CPU_PROCESSOR_NUMBER],'CPU3': res[2][0],'CPU3_model': res[2][CPU_PROCESSOR_NUMBER],'Graph': my_plot_div})
 
 def Step2(request):
     res = BI.get_cpu_recommendation()
@@ -48,10 +47,10 @@ def Step2(request):
     BI.set_cpu(res[int(CPU)])
     res = BI.get_gpu_recommendation()
     my_plot_div = plot([go.Bar(
-            x=[res[0][cs.GPU_NAME],res[1][cs.GPU_NAME],res[2][cs.GPU_NAME]],
-            y=[res[0][cs.GPU_PERFORMANCE_SCORE],res[1][cs.GPU_PERFORMANCE_SCORE], res[2][cs.GPU_PERFORMANCE_SCORE]]
+            x=[res[0][GPU_NAME],res[1][GPU_NAME],res[2][GPU_NAME]],
+            y=[res[0][GPU_PERFORMANCE_SCORE],res[1][GPU_PERFORMANCE_SCORE], res[2][GPU_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step2.html',{'GPU1': res[0][cs.GPU_NAME],'GPU1_model': res[0][cs.GPU_MANUFACTURER],'GPU2': res[1][cs.GPU_NAME],'GPU2_model': res[1][cs.GPU_MANUFACTURER],'GPU3': res[2][cs.GPU_NAME],'GPU3_model': res[2][cs.GPU_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step2.html',{'GPU1': res[0][GPU_NAME],'GPU1_model': res[0][GPU_MANUFACTURER],'GPU2': res[1][GPU_NAME],'GPU2_model': res[1][GPU_MANUFACTURER],'GPU3': res[2][GPU_NAME],'GPU3_model': res[2][GPU_MANUFACTURER],'Graph': my_plot_div})
 
 def Step3(request):
     res = BI.get_gpu_recommendation()
@@ -61,10 +60,10 @@ def Step3(request):
 
     res = BI.get_memory_recommendation()
     my_plot_div = plot([go.Bar(
-            x=[res[0][cs.MEMORY_NAME],res[1][cs.MEMORY_NAME],res[2][cs.MEMORY_NAME]],
-            y=[res[0][cs.MEMORY_PERFORMANCE_SCORE],res[1][cs.MEMORY_PERFORMANCE_SCORE], res[2][cs.MEMORY_PERFORMANCE_SCORE]]
+            x=[res[0][MEMORY_NAME],res[1][MEMORY_NAME],res[2][MEMORY_NAME]],
+            y=[res[0][MEMORY_PERFORMANCE_SCORE],res[1][MEMORY_PERFORMANCE_SCORE], res[2][MEMORY_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step3.html',{'RAM1': res[0][cs.MEMORY_NAME],'RAM_model': res[0][cs.MEMORY_MANUFACTURER],'RAM2': res[1][cs.MEMORY_NAME],'RAM2_model': res[1][cs.MEMORY_MANUFACTURER],'RAM3': res[2][cs.MEMORY_NAME],'RAM3_model': res[2][cs.MEMORY_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step3.html',{'RAM1': res[0][MEMORY_NAME],'RAM_model': res[0][MEMORY_MANUFACTURER],'RAM2': res[1][MEMORY_NAME],'RAM2_model': res[1][MEMORY_MANUFACTURER],'RAM3': res[2][MEMORY_NAME],'RAM3_model': res[2][MEMORY_MANUFACTURER],'Graph': my_plot_div})
 
 def Step4(request):
     res = BI.get_memory_recommendation()
@@ -75,10 +74,10 @@ def Step4(request):
 
     res = BI.get_storage_recommendation()
     my_plot_div = plot([go.Bar(
-            x=[res[0][cs.STORAGE_NAME],res[1][cs.STORAGE_NAME],res[2][cs.STORAGE_NAME]],
-            y=[res[0][cs.STORAGE_PERFORMANCE_SCORE],res[1][cs.STORAGE_PERFORMANCE_SCORE], res[2][cs.STORAGE_PERFORMANCE_SCORE]]
+            x=[res[0][STORAGE_NAME],res[1][STORAGE_NAME],res[2][STORAGE_NAME]],
+            y=[res[0][STORAGE_PERFORMANCE_SCORE],res[1][STORAGE_PERFORMANCE_SCORE], res[2][STORAGE_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step4.html',{'STORAGE1': res[0][cs.STORAGE_NAME],'STORAGE1_model': res[0][cs.STORAGE_MANUFACTURER],'STORAGE2': res[1][cs.STORAGE_NAME],'STORAGE2_model': res[1][cs.STORAGE_MANUFACTURER],'STORAGE3': res[2][cs.STORAGE_NAME],'STORAGE3_model': res[2][cs.STORAGE_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step4.html',{'STORAGE1': res[0][STORAGE_NAME],'STORAGE1_model': res[0][STORAGE_MANUFACTURER],'STORAGE2': res[1][STORAGE_NAME],'STORAGE2_model': res[1][STORAGE_MANUFACTURER],'STORAGE3': res[2][STORAGE_NAME],'STORAGE3_model': res[2][STORAGE_MANUFACTURER],'Graph': my_plot_div})
 
 def Step5(request):
     res = BI.get_storage_recommendation()
@@ -87,11 +86,32 @@ def Step5(request):
 
     res = BI.get_motherboard_recommendation()
 
+    string_name = ""
+    string_score = ""
+    for r in range(len(res)):
+        string_name += res[r][MOTHERBOARD_NAME]
+        string_score += str(res[r][MOTHERBOARD_PERFORMANCE_SCORE])
+        if(r == (len(res)-1)):
+            pass
+        else:
+            string_name += ","
+            string_score += ","
+    logger.warning("******   "+string_name+"    "+string_score)
+    
+    MB_list = []
+    MB_model = []
+    MB_score = []
+    for r in range(len(res)):
+        MB_list.append(res[r][MOTHERBOARD_NAME])
+        MB_model.append(res[r][MOTHERBOARD_MANUFACTURER])
+        MB_score.append(res[r][MOTHERBOARD_PERFORMANCE_SCORE])
+    # logger.warning(MB_list[0])
     my_plot_div = plot([go.Bar(
-            x=[res[0][cs.MOTHERBOARD_NAME],res[1][cs.MOTHERBOARD_NAME],res[2][cs.MOTHERBOARD_NAME]],
-            y=[res[0][cs.MOTHERBOARD_PERFORMANCE_SCORE],res[1][cs.MOTHERBOARD_PERFORMANCE_SCORE], res[2][cs.MOTHERBOARD_PERFORMANCE_SCORE]]
+            x=MB_list,
+            y=MB_score
     )], output_type='div')
-    return render(request,'web/Step5.html',{'MB1': res[0][cs.MOTHERBOARD_NAME],'MB1_model': res[0][cs.MOTHERBOARD_MANUFACTURER],'MB2': res[1][cs.MOTHERBOARD_NAME],'MB2_model': res[1][cs.MOTHERBOARD_MANUFACTURER],'MB3': res[2][cs.MOTHERBOARD_NAME],'MB3_model': res[2][cs.MOTHERBOARD_MANUFACTURER],'Graph': my_plot_div})
+    my_list = zip(MB_list,MB_model)
+    return render(request,'web/Step5.html',{'Graph': my_plot_div ,'MB_list' : my_list})
 
 
 
@@ -137,3 +157,33 @@ def createAmazonURL(cpu_name,gpu_name,memory_name,storage_name,motherboard_name)
     motherboard_url = base_url + motherboard_name.replace(" ","+")
     return cpu_url,gpu_url,memory_url,storage_url,motherboard_url
 
+
+cart_content = dict()
+def Step8(request):
+    cpu = BI.get_cpu()
+    gpu = BI.get_gpu()
+    memory = BI.get_memory()
+    storage = BI.get_storage()
+    mb = BI.get_motherboard()
+
+    logger.warning(str(CPU) + str(cpu))
+    logger.warning(str(GPU) + str(gpu))
+
+    if(GPU != -1):
+        cart_content['GPU'] = gpu[GPU_NAME]
+    if(CPU != -1):
+        cart_content['CPU'] = cpu[CPU_PROCESSOR_FAMILY] + ' ' + cpu[CPU_PROCESSOR_NUMBER]
+    if(RAM != -1):
+        cart_content['RAM'] = memory[MEMORY_NAME]
+    if(STORAGE != -1):
+        cart_content['HDD'] = storage[STORAGE_NAME]
+    if(MB != -1):
+        cart_content['MB'] = mb[MOTHERBOARD_NAME]
+
+
+
+ #   if(SSD!=None):
+ #       cart_content['SSD'] = SSD
+    print(cart_content)
+    return render(request,'web/cart.html',{'cart_content':cart_content})
+    

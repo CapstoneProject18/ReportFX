@@ -181,7 +181,6 @@ def Step8(request):
     storage = BI.get_storage()
     mb = BI.get_motherboard()
 
-
     if(GPU!=-1):
         if(gpu[GPU_NAME] not in cart_content):
             cart_content.append(gpu[GPU_NAME])

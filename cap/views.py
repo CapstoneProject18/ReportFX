@@ -43,7 +43,10 @@ def Step1(request):
             x=[res[0][CPU_PROCESSOR_NUMBER],res[1][CPU_PROCESSOR_NUMBER],res[2][CPU_PROCESSOR_NUMBER]],
             y=[res[0][CPU_PERFORMANCE_SCORE],res[1][CPU_PERFORMANCE_SCORE], res[2][CPU_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step1.html',{'CPU1': res[0][0],'CPU1_model': res[0][CPU_PROCESSOR_NUMBER],'CPU2': res[1][0],'CPU2_model': res[1][CPU_PROCESSOR_NUMBER],'CPU3': res[2][0],'CPU3_model': res[2][CPU_PROCESSOR_NUMBER],'Graph': my_plot_div})
+    return render(request,'web/Step1.html',{'CPU1': res[0][0],'CPU1_model': res[0][CPU_PROCESSOR_NUMBER],'CPU1_price': CPUData.get_cpu_price(res[0]), \
+                                            'CPU2': res[1][0],'CPU2_model': res[1][CPU_PROCESSOR_NUMBER],'CPU2_price': CPUData.get_cpu_price(res[1]), \
+                                            'CPU3': res[2][0],'CPU3_model': res[2][CPU_PROCESSOR_NUMBER],'CPU3_price': CPUData.get_cpu_price(res[2]), \
+                                            'Graph': my_plot_div})
 
 def Step2(request):
     global MB,CPU,GPU,STORAGE,RAM
@@ -57,7 +60,10 @@ def Step2(request):
             x=[res[0][GPU_NAME],res[1][GPU_NAME],res[2][GPU_NAME]],
             y=[res[0][GPU_PERFORMANCE_SCORE],res[1][GPU_PERFORMANCE_SCORE], res[2][GPU_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step2.html',{'GPU1': res[0][GPU_NAME],'GPU1_model': res[0][GPU_MANUFACTURER],'GPU2': res[1][GPU_NAME],'GPU2_model': res[1][GPU_MANUFACTURER],'GPU3': res[2][GPU_NAME],'GPU3_model': res[2][GPU_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step2.html',{'GPU1': res[0][GPU_NAME],'GPU1_model': res[0][GPU_MANUFACTURER],'GPU1_price': GPUData.get_gpu_price(res[0]), \
+                                            'GPU2': res[1][GPU_NAME],'GPU2_model': res[1][GPU_MANUFACTURER],'GPU2_price': GPUData.get_gpu_price(res[1]), \
+                                            'GPU3': res[2][GPU_NAME],'GPU3_model': res[2][GPU_MANUFACTURER],'GPU3_price': GPUData.get_gpu_price(res[2]), \
+                                            'Graph': my_plot_div})
 
 def Step3(request):
     global MB,CPU,GPU,STORAGE,RAM
@@ -71,7 +77,10 @@ def Step3(request):
             x=[res[0][MEMORY_NAME],res[1][MEMORY_NAME],res[2][MEMORY_NAME]],
             y=[res[0][MEMORY_PERFORMANCE_SCORE],res[1][MEMORY_PERFORMANCE_SCORE], res[2][MEMORY_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step3.html',{'RAM1': res[0][MEMORY_NAME],'RAM_model': res[0][MEMORY_MANUFACTURER],'RAM2': res[1][MEMORY_NAME],'RAM2_model': res[1][MEMORY_MANUFACTURER],'RAM3': res[2][MEMORY_NAME],'RAM3_model': res[2][MEMORY_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step3.html',{'RAM1': res[0][MEMORY_NAME],'RAM1_model': res[0][MEMORY_MANUFACTURER],'RAM1_price': MemoryData.get_memory_price(res[0]), \
+                                            'RAM2': res[1][MEMORY_NAME],'RAM2_model': res[1][MEMORY_MANUFACTURER],'RAM2_price': MemoryData.get_memory_price(res[1]),\
+                                            'RAM3': res[2][MEMORY_NAME],'RAM3_model': res[2][MEMORY_MANUFACTURER],'RAM3_price': MemoryData.get_memory_price(res[2]), \
+                                            'Graph': my_plot_div})
 
 def Step4(request):
     global MB,CPU,GPU,STORAGE,RAM
@@ -86,7 +95,10 @@ def Step4(request):
             x=[res[0][STORAGE_NAME],res[1][STORAGE_NAME],res[2][STORAGE_NAME]],
             y=[res[0][STORAGE_PERFORMANCE_SCORE],res[1][STORAGE_PERFORMANCE_SCORE], res[2][STORAGE_PERFORMANCE_SCORE]]
     )], output_type='div')
-    return render(request,'web/Step4.html',{'STORAGE1': res[0][STORAGE_NAME],'STORAGE1_model': res[0][STORAGE_MANUFACTURER],'STORAGE2': res[1][STORAGE_NAME],'STORAGE2_model': res[1][STORAGE_MANUFACTURER],'STORAGE3': res[2][STORAGE_NAME],'STORAGE3_model': res[2][STORAGE_MANUFACTURER],'Graph': my_plot_div})
+    return render(request,'web/Step4.html',{'STORAGE1': res[0][STORAGE_NAME],'STORAGE1_model': res[0][STORAGE_MANUFACTURER],'STORAGE1_price': StorageData.get_storage_price(res[0]), \
+                                            'STORAGE2': res[1][STORAGE_NAME],'STORAGE2_model': res[1][STORAGE_MANUFACTURER],'STORAGE2_price': StorageData.get_storage_price(res[1]), \
+                                            'STORAGE3': res[2][STORAGE_NAME],'STORAGE3_model': res[2][STORAGE_MANUFACTURER],'STORAGE3_price': StorageData.get_storage_price(res[2]), \
+                                            'Graph': my_plot_div})
 
 def Step5(request):
     global MB,CPU,GPU,STORAGE,RAM
@@ -111,16 +123,18 @@ def Step5(request):
     MB_list = []
     MB_model = []
     MB_score = []
+    MB_price = []
     for r in range(len(res)):
         MB_list.append(res[r][MOTHERBOARD_NAME])
         MB_model.append(res[r][MOTHERBOARD_MANUFACTURER])
         MB_score.append(res[r][MOTHERBOARD_PERFORMANCE_SCORE])
-    # logger.warning(MB_list[0])
+        MB_price.append(MotherboardData.get_motherboard_price(res[r]))
+    
     my_plot_div = plot([go.Bar(
             x=MB_list,
             y=MB_score
     )], output_type='div')
-    my_list = zip(MB_list,MB_model)
+    my_list = zip(MB_list,MB_model,MB_price)
     return render(request,'web/Step5.html',{'Graph': my_plot_div ,'MB_list' : my_list})
 
 

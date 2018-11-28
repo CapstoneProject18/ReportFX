@@ -5,6 +5,7 @@ CAP_DIR = os.path.join(os.getcwd(),'cap')
 
 sys.path.append(os.path.join(CAP_DIR,'PartsInfo')) #Path to BuildInfo directory
 from django.shortcuts import render
+from django.http import HttpResponse
 from BuildInfo import BuildInfo
 from CPUData import CPUData
 from GPUData import GPUData
@@ -161,13 +162,17 @@ def Step6(request):
     score = int(cpu[CPU_PERFORMANCE_SCORE] + gpu[GPU_PERFORMANCE_SCORE] + memory[MEMORY_PERFORMANCE_SCORE] + storage[STORAGE_PERFORMANCE_SCORE] + motherboard[MOTHERBOARD_PERFORMANCE_SCORE])
         
     return render(request,'web/Step6.html',{'CPU' : cpu_name,'CPU_URL' : cpu_url,'GPU' : gpu_name,'GPU_URL': gpu_url,'Memory' : memory_name,'Memory_URL': memory_url,
-    'Storage' : storage_name,'Storage_URL' : storage_url, 'Motherboard' : motherboard_name, 'Motherboard_URL' : motherboard_url,'Score' : score})
+    'Storage' : storage_name,'Storage_URL' : storage_url, 'Motherboard' : motherboard_name, 'Motherboard_URL' : motherboard_url,'Score' : score,'CPU_T' : CPU,
+    'GPU_T' : GPU,'RAM_T' : RAM,'STORAGE_T' : STORAGE,'MB_T' : MB})
 
 def Step7(request):
     url = "http://127.0.0.1:8000/Step6?CPU={}&GPU={}&RAM={}&STORAGE={}&MB={}".format(CPU,GPU,RAM,STORAGE,MB)
 
-    pdfkit.from_url(url, "out.pdf", configuration=config)
-    return render(request,'web/Step7.html')
+    pdf = pdfkit.from_url(url, False,configuration=config)
+    response = HttpResponse(pdf,content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="repo.pdf"'
+
+    return response
 
 
 # def pdfReport(request):

@@ -32,7 +32,17 @@
     };
 </script>
 
-
+<style>
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+    .container {
+    position: relative;
+    
+    }
+    </style>
 
 <br>
 
@@ -49,15 +59,20 @@
                 <tr>
                     <td>{{CPU}} </td>
                     <td>
-                        <a href={{CPU_URL}}><img id="cpuButton" src="static/css/images.png" style="width: 25%;">
+                        <a href={{CPU_URL}} target="_blank"><img id="cpuButton" src="static/css/images.png" style="width: 25%;">
                             </a> 
                     </td>
-                    <td rowspan="5" style="vertical-align: middle">{{Score}} </td>
+                    <td rowspan="5" style="vertical-align: middle">
+                        <div class="container">
+                            <img src="static/css/Star-outline.png"></img> 
+                            <div class="centered">{{Score}}</div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>{{GPU}} </td>
                     <td>
-                            <a href={{GPU_URL}}><img id="gpuButton" src="static/css/images.png" style="width: 25%;">
+                            <a href={{GPU_URL}} target="_blank"><img id="gpuButton" src="static/css/images.png" style="width: 25%;">
                                 </a> 
                         </td>
                    
@@ -65,7 +80,7 @@
                 <tr>
                     <td>{{Memory}} </td>
                     <td>
-                            <a href={{Memory_URL}}><img id="memoryButton" src="static/css/images.png" style="width: 25%;">
+                            <a href={{Memory_URL}} target="_blank"><img id="memoryButton" src="static/css/images.png" style="width: 25%;">
                                 </a> 
                         </td>
                    
@@ -73,7 +88,7 @@
                 <tr>
                     <td>{{Storage}} </td>
                     <td>
-                            <a href={{Storage_URL}}><img id="storageButton" src="static/css/images.png" style="width: 25%;">
+                            <a href={{Storage_URL}} target="_blank"><img id="storageButton" src="static/css/images.png" style="width: 25%;">
                                 </a> 
                         </td>
                    
@@ -81,7 +96,7 @@
                 <tr>
                     <td>{{Motherboard}} </td>
                     <td>
-                            <a href={{Motherboard_URL}}><img id="motherboardButton" src="static/css/images.png" style="width: 25%;">
+                            <a href={{Motherboard_URL}} target="_blank"><img id="motherboardButton" src="static/css/images.png" style="width: 25%;">
                                 </a> 
                         </td>
                     
@@ -90,8 +105,10 @@
         </table>
 
         <div class="row">
-            <div class="col-md">    <form action="Step7" method="get">
-                <button type="submit" class='btn btn-lg btn-info center-block'>Save as PDF</button></form>
+            <div class="col-md">    
+                <form action="Step7" method="get"><a href="out.pdf" download><button type="submit" class='btn btn-lg btn-info center-block'>Save as PDF</button></a></form>
+                <a href="http://127.0.0.1:8000/Step6?CPU={{CPU_T}}&GPU={{GPU_T}}&RAM={{RAM_T}}&STORAGE={{STORAGE_T}}&MB={{MB_T}}" download="HTMLReport.html" ><button  class='btn btn-lg btn-info center-block' style="margin-top: 32px">Save as HTML</button></a>
+            
             </div>
             </div>
 

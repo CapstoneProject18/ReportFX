@@ -29,7 +29,7 @@ body {
 }
 section {
   text-align: center;
-  padding: 150px 0px 120px 0px;
+  padding: 150px 0px 80px 0px;
 }
 section > button {
   background: #20b9a4;
@@ -57,52 +57,12 @@ section > button:hover {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.pop {
-  display: none;
-  position: fixed;
+
+.popmenu{
+  margin:10em auto;
   text-align: center;
-  top: 20.3%;
-  left: 30%;
-  width: 40%;
-  height: 60%;
-  background: #bebcbc;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  outline: 10px solid rgba(0, 0, 0, 0.1);
 }
-.pop > h1 {
-  padding: 30px 30px 10px 30px;
-  color: #2a3644;
-  font-size: 100%;
-}
-.pop > p {
-  padding-left: 30px;
-  font-size: 100%;
-  color: #777;
-}
-.pop table {
-  margin: 3em auto;
-}
-.pop table td {
-  padding: 20px;
-}
-.pop > span {
-  cursor: pointer;
-  position: absolute;
-  top: 4%;
-  right: 4%;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-  background: #cccccc;
-  color: #ffffff;
-  padding: 6px 8px 0px 9px;
-  width: 30px;
-  height: 30px;
-}
+
 #submit {
   height: 4em;
   width: 8em;
@@ -125,12 +85,13 @@ section > button:hover {
 
 #stage{
   text-align: center;
-  position: relative;
 }
 #logo{
-  z-index:-1;
   height:17em;
   filter: invert(100%);
+}
+.headspace{
+  margin-top:2em;
 }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -158,30 +119,41 @@ section > button:hover {
     </div>
   </div>
   <section>
-    <button class="reg">Get started</button>
+    <button class="reg" data-toggle="modal" data-target="#myModal">Get started</button>
   </section>
 
-  <div class="pop">
-    <span>✖</span>
-    <form id="form" action="Step1" method="get">
-      <table class="table-responsive">
-        <tr>
-          <td>Use Case :</td>
-        </tr>
-        <tr>
-          <td><input type="radio" name="type" value="office" required> Workstation</td>
-          <td><input type="radio" name="type" value="gaming" required> Gaming</td>
-          <td><input type="radio" name="type" value="home" required> Home</td>
-        </tr>
-        <tr>
-          <td>
-            Price:
-          </td>
-          <td><input type="number" name="price" required></td>
-        </tr>
-      </table>
-      <input type="submit" value="Go" id="submit" />
-    </form>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="popmenu modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+            <form id="form" action="Step1" method="get">
+          <div class="row">
+            <div class="col-lg-4"><h6>Use Case</h6></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-4"><input type="radio" value="work" name="type"><h6>Work</h6></div>
+            <div class="col-lg-4"><input type="radio" value="home" name="type"><h6>Home</h6></div>
+            <div class="col-lg-4"><input type="radio" value="gaming" name="type"><h6>Gaming</h6></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-4"><h6>Price:</h6></div>
+            <div class="col-lg-4"><input type="number" name="price"></div>
+          </div>
+          <div class="row headspace">
+            <div class="col-lg-12"><button type="Submit" class="btn btn-default btn-lg">Go</button></div>
+          </div>
+        </form>
+      </div>
+        </div>
+      </div>
+  
+    </div>
   </div>
 
 </body>

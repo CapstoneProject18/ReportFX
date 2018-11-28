@@ -16,6 +16,7 @@
                     <tr>
                         <th>RAM Name</th>
                         <th>Make</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,16 +24,19 @@
                         <td> <input id="RadioOne" type="radio"
                                 name="RAM" value="0" required> {{RAM1}}</td>
                         <td>{{RAM1_model}}</td>
+                        <td>&#36;{{RAM1_price}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioTwo').click();">
                         <td ><input id="RadioTwo" type="radio"
                                 name="RAM" value="1" required> {{RAM2}}</td>
-                        <td>{{RAM2_model}}</td>       
+                        <td>{{RAM2_model}}</td>
+                        <td>&#36;{{RAM2_price}}</td>       
                     </tr>
                     <tr onclick="document.getElementById('RadioThree').click();">
                         <td ><input id='RadioThree' type="radio"
                                 name="RAM" value="2" required> {{RAM3}}</td>
                                 <td>{{RAM3_model}}</td>
+                                <td>&#36;{{RAM3_price}}</td>
                     </tr>
                 </tbody>
             </table>

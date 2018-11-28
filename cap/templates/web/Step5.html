@@ -3,40 +3,50 @@
 {% block content %}
 
 {% if request.GET.CPU and request.GET.GPU and request.GET.RAM and request.GET.STORAGE %}
-<h1  class="text-center">Motherboard selection </h1>
-<p class="text-center" style='color:red'>* Please select any one Motherboard from the list of recommended set of Motherboard</p>
+<h1 class="text-center">Motherboard selection </h1>
+<p class="text-center" style='color:red'>* Please select any one Motherboard from the list of recommended set of
+    Motherboard</p>
 <br>
 <div class="row">
     <div class='col-md-6'>
         <form action="Step6" method="get">
             <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
-            <input type="hidden" name="CPU" value={{request.GET.CPU}}> 
-            <input type="hidden" name="GPU" value={{request.GET.GPU}}> 
-            <input type="hidden" name="RAM" value={{request.GET.RAM}}> 
-            <input type="hidden" name="STORAGE" value={{request.GET.STORAGE}}> 
+            <input type="hidden" name="CPU" value={{request.GET.CPU}}>
+            <input type="hidden" name="GPU" value={{request.GET.GPU}}>
+            <input type="hidden" name="RAM" value={{request.GET.RAM}}>
+            <input type="hidden" name="STORAGE" value={{request.GET.STORAGE}}>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Motherboard Name</th>
                         <th>Make</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr  onclick="document.getElementById('RadioOne').click();">
-                        <td> <input id="RadioOne" type="radio"
-                                name="MB" value="0" required> {{MB1}}</td>
+
+
+                   
+                    {% for item1,item2,item3 in MB_list %}
+                    <tr onclick="document.getElementById('{{item1}}').click();">
+                        <td> <input id="{{item1}}" type="radio" name="MB" value="{{ forloop.counter|add:'-1' }}" required> {{item1}} </td>
+                        <td>{{item2}}</td>
+                        <td>&#36;{{item3}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- <tr onclick="document.getElementById('RadioOne').click();">
+                        <td> <input id="RadioOne" type="radio" name="MB" value="0" required> {{MB1}}</td>
                         <td>{{MB1_model}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioTwo').click();">
-                        <td ><input id="RadioTwo" type="radio"
-                                name="MB" value="1" required> {{MB2}}</td>
-                        <td>{{MB2_model}}</td>       
+                        <td><input id="RadioTwo" type="radio" name="MB" value="1" required> {{MB2}}</td>
+                        <td>{{MB2_model}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioThree').click();">
-                        <td ><input id='RadioThree' type="radio"
-                                name="MB" value="2" required> {{MB3}}</td>
-                                <td>{{MB3_model}}</td>
-                    </tr>
+                        <td><input id='RadioThree' type="radio" name="MB" value="2" required> {{MB3}}</td>
+                        <td>{{MB3_model}}</td>
+                    </tr> -->
                 </tbody>
             </table>
             <div style="text-align:center">
@@ -50,7 +60,7 @@
     </div>
 </div>
 {% else %}
-    <h1>Missing Get Variable</h1>
+<h1>Missing Get Variable</h1>
 {% endif %}
 
 {% endblock %}

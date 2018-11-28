@@ -15,6 +15,7 @@
                     <tr>
                         <th>CPU Name</th>
                         <th>Model</th>
+                        <th>Price </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,16 +23,19 @@
                         <td> <input id="RadioOne" type="radio"
                                 name="CPU" value="0" required> {{CPU1}}</td>
                         <td>{{CPU1_model}}</td>
+                        <td>&#36;{{CPU1_price}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioTwo').click();">
                         <td ><input id="RadioTwo" type="radio"
                                 name="CPU" value="1" required> {{CPU2}}</td>
-                        <td>{{CPU2_model}}</td>       
+                        <td>{{CPU2_model}}</td>
+                        <td>&#36;{{CPU2_price}}</td>       
                     </tr>
                     <tr onclick="document.getElementById('RadioThree').click();">
                         <td ><input id='RadioThree' type="radio"
                                 name="CPU" value="2" required> {{CPU3}}</td>
                                 <td>{{CPU3_model}}</td>
+                                <td>&#36;{{CPU3_price}}</td>
                     </tr>
                 </tbody>
             </table>

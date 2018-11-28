@@ -33,23 +33,22 @@
 				  <tr>
 					<th scope="col">#</th>
 					<th scope="col">Product</th>
-					<th scope="col">Quantity</th>
 					<th scope="col">Price</th>
 				  </tr>
 				</thead>
 				<tbody>
 						
-						{% for key,value in cart_content.items%}
+						{% for item1,item2 in cart_content%}
 
 						<tr>
 							<td>
 									{{forloop.counter}}
 							</td>
 							<td>
-									{{ key }}
+									{{ item1 }}
 							</td>
 							<td>
-									{{ value }}
+									{{ item2 }}
 							</td>
 						
 						</tr>

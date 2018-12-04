@@ -228,4 +228,15 @@ def Step8(request):
 def Step9(request):
     return render(request,'web/common.html')
 
+def Step10(request):
+    res = BI.get_cpu()
+    if(len(res)!=0):
+        my_plot_div = plot([go.Scatter(
+                x=[res[0][CPU_PROCESSOR_NUMBER],res[1][CPU_PROCESSOR_NUMBER],res[2][CPU_PROCESSOR_NUMBER]],
+                y=[res[0][CPU_PERFORMANCE_SCORE],res[1][CPU_PERFORMANCE_SCORE], res[2][CPU_PERFORMANCE_SCORE]]
+        )], output_type='div')
+    else:
+        print("Empty res Response")
+    return render(request,'web/CPU_details.html')
+
     

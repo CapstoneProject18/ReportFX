@@ -239,4 +239,38 @@ def Step10(request):
         print("Empty res Response")
     return render(request,'web/CPU_details.html')
 
+def motherboard_details(request):
+    INTEL_ONLY = True  # set to False to include AMD motherboards
+    csv_data = BI.get_all_motherboards()
+    motherboard_details = []
+
+    del csv_data[0]  # remove headers
+    
+    for row in csv_data:
+        if not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
+            continue
+        
+        motherboard_details.append([])
+
+        # 0 : name
+        motherboard_details[-1].append(row[MOTHERBOARD_NAME])
+        
+        # 1 : max memory supported
+        motherboard_details[-1].append(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY])
+
+        # 2 : max memory speed
+        all_speeds = row[MOTHERBOARD_MEMORY_TYPE][5:].split('/')
+        motherboard_details[-1].append(all_speeds[-1].strip() + 'MHz')
+
+        # 3 : max ethernet speed
+        all_speeds = row[MOTHERBOARD_ONBOARD_ETHERNET].split('/')
+        motherboard_details[-1].append(all_speeds[-1].strip())
+
+        # 4 : num of ethernet ports
+        motherboard_details[-1].append(row[MOTHERBOARD_ONBOARD_ETHERNET].strip()[0])
+
+        # 5 : price
+        motherboard_details[-1].append('$' + str(MotherboardData.get_motherboard_price(row)))
+
+    return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
     

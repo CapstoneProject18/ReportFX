@@ -225,3 +225,7 @@ def Step8(request):
     #print(cart_content)
     return render(request,'web/cart.html',{'cart_content':list_cart})
     
+def Step9(request):
+    return render(request,'web/common.html')
+
+    

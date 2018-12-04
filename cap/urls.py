@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^Step5$',views.Step5,name='step5'),
     url(r'^Step6$',views.Step6,name='step6'),
     url(r'^Step7$',views.Step7,name='step7'),
+    url(r'^common$',views.Step9,name='step9'),
     url(r'^cart$',views.Step8,name='cart'),
     url(r'^',views.index,name='index')
     ]

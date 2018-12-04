@@ -46,6 +46,56 @@ class BuildInfo:
         self.storage = []
         self.motherboard = []
     
+    def get_all_cpus(self):
+        '''
+        Returns the raw CPU CSV data.
+
+        Arguments: None
+
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        return self.__get_raw_csv_data(self.cpu_filepath)
+    
+    def get_all_gpus(self):
+        '''
+        Returns the raw GPU CSV data.
+
+        Arguments: None
+
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        return self.__get_raw_csv_data(self.gpu_filepath)
+    
+    def get_all_memories(self):
+        '''
+        Returns the raw memory CSV data.
+
+        Arguments: None
+
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        return self.__get_raw_csv_data(self.memory_filepath)
+    
+    def get_all_storages(self):
+        '''
+        Returns the raw storage CSV data.
+
+        Arguments: None
+
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        return self.__get_raw_csv_data(self.storage_filepath)
+    
+    def get_all_motherboards(self):
+        '''
+        Returns the raw motherboard CSV data.
+
+        Arguments: None
+
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        return self.__get_raw_csv_data(self.motherboard_filepath)
+    
     def set_base_info(self, target_cost, use_case):
         '''
         Set the target cost and use case for the system.
@@ -69,8 +119,8 @@ class BuildInfo:
         Returns: A list of NUM_RECOMMENDATIONS CPUs, in decreasing order of preference. Rows can
                  be indexed into using indices from CSVinfo.py.
         '''
-        return self.get_recommendation(0, self.cpu_filepath, CPUData.get_cpu_price, \
-                                       CPUData.get_cpu_performance_score, CPU_PERFORMANCE_SCORE)
+        return self.__get_recommendation(0, self.cpu_filepath, CPUData.get_cpu_price, \
+                                         CPUData.get_cpu_performance_score, CPU_PERFORMANCE_SCORE)
     
     def set_cpu(self, cpu):
         '''
@@ -102,8 +152,8 @@ class BuildInfo:
         Returns: A list of NUM_RECOMMENDATIONS GPUs, in decreasing order of preference. Rows can
                  be indexed into using indices from CSVinfo.py.
         '''
-        return self.get_recommendation(1, self.gpu_filepath, GPUData.get_gpu_price, \
-                                       GPUData.get_gpu_performance_score, GPU_PERFORMANCE_SCORE)
+        return self.__get_recommendation(1, self.gpu_filepath, GPUData.get_gpu_price, \
+                                         GPUData.get_gpu_performance_score, GPU_PERFORMANCE_SCORE)
 
     def set_gpu(self, gpu):
         '''
@@ -135,10 +185,10 @@ class BuildInfo:
         Returns: A list of NUM_RECOMMENDATIONS RAM modules, in decreasing order of preference.
                  Rows can be indexed into using indices from CSVinfo.py.
         '''
-        initial_recommendation = self.get_recommendation(2, self.memory_filepath, \
-                                                         MemoryData.get_memory_price, \
-                                                         MemoryData.get_memory_performance_score, \
-                                                         MEMORY_PERFORMANCE_SCORE)
+        initial_recommendation = self.__get_recommendation(2, self.memory_filepath, \
+                                                           MemoryData.get_memory_price, \
+                                                           MemoryData.get_memory_performance_score, \
+                                                           MEMORY_PERFORMANCE_SCORE)
         
         is_ddr4_supported = True if 'DDR4' in self.cpu[CPU_MEMORY_TYPES] else False
 
@@ -183,9 +233,9 @@ class BuildInfo:
         Returns: A list of NUM_RECOMMENDATIONS storage drives, in decreasing order of preference.
                  Rows can be indexed into using indices from CSVinfo.py.
         '''
-        return self.get_recommendation(3, self.storage_filepath, StorageData.get_storage_price, \
-                                       StorageData.get_storage_performance_score, \
-                                       STORAGE_PERFORMANCE_SCORE)
+        return self.__get_recommendation(3, self.storage_filepath, StorageData.get_storage_price, \
+                                         StorageData.get_storage_performance_score, \
+                                         STORAGE_PERFORMANCE_SCORE)
 
     def set_storage(self, storage):
         '''
@@ -221,6 +271,9 @@ class BuildInfo:
         cost_delta = BASE_COST_DELTA
         recommended_parts = []
         target_part_cost = self.target_cost * self.cost_ratio[4]
+        csv_data = self.__get_raw_csv_data(self.motherboard_filepath)
+
+        del csv_data[0]  # remove headers
 
         # extract the required information from CPU, GPU and memory for compatibility
         cpu_socket = self.cpu[CPU_SOCKET]
@@ -234,24 +287,16 @@ class BuildInfo:
         # Get atleast one recommendation
         while (len(recommended_parts) < 1) and (cost_delta < target_part_cost):
             recommended_parts = []
-            is_first_row = True
 
-            with open(self.motherboard_filepath) as input_file:
-                input_file_buffer = csv.reader(input_file, dialect='excel')
-                for row in input_file_buffer:
-                    # skip the first header row
-                    if is_first_row:
-                        is_first_row = False
-                        continue
-                    
-                    # check if motherboard is within budget and meets specification
-                    if (abs(MotherboardData.get_motherboard_price(row) - target_part_cost) <= cost_delta) and \
-                       (cpu_socket in row[MOTHERBOARD_CPU_SOCKET]) and \
-                       (not (crossfire_required and row[MOTHERBOARD_CROSSFIRE_SUPPORT] == 'No')) and \
-                       (not (sli_required and row[MOTHERBOARD_SLI_SUPPORT] == 'No')) and \
-                       (memory_size <= MotherboardData.extract_num_data(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY], 0, 'G')) and \
-                       (memory_type in row[MOTHERBOARD_MEMORY_TYPE]):
-                        recommended_parts.append(row)
+            for row in csv_data:
+                # check if motherboard is within budget and meets specification
+                if (abs(MotherboardData.get_motherboard_price(row) - target_part_cost) <= cost_delta) and \
+                    (cpu_socket in row[MOTHERBOARD_CPU_SOCKET]) and \
+                    (not (crossfire_required and row[MOTHERBOARD_CROSSFIRE_SUPPORT] == 'No')) and \
+                    (not (sli_required and row[MOTHERBOARD_SLI_SUPPORT] == 'No')) and \
+                    (memory_size <= MotherboardData.extract_num_data(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY], 0, 'G')) and \
+                    (memory_type in row[MOTHERBOARD_MEMORY_TYPE]):
+                    recommended_parts.append(row)
             
             # increase cost delta for next iteration
             cost_delta *= 2
@@ -285,8 +330,26 @@ class BuildInfo:
         '''
         return self.motherboard
     
-    def get_recommendation(self, ratio_index, filepath, price_function, performance_function, \
-                           performance_score_index):
+    def __get_raw_csv_data(self, filepath):
+        '''
+        Reads the CSV at filepath and returns it as-is.
+
+        Arguments:
+          filepath: A string, containing path to CSV to parse
+        
+        Returns: A list of lists representing the parsed CSV.
+        '''
+        data = []
+
+        with open(filepath) as input_file:
+            input_file_buffer = csv.reader(input_file, dialect='excel')
+            for row in input_file_buffer:                
+                data.append(row)
+        
+        return data
+    
+    def __get_recommendation(self, ratio_index, filepath, price_function, performance_function, \
+                             performance_score_index):
         '''
         The base recommendation function. Returns NUM_RECOMMENDATIONS recommendations based on the
         target price, trying to maximize performance score and minimize cost delta.
@@ -306,23 +369,18 @@ class BuildInfo:
         recommended_parts = []
         target_part_cost = self.target_cost * self.cost_ratio[ratio_index]
         is_first_row = True
+        csv_data = self.__get_raw_csv_data(filepath)
+
+        del csv_data[0]  # remove headers
 
         # Get the minimum recommendations
         while len(recommended_parts) < NUM_RECOMMENDATIONS:
             recommended_parts = []
-            is_first_row = True
 
-            with open(filepath) as input_file:
-                input_file_buffer = csv.reader(input_file, dialect='excel')
-                for row in input_file_buffer:
-                    # skip the first header row
-                    if is_first_row:
-                        is_first_row = False
-                        continue
-
-                    # check if the part is within budget
-                    if abs(price_function(row) - target_part_cost) <= cost_delta:
-                        recommended_parts.append(row)
+            for row in csv_data:
+                # check if the part is within budget
+                if abs(price_function(row) - target_part_cost) <= cost_delta:
+                    recommended_parts.append(row)
             
             # increase cost delta for next iteration
             cost_delta *= 2

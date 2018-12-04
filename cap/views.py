@@ -229,15 +229,24 @@ def Step9(request):
     return render(request,'web/common.html')
 
 def Step10(request):
-    res = BI.get_cpu()
+    res = BI.get_all_cpus()
+    Names = []
+    score = []
+    # print(res[4][CPU_PERFORMANCE_SCORE])
     if(len(res)!=0):
+        print(len(res))
+        for i in range(len(res)-1):
+            Names.append(res[i+1][CPU_PROCESSOR_NUMBER])
+            score.append(CPUData.get_cpu_performance_score(res[i+1]))
         my_plot_div = plot([go.Scatter(
-                x=[res[0][CPU_PROCESSOR_NUMBER],res[1][CPU_PROCESSOR_NUMBER],res[2][CPU_PROCESSOR_NUMBER]],
-                y=[res[0][CPU_PERFORMANCE_SCORE],res[1][CPU_PERFORMANCE_SCORE], res[2][CPU_PERFORMANCE_SCORE]]
+                x=Names,
+                y=score,
+                mode = 'lines+markers',
+                 name = 'lines+markers'
         )], output_type='div')
     else:
         print("Empty res Response")
-    return render(request,'web/CPU_details.html')
+    return render(request,'web/CPU_details.html' , {'Graph' : my_plot_div })
 
 def motherboard_details(request):
     INTEL_ONLY = True  # set to False to include AMD motherboards

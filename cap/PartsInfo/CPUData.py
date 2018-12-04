@@ -7,7 +7,7 @@ class CPUData:
     '''
     def get_cpu_price(row):
         price = row[CPU_RECOMMENDED_PRICE]
-        return CPUData.extract_num_data(price, 1, '-')
+        return CPUData.extract_num_data(price, 1, '.')
     
     def get_cpu_performance_score(row):
         return abs(100 / CPUData.get_cpu_lithography(row)) + \

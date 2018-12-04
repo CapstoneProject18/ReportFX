@@ -1,0 +1,59 @@
+{% extends "web/Head.html" %}
+
+{% block content %}
+
+{% if request.GET.CPU and request.GET.GPU and request.GET.RAM %}
+<h1  class="text-center">Storage selection </h1>
+<p class="text-center" style='color:red'>* Please select any one Storage from the list of recommended set of Storage</p>
+<br>
+<div class="row">
+    <div class='col-md-6'>
+        <form action="Step5" method="get">
+            <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
+            <input type="hidden" name="CPU" value={{request.GET.CPU}}> 
+            <input type="hidden" name="GPU" value={{request.GET.GPU}}> 
+            <input type="hidden" name="RAM" value={{request.GET.RAM}}> 
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Storage Name</th>
+                        <th>Make</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  onclick="document.getElementById('RadioOne').click();">
+                        <td> <input id="RadioOne" type="radio"
+                                name="STORAGE" value="0" required> {{STORAGE1}}</td>
+                        <td>{{STORAGE1_model}}</td>
+                        <td>&#36;{{STORAGE1_price}}</td>
+                    </tr>
+                    <tr onclick="document.getElementById('RadioTwo').click();">
+                        <td ><input id="RadioTwo" type="radio"
+                                name="STORAGE" value="1" required> {{STORAGE2}}</td>
+                        <td>{{STORAGE2_model}}</td>
+                        <td>&#36;{{STORAGE2_price}}</td>       
+                    </tr>
+                    <tr onclick="document.getElementById('RadioThree').click();">
+                        <td ><input id='RadioThree' type="radio"
+                                name="STORAGE" value="2" required> {{STORAGE3}}</td>
+                                <td>{{STORAGE3_model}}</td>
+                                <td>&#36;{{STORAGE3_price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center">
+                <button type="submit" class='btn btn-lg btn-info center-block'>Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-6'>
+
+        {{Graph|safe}}
+    </div>
+</div>
+{% else %}
+    <h1>Missing Get Variable</h1>
+{% endif %}
+
+{% endblock %}

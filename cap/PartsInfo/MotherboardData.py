@@ -6,7 +6,10 @@ class MotherboardData:
     Additional required information, wherever necessary, has been specified.
     '''
     def get_motherboard_price(row):
-        return MotherboardData.extract_num_data(row[MOTHERBOARD_PRICES], 1, ',')
+        price = MotherboardData.extract_num_data(row[MOTHERBOARD_PRICES], 1, ',')
+        if price == 0:
+            price = MotherboardData.extract_num_data(row[MOTHERBOARD_PRICES], 1, ']')
+        return price
     
     def get_motherboard_performance_score(row):
         return MotherboardData.get_motherboard_ethernet_score(row) + \

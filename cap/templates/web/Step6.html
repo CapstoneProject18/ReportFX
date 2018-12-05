@@ -1,36 +1,7 @@
 {% extends "web/Head.html" %}
 
 {% block content %}
-<script type="text/javascript">
-    document.getElementById("cpuButton").onclick = function () {
-        location.href = {{ CPU_URL }
-    };
-    };
-</script>
-<script type="text/javascript">
-    document.getElementById("gpuButton").onclick = function () {
-        location.href = {{ GPU_URL }
-    };
-    };
-</script>
-<script type="text/javascript">
-    document.getElementById("memoryButton").onclick = function () {
-        location.href = {{ Memory_URL }
-    }
-    };
-</script>
-<script type="text/javascript">
-    document.getElementById("storageButton").onclick = function () {
-        location.href = {{ Storage_URL }
-    }
-    };
-</script>
-<script type="text/javascript">
-    document.getElementById("motherboardButton").onclick = function () {
-        location.href = {{ Motherboard_URL }
-    }
-    };
-</script>
+
 
 <style>
 .centered {
@@ -46,8 +17,9 @@
 
 <br>
 
-<div class="row" style="margin-top: 50px">
-    <div class='col-md-12'>
+<div class="row" >
+    <div class="col-md-12">
+        <div class="table-responsive">
 
         <table class="table">
             <tbody>
@@ -59,12 +31,12 @@
                 <tr>
                     <td>{{CPU}} </td>
                     <td>
-                        <a href={{CPU_URL}} target="_blank"><img id="cpuButton" src="static/css/images.png" style="width: 25%;">
+                        <a href={{CPU_URL}} target="_blank"><img  id="cpuButton" src="static/css/images.png" style="width: 25%;">
                             </a> 
                     </td>
                     <td rowspan="5" style="vertical-align: middle">
-                        <div class="container">
-                            <img src="static/css/Star-outline.png"></img> 
+                        <div class="container ">
+                            <img class="img-fluid" src="static/css/Star-outline.png"></img> 
                             <div class="centered">{{Score}}</div>
                         </div>
                     </td>
@@ -103,16 +75,50 @@
                 </tr>
             </tbody>
         </table>
-
-        <div class="row">
-            <div class="col-md">    
-                <form action="Step7" method="get"><a href="out.pdf" download><button type="submit" class='btn btn-lg btn-info center-block'>Save as PDF</button></a></form>
-                <a href="http://127.0.0.1:8000/Step6?CPU={{CPU_T}}&GPU={{GPU_T}}&RAM={{RAM_T}}&STORAGE={{STORAGE_T}}&MB={{MB_T}}" download="HTMLReport.html" ><button  class='btn btn-lg btn-info center-block' style="margin-top: 32px">Save as HTML</button></a>
-            
-            </div>
-            </div>
-
     </div>
 </div>
+</div>
+        <div class="row">
+            <div class="col-md-6">    
+                <form action="Step7" method="get"><a href="out.pdf" download><button type="submit" class='btn btn-lg btn-info center-block'>Save as PDF</button></a></form>
+            </div>
+            <div class="col-md-6">
+               
+                <a href="http://127.0.0.1:8000/Step6?CPU={{CPU_T}}&GPU={{GPU_T}}&RAM={{RAM_T}}&STORAGE={{STORAGE_T}}&MB={{MB_T}}" download="HTMLReport.html" >
+                    
+                    <button  class='btn btn-lg btn-info center-block' >Save as HTML</button></a>
+                </div>
+            
 
+   
+<script type="text/javascript">
+    document.getElementById("cpuButton").onclick = function () {
+        location.href = {{ CPU_URL }
+    };
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("gpuButton").onclick = function () {
+        location.href = {{ GPU_URL }
+    };
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("memoryButton").onclick = function () {
+        location.href = {{ Memory_URL }
+    }
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("storageButton").onclick = function () {
+        location.href = {{ Storage_URL }
+    }
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("motherboardButton").onclick = function () {
+        location.href = {{ Motherboard_URL }
+    }
+    };
+</script>
 {% endblock %}

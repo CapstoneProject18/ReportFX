@@ -237,7 +237,7 @@ def motherboard_details(request):
     del csv_data[0]  # remove headers
     
     for row in csv_data:
-        if not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
+        if INTEL_ONLY and not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
             continue
         
         motherboard_details.append([])
@@ -246,15 +246,17 @@ def motherboard_details(request):
         motherboard_details[-1].append(row[MOTHERBOARD_NAME])
         
         # 1 : max memory supported
-        motherboard_details[-1].append(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY])
+        capacity = int(MotherboardData.extract_num_data(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY], 0, 'G'))
+        motherboard_details[-1].append(str(capacity))
 
         # 2 : max memory speed
         all_speeds = row[MOTHERBOARD_MEMORY_TYPE][5:].split('/')
-        motherboard_details[-1].append(all_speeds[-1].strip() + 'MHz')
+        motherboard_details[-1].append(all_speeds[-1].strip())
 
         # 3 : max ethernet speed
-        all_speeds = row[MOTHERBOARD_ONBOARD_ETHERNET].split('/')
-        motherboard_details[-1].append(all_speeds[-1].strip())
+        speed = int(row[MOTHERBOARD_ONBOARD_ETHERNET][:-4].split('/')[-1].strip())
+        if row[MOTHERBOARD_ONBOARD_ETHERNET].strip().endswith('Gbps'): speed *= 1000
+        motherboard_details[-1].append(speed)
 
         # 4 : num of ethernet ports
         motherboard_details[-1].append(row[MOTHERBOARD_ONBOARD_ETHERNET].strip()[0])

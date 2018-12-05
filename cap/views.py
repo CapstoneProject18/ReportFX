@@ -276,10 +276,10 @@ def GPU_details(request):
         
         gpu_details.append([])
 
-        # 0 : name
+        # 0 : Name
         gpu_details[-1].append(row[GPU_NAME])
         
-        # 1 : memory supported
+        # 1 : Memory Size
         gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY])[0])
 
         # 2 : memory speed

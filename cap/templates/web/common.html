@@ -1,65 +1,77 @@
 {% extends "web/Head.html" %}
 
 {% block content %}
+
+<head>
+    <style>
+        .table-wrapper-scroll-y {
+            display: block;
+            max-height: 30em;
+            overflow-y: auto;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+</head>
+
 <h1 class="text-center">Detailed Information</h1><br>
-<div class="row">
-<div class='col-lg-6 col-md-6 mb-6'>
-    <div class="table-responsive">
+<div class="row" style="font-size: 90%">
+    <div class='col-lg-6 col-md-6 mb-6'>
+        <div class="table-wrapper-scroll-y">
+            <div class="table-responsive table-bordered table-striped">
 
-        <table class="table sortable" id="sort">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>P1</th>
-                    <th>P2</th>
-                    <th>P3</th>
-                    <th>P4</th>
-                    <th>P5</th>
-                    <th>P6</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th>Test1</th>
-                <th>100</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-            </tr>
-            <tr>
-                    <th>Test1</th>
-                    <th>7</th>
-                    <th>8</th>
-                    <th>9</th>
-                    <th>10</th>
-                    <th>11</th>
-                    <th>12</th>
-                </tr>
-                <tr>
-                        <th>Test1</th>
-                        <th>13</th>
-                        <th>14</th>
-                        <th>15</th>
-                        <th>16</th>
-                        <th>17</th>
-                        <th>18</th>
-                    </tr>
-            </tbody>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Memory</th>
+                            <th>Memory Speed</th>
+                            <th>Ethernet Speed</th>
+                            <th>Ethernet Ports</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in motherboard_details %}
+                        <tr>
+                            <td>
+                                {{ forloop.counter }}
+                            </td>
+                            <td>
+                                {{ row.0 }}
+                            </td>
+                            <td>
+                                {{ row.1 }}
+                            </td>
+                            <td>
+                                {{ row.2 }}
+                            </td>
+                            <td>
+                                {{ row.3 }}
+                            </td>
+                            <td>
+                                {{ row.4 }}
+                            </td>
+                            <td>
+                                {{ row.5 }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
 
-        </table>
+                </table>
+            </div>
+        </div>
     </div>
 
-</div>
-<div class='col-lg-6 col-md-6 mb-6'>
-<h1>Space for Graph</h1>
-</div>
+    <div class='col-lg-6 col-md-6 mb-6'>
+        <h1>Space for Graph</h1>
+    </div>
 </div>
 
 <div style="text-align: center">
-    <button class="btn btn-info btn-lg" >Go Back to previous page</button>
+    <br />
+    <button class="btn btn-info btn-lg">Go Back to previous page</button>
 </div>
-
 
 {% endblock %}

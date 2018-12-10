@@ -3,6 +3,7 @@
 {% block content %}
 
 <head>
+        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -103,7 +104,7 @@
                         <th>Max Memory</th>
                         <th>Max Memory Bandwidth</th>
                         <th>Graphics Base Frequency</th>
-                        <th>Graphics_Video_Max_Memory</th>
+                        <th>Graphics Video Max Memory</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -159,29 +160,47 @@
         </div>
     </div>
 
-    <div class='col-lg-6 col-md-6 mb-6'>
+    <div id="plotly" class='col-lg-6 col-md-6 mb-6'>
+
+            <div class="dropdown show">
+                    <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select Graph 
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="cpu_details?graph=1">Default</a>
+                      <a class="dropdown-item" href="cpu_details?graph=2">Lithography</a>
+                      <a class="dropdown-item" href="cpu_details?graph=3">Cores</a>
+                      <a class="dropdown-item" href="cpu_details?graph=4">Threads</a>
+                      <a class="dropdown-item" href="cpu_details?graph=5">Base Frequency</a>
+                      <a class="dropdown-item" href="cpu_details?graph=6">Catche</a>
+                      <a class="dropdown-item" href="cpu_details?graph=7">TDP</a>
+                      <a class="dropdown-item" href="cpu_details?graph=8">Max Memory</a>
+                      <a class="dropdown-item" href="cpu_details?graph=9">Max Mem. Bandwidth</a>
+                      <a class="dropdown-item" href="cpu_details?graph=10">Graphics Base Frequency</a>
+                      <a class="dropdown-item" href="cpu_details?graph=11">Graphics Video Max Memory</a>
+                    </div>
+                  </div>
+
+
 
           
         
-                  <div id="graph1" class="row">{{Graph1|safe}}</div>
-        <div id="graph2" style="display:none;" class="row">{{Graph2|safe}}</div>
-        <div id="graph3" style="display:none;" class="row">{{Graph3|safe}}</div>
-        <div id="graph4" style="display:none;" class="row">{{Graph4|safe}}</div>
-        <div id="graph5" style="display:none;" class="row">{{Graph5|safe}}</div>
-        <div id="graph6" style="display:none;" class="row">{{Graph6|safe}}</div>
-        <div id="graph7" style="display:none;" class="row">{{Graph7|safe}}</div>
-        <div id="graph8" style="display:none;" class="row">{{Graph8|safe}}</div>
-        <div id="graph9" style="display:none;" class="row">{{Graph9|safe}}</div>
-        <div id="graph10" style="display:none;" class="row">{{Graph10|safe}}</div>
-        <div id="graph11" style="display:none;" class="row">{{Graph11|safe}}</div>
+                  <div id="graph1"  class="row">{{Graph1|safe}}</div>
+        
         
         
     </div>
 </div>
 
+    <script>
+
+       
+    </script>
 <div style="text-align: center">
     <br />
     <button class="btn btn-info btn-lg">Back</button>
+   
 </div>
 
 {% endblock %}

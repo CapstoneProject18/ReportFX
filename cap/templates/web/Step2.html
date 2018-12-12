@@ -17,6 +17,7 @@
                     <tr>
                         <th>GPU Name</th>
                         <th>Make</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,16 +25,19 @@
                         <td> <input id="RadioOne" type="radio"
                                 name="GPU" value="0" required> {{GPU1}}</td>
                         <td>{{GPU1_model}}</td>
+                        <td>&#36;{{GPU1_price}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioTwo').click();">
                         <td ><input id="RadioTwo" type="radio"
                                 name="GPU" value="1" required> {{GPU2}}</td>
-                        <td>{{GPU2_model}}</td>       
+                        <td>{{GPU2_model}}</td>
+                        <td>&#36;{{GPU2_price}}</td>       
                     </tr>
                     <tr onclick="document.getElementById('RadioThree').click();">
                         <td ><input id='RadioThree' type="radio"
                                 name="GPU" value="2" required> {{GPU3}}</td>
                                 <td>{{GPU3_model}}</td>
+                                <td>&#36;{{GPU3_price}}</td>
                     </tr>
                 </tbody>
             </table>

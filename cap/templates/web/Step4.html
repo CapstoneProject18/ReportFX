@@ -18,6 +18,7 @@
                     <tr>
                         <th>Storage Name</th>
                         <th>Make</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,16 +26,19 @@
                         <td> <input id="RadioOne" type="radio"
                                 name="STORAGE" value="0" required> {{STORAGE1}}</td>
                         <td>{{STORAGE1_model}}</td>
+                        <td>&#36;{{STORAGE1_price}}</td>
                     </tr>
                     <tr onclick="document.getElementById('RadioTwo').click();">
                         <td ><input id="RadioTwo" type="radio"
                                 name="STORAGE" value="1" required> {{STORAGE2}}</td>
-                        <td>{{STORAGE2_model}}</td>       
+                        <td>{{STORAGE2_model}}</td>
+                        <td>&#36;{{STORAGE2_price}}</td>       
                     </tr>
                     <tr onclick="document.getElementById('RadioThree').click();">
                         <td ><input id='RadioThree' type="radio"
                                 name="STORAGE" value="2" required> {{STORAGE3}}</td>
                                 <td>{{STORAGE3_model}}</td>
+                                <td>&#36;{{STORAGE3_price}}</td>
                     </tr>
                 </tbody>
             </table>

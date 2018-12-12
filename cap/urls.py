@@ -15,6 +15,10 @@ urlpatterns = [
     url(r'^Step5$',views.Step5,name='step5'),
     url(r'^Step6$',views.Step6,name='step6'),
     url(r'^Step7$',views.Step7,name='step7'),
+    url(r'^common$',views.Step9,name='step9'),
+    url(r'^cpu_details$',views.Step10,name='step10'),
     url(r'^cart$',views.Step8,name='cart'),
+    url(r'^motherboard_details', views.motherboard_details, name='motherboard_details'),
+    url(r'^gpu_details', views.GPU_details, name='GPU_details'),
     url(r'^',views.index,name='index')
     ]

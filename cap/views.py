@@ -426,3 +426,66 @@ def GPU_details(request):
         gpu_details[-1].append(GPUData.get_gpu_price(row))
 
     return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details})
+
+
+
+def Step11(request):
+    res = BI.get_all_memories()
+    Name_mem = []
+    Latency_mem = []
+    Price_mem = []
+    Size_mem = []
+    ddr3_mem = []
+    score_mem = []
+    if(len(res)!=0):
+        """print(len(res))"""
+        for i in range(len(res)-1):
+                Latency_mem.append(MemoryData.get_memory_cas_latency(res[i+1]))
+                Price_mem.append(MemoryData.get_memory_price(res[i+1]))
+                Size_mem.append(MemoryData.get_memory_size(res[i+1]))
+                ddr3_mem.append(MemoryData.get_memory_ddr3_speed(res[i+1]))
+                score_mem.append(MemoryData.get_memory_performance_score(res[i+1]))
+                Name_mem.append(res[i+1][MEMORY_NAME])
+
+
+        graph = int(request.GET.get('graph'))  
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Latency_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Price_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 3):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Size_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 4):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=ddr3_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 5):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=score_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    else:
+        print("Empty res Response")
+    del res[0]
+    print(graph)
+    return render(request,'web/Memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : res })

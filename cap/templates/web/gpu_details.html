@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     <style>
-        #motherboardTable th,
+        #gpuTable th,
         td {
             white-space: nowrap;
         }
@@ -79,7 +79,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#motherboardTable').DataTable({
+            $('#gpuTable').DataTable({
                 "scrollX": true,
                 "scrollY": 400
             });
@@ -89,25 +89,27 @@
 </head>
 
 <br />
-<h1 class="text-center">Detailed Motherboard Information</h1><br>
+<h1 class="text-center">Detailed GPU Information</h1><br>
 <div class="row" style="font-size: 90%">
     <div class='col-lg-6 col-md-6 mb-6'>
         <div class="">
 
-            <table id="motherboardTable" class="table table-striped table-bordered table-sm">
+            <table id="gpuTable" class="table table-striped table-bordered table-sm">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Memory (in GB)</th>
-                        <th>Memory Speed (in MHz)</th>
-                        <th>Ethernet Speed (in Mbps)</th>
-                        <th>Ethernet Ports</th>
-                        <th>Price</th>
+                        <th>Memory (MB)</th>
+                        <th>Memory Speed (MHz)</th>
+                        <th>Memory Type</th>
+                        <th>Core Speed (MHz)</th>
+                        <th>Boost Clock (MHz)</th>
+                        <th>Max Power (Watts)</th>
+                        <th>Price ($)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for row in motherboard_details %}
+                    {% for row in gpu_details %}
                     <tr>
                         <td>
                             {{ forloop.counter }}
@@ -129,6 +131,12 @@
                         </td>
                         <td>
                             {{ row.5 }}
+                        </td>
+                        <td>
+                            {{ row.6 }}
+                        </td>
+                        <td>
+                            {{ row.7 }}
                         </td>
                     </tr>
                     {% endfor %}

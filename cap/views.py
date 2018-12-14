@@ -14,6 +14,7 @@ from MotherboardData import MotherboardData
 from StorageData import StorageData
 from CSVinfo import *
 import logging
+import re
 from plotly.offline import plot
 import plotly.graph_objs as go
 
@@ -357,7 +358,7 @@ def motherboard_details(request):
     del csv_data[0]  # remove headers
     
     for row in csv_data:
-        if not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
+        if INTEL_ONLY and not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
             continue
         
         motherboard_details.append([])
@@ -366,15 +367,17 @@ def motherboard_details(request):
         motherboard_details[-1].append(row[MOTHERBOARD_NAME])
         
         # 1 : max memory supported
-        motherboard_details[-1].append(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY])
+        capacity = int(MotherboardData.extract_num_data(row[MOTHERBOARD_MAXIMUM_SUPPORTED_MEMORY], 0, 'G'))
+        motherboard_details[-1].append(str(capacity))
 
         # 2 : max memory speed
         all_speeds = row[MOTHERBOARD_MEMORY_TYPE][5:].split('/')
-        motherboard_details[-1].append(all_speeds[-1].strip() + 'MHz')
+        motherboard_details[-1].append(all_speeds[-1].strip())
 
         # 3 : max ethernet speed
-        all_speeds = row[MOTHERBOARD_ONBOARD_ETHERNET].split('/')
-        motherboard_details[-1].append(all_speeds[-1].strip())
+        speed = int(row[MOTHERBOARD_ONBOARD_ETHERNET][:-4].split('/')[-1].strip())
+        if row[MOTHERBOARD_ONBOARD_ETHERNET].strip().endswith('Gbps'): speed *= 1000
+        motherboard_details[-1].append(speed)
 
         # 4 : num of ethernet ports
         motherboard_details[-1].append(row[MOTHERBOARD_ONBOARD_ETHERNET].strip()[0])
@@ -384,3 +387,115 @@ def motherboard_details(request):
 
     return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
     
+def GPU_details(request):
+    csv_data = BI.get_all_gpus()
+    gpu_details = []
+
+    del csv_data[0]  # remove headers
+    
+    for row in csv_data:
+        
+        gpu_details.append([])
+
+        # 0 : Name
+        gpu_details[-1].append(row[GPU_NAME])
+        
+        # 1 : Memory Size
+        gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY])[0])
+
+        # 2 : memory speed
+        gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY_SPEED])[0])
+
+        # 3 : memory type
+        gpu_details[-1].append(row[GPU_MEMORY_TYPE])
+
+        # 4 : Core SPEED
+        gpu_details[-1].append(re.findall('\d+', row[GPU_CORE_SPEED])[0])
+
+        # 5 : Boost clock
+        x = re.findall('\d+', row[GPU_BOOST_CLOCK])
+        y = 0
+        if len(x) != 0:
+            y = x[0] 
+        gpu_details[-1].append(y)
+
+        # 6 : max Power
+        gpu_details[-1].append(re.findall('\d+', row[GPU_MAX_POWER])[0])
+
+        # 7 : price
+        gpu_details[-1].append(GPUData.get_gpu_price(row))
+
+    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details})
+
+
+
+
+def Step11(request):
+    res = BI.get_all_memories()
+    print('+++++++++++',res,'++++++++++++\n\n\n')
+    Name_mem = []
+    Latency_mem = []
+    Price_mem = []
+    Size_mem = []
+    ddr3_mem = []
+    score_mem = []
+    if(len(res)!=0):
+        """print(len(res))"""
+        for i in range(len(res)-1):
+                Latency_mem.append(MemoryData.get_memory_cas_latency(res[i+1]))
+                Price_mem.append(MemoryData.get_memory_price(res[i+1]))
+                Size_mem.append(MemoryData.get_memory_size(res[i+1]))
+                ddr3_mem.append(MemoryData.get_memory_ddr3_speed(res[i+1]))
+                score_mem.append(MemoryData.get_memory_performance_score(res[i+1]))
+                Name_mem.append(res[i+1][MEMORY_NAME])
+
+
+        print('__________________________________________',Latency_mem,'__________________________________________')
+        print('__________________________________________',Price_mem,'__________________________________________')
+        print('__________________________________________',Size_mem,'__________________________________________')
+        print('__________________________________________',ddr3_mem,'__________________________________________')
+        print('__________________________________________',score_mem,'__________________________________________')
+        print('__________________________________________',Name_mem,'__________________________________________')
+        
+
+        graph = int(request.GET.get('graph'))  
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Latency_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Price_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 3):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Size_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 4):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=ddr3_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 5):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=score_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    else:
+        print("Empty res Response")
+    del res[0]
+    print(graph)
+    return render(request,'web/Memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : res })

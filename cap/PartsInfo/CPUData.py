@@ -66,6 +66,7 @@ class CPUData:
     
     def get_cpu_max_memory_bandwidth(row):
         bw = row[CPU_MAX_MEMORY_BANDWIDTH]
+        print(CPUData.extract_num_data(bw, 0, 'G'))
         return CPUData.extract_num_data(bw, 0, 'G')
     
     def cpu_is_ecc_supported(row):

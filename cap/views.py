@@ -80,10 +80,13 @@ def Step3(request):
     BI.set_gpu(res[int(GPU)])
 
     res = BI.get_memory_recommendation()
+
     my_plot_div = plot([go.Bar(
             x=[res[0][MEMORY_NAME],res[1][MEMORY_NAME],res[2][MEMORY_NAME]],
             y=[res[0][MEMORY_PERFORMANCE_SCORE],res[1][MEMORY_PERFORMANCE_SCORE], res[2][MEMORY_PERFORMANCE_SCORE]]
     )], output_type='div')
+
+    
     return render(request,'web/Step3.html',{'RAM1': res[0][MEMORY_NAME],'RAM1_model': res[0][MEMORY_MANUFACTURER],'RAM1_price': MemoryData.get_memory_price(res[0]), \
                                             'RAM2': res[1][MEMORY_NAME],'RAM2_model': res[1][MEMORY_MANUFACTURER],'RAM2_price': MemoryData.get_memory_price(res[1]),\
                                             'RAM3': res[2][MEMORY_NAME],'RAM3_model': res[2][MEMORY_MANUFACTURER],'RAM3_price': MemoryData.get_memory_price(res[2]), \
@@ -234,6 +237,124 @@ def Step8(request):
 def Step9(request):
     return render(request,'web/common.html')
 
+def Step10(request):
+    res = BI.get_all_cpus()
+    Names = []
+    score = []
+    lith = []
+    core = []
+    thread = []
+    base_freq = []
+    catche = []
+    tdp = []
+    max_mem = []
+    max_mem_bw = []
+    graphics_base_freq = []
+    graphics_max_freq = []
+    # print(res[4][CPU_PERFORMANCE_SCORE])
+    if(len(res)!=0):
+        print(len(res))
+        for i in range(len(res)-1):
+            Names.append(res[i+1][CPU_PROCESSOR_NUMBER])
+            score.append(CPUData.get_cpu_performance_score(res[i+1]))
+            lith.append(CPUData.get_cpu_lithography(res[i+1]))
+            core.append(int(res[i+1][CPU_NO_OF_CORES]))
+            thread.append(int(res[i+1][CPU_NO_OF_THREADS]))
+            base_freq.append(CPUData.get_cpu_base_frequency(res[i+1]))
+            catche.append(CPUData.get_cpu_cache(res[i+1]))
+            tdp.append(CPUData.get_cpu_tdp(res[i+1]))
+            max_mem.append(CPUData.get_cpu_max_memory(res[i+1]))
+            max_mem_bw.append(CPUData.get_cpu_max_memory_bandwidth(res[i+1]))
+            graphics_base_freq.append(CPUData.get_cpu_graphics_base_freq(res[i+1]))
+            graphics_max_freq.append(CPUData.get_cpu_graphics_max_mem(res[i+1]))
+
+        graph = int(request.GET.get('graph'))  
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=score,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=lith,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+
+        if(graph == 3):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=core,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 4):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=thread,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+                print("call from graph 4")
+        if(graph == 5):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=base_freq,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 6):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=catche,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 7):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=tdp,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 8):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=max_mem,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 9):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=max_mem_bw,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 10):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=graphics_base_freq,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 11):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=graphics_max_freq,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                ) ], output_type='div')
+        
+    else:
+        print("Empty res Response")
+    del res[0]
+    print(graph)
+    return render(request,'web/CPU_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : res })
+
 def motherboard_details(request):
     INTEL_ONLY = True  # set to False to include AMD motherboards
     csv_data = BI.get_all_motherboards()
@@ -362,5 +483,77 @@ def GPU_details(request):
         # 7 : price
         gpu_details[-1].append(GPUData.get_gpu_price(row))
 
-    gpu_plot = plot([go.Scatter(x=Names,y=MemorySpeed)],output_type="div")
-    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details,'graph':gpu_plot})
+    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details})
+
+
+
+
+def Step11(request):
+    res = BI.get_all_memories()
+    print('+++++++++++',res,'++++++++++++\n\n\n')
+    Name_mem = []
+    Latency_mem = []
+    Price_mem = []
+    Size_mem = []
+    ddr3_mem = []
+    score_mem = []
+    if(len(res)!=0):
+        """print(len(res))"""
+        for i in range(len(res)-1):
+                Latency_mem.append(MemoryData.get_memory_cas_latency(res[i+1]))
+                Price_mem.append(MemoryData.get_memory_price(res[i+1]))
+                Size_mem.append(MemoryData.get_memory_size(res[i+1]))
+                ddr3_mem.append(MemoryData.get_memory_ddr3_speed(res[i+1]))
+                score_mem.append(MemoryData.get_memory_performance_score(res[i+1]))
+                Name_mem.append(res[i+1][MEMORY_NAME])
+
+
+        print('__________________________________________',Latency_mem,'__________________________________________')
+        print('__________________________________________',Price_mem,'__________________________________________')
+        print('__________________________________________',Size_mem,'__________________________________________')
+        print('__________________________________________',ddr3_mem,'__________________________________________')
+        print('__________________________________________',score_mem,'__________________________________________')
+        print('__________________________________________',Name_mem,'__________________________________________')
+        
+
+        graph = int(request.GET.get('graph'))  
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Latency_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Price_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 3):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=Size_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 4):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=ddr3_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+        if(graph == 5):
+                my_plot_div = plot([go.Scatter(
+                        x=Name_mem,
+                        y=score_mem,
+                        mode = 'markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    else:
+        print("Empty res Response")
+    del res[0]
+    print(graph)
+    return render(request,'web/Memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : res })

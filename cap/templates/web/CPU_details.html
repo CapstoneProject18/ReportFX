@@ -107,7 +107,54 @@
                         <th>Graphics Video Max Memory</th>
                     </tr>
                 </thead>
-               
+                <tbody>
+                    {% for row in cpu_details %}
+                    <tr>
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+                        <td>
+                            {{ row.0 }}
+                        </td>
+                        <td>
+                            {{ row.1 }}
+                        </td>
+                        <td>
+                            {{ row.3 }}
+                        </td>
+                        <td>
+                            {{ row.5 }}
+                        </td>
+                        <td>
+                            {{ row.6 }}
+                        </td>
+                        <td>
+                            {{ row.7 }}
+                        </td>
+                        <!-- <td>
+                            {{ row.8 }}
+                        </td> -->
+                        <td>
+                            {{ row.9 }}
+                        </td>
+                        <td>
+                            {{ row.10 }}
+                        </td>
+                        <td>
+                            {{ row.11 }}
+                        </td>
+                        <td>
+                            {{ row.13 }}
+                        </td>
+                        <td>
+                            {{ row.16 }}
+                        </td>
+                        <td>
+                            {{ row.18 }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
 
         </div>
@@ -126,7 +173,13 @@
                       <a class="dropdown-item" href="cpu_details?graph=3">Cores</a>
                       <a class="dropdown-item" href="cpu_details?graph=4">Threads</a>
                       <a class="dropdown-item" href="cpu_details?graph=5">Base Frequency</a>
-                     </div>
+                      <a class="dropdown-item" href="cpu_details?graph=6">Catche</a>
+                      <a class="dropdown-item" href="cpu_details?graph=7">TDP</a>
+                      <a class="dropdown-item" href="cpu_details?graph=8">Max Memory</a>
+                      <a class="dropdown-item" href="cpu_details?graph=9">Max Mem. Bandwidth</a>
+                      <a class="dropdown-item" href="cpu_details?graph=10">Graphics Base Frequency</a>
+                      <a class="dropdown-item" href="cpu_details?graph=11">Graphics Video Max Memory</a>
+                    </div>
                   </div>
 
 
@@ -146,7 +199,7 @@
     </script>
 <div style="text-align: center">
     <br />
-    <button class="btn btn-info btn-lg">Back</button>
+    <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>
    
 </div>
 

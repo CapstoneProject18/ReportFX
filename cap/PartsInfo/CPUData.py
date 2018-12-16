@@ -76,7 +76,7 @@ class CPUData:
         return CPUData.extract_num_data(frequency, 0, 'M')
     
     def get_cpu_graphics_max_freq(row):
-        frequency = row[CPU_GRAPHICS_BASE_FREQUENCY]
+        frequency = row[CPU_GRAPHICS_MAX_FREQUENCY]
         freq = CPUData.extract_num_data(frequency, 0, 'M')
 
         if freq != 0:

@@ -1,7 +1,11 @@
 import sys
 import os
+import sklearn
+import numpy as np
+from sklearn import datasets, linear_model
 import pdfkit
 CAP_DIR = os.path.join(os.getcwd(),'cap')
+import functools
 
 sys.path.append(os.path.join(CAP_DIR,'PartsInfo')) #Path to BuildInfo directory
 from django.shortcuts import render
@@ -17,7 +21,8 @@ import logging
 import re
 from plotly.offline import plot
 import plotly.graph_objs as go
-
+import matplotlib.pyplot as plt
+from sklearn.neural_network import MLPRegressor
 path_wkthmltopdf = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
 config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
 
@@ -28,7 +33,7 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 baseURL = CAP_DIR + '/datasets/'
 
-BI = BuildInfo(baseURL+'cpu_clean.csv',baseURL+'gpu_clean.csv',baseURL+'memory_clean.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean.csv')
+BI = BuildInfo(baseURL+'cpu_clean.csv',baseURL+'gpu_clean.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean_new.csv')
 CPU = -1
 GPU= -1
 RAM = -1
@@ -234,6 +239,11 @@ def motherboard_details(request):
     csv_data = BI.get_all_motherboards()
     motherboard_details = []
 
+    price_sum = {}
+    unique_dates = {}
+    speed_sum = {}
+    speed_frequencies = {}
+
     del csv_data[0]  # remove headers
     
     for row in csv_data:
@@ -241,6 +251,13 @@ def motherboard_details(request):
             continue
         
         motherboard_details.append([])
+
+        if row[MOTHERBOARD_LAUNCHED] in unique_dates:
+            price_sum[row[MOTHERBOARD_LAUNCHED]] += MotherboardData.get_motherboard_price(row)
+            unique_dates[row[MOTHERBOARD_LAUNCHED]] += 1
+        else:
+            price_sum[row[MOTHERBOARD_LAUNCHED]] = MotherboardData.get_motherboard_price(row)
+            unique_dates[row[MOTHERBOARD_LAUNCHED]] = 1
 
         # 0 : name
         motherboard_details[-1].append(row[MOTHERBOARD_NAME])
@@ -253,9 +270,12 @@ def motherboard_details(request):
         all_speeds = row[MOTHERBOARD_MEMORY_TYPE][5:].split('/')
         motherboard_details[-1].append(all_speeds[-1].strip())
 
+        if all_speeds[-1].strip()
+
         # 3 : max ethernet speed
         speed = int(row[MOTHERBOARD_ONBOARD_ETHERNET][:-4].split('/')[-1].strip())
         if row[MOTHERBOARD_ONBOARD_ETHERNET].strip().endswith('Gbps'): speed *= 1000
+        
         motherboard_details[-1].append(speed)
 
         # 4 : num of ethernet ports
@@ -264,27 +284,65 @@ def motherboard_details(request):
         # 5 : price
         motherboard_details[-1].append('$' + str(MotherboardData.get_motherboard_price(row)))
 
-    return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
+    average = {}
+    for key, value in unique_dates.items():
+        average[key] = price_sum[key]/value
+    dates = list(average.keys())
+
+    dates.sort(key= functools.cmp_to_key(comp))
+    prices = []
+
+    for date in dates:
+        prices.append(average[date])
+    Xs = np.asarray(range(len(dates)))
+    Xst = np.asarray(range(len(dates),len(dates) + 10))
+    prices = np.asarray(prices)
+    clf = MLPRegressor()
+    clf.fit(Xs.reshape(-1,1),prices)
+    p = clf.predict(Xst.reshape(-1,1))
+    plt.plot(Xs,prices)
     
+    plt.plot(Xst,p)
+    plt.show()
+    return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
+
+def comp(a,b):
+    a_parts = a.split()
+    b_parts = b.split()
+
+    if int(a_parts[1]) > int(b_parts[1]):
+        return 1
+    elif int(a_parts[1]) == int(b_parts[1]):
+        if int(a_parts[0][1]) > int(b_parts[0][1]):
+            return 1
+        elif  int(a_parts[0][1]) == int(b_parts[0][1]):
+            return 0
+        else:
+            return -1
+    else:
+        return -1
+
 def GPU_details(request):
     csv_data = BI.get_all_gpus()
     gpu_details = []
 
     del csv_data[0]  # remove headers
     
+    Names = []
+    MemorySpeed = []
     for row in csv_data:
         
         gpu_details.append([])
 
         # 0 : Name
         gpu_details[-1].append(row[GPU_NAME])
-        
+        Names.append(row[GPU_NAME])
         # 1 : Memory Size
         gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY])[0])
 
         # 2 : memory speed
         gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY_SPEED])[0])
-
+        MemorySpeed.append(row[GPU_MEMORY_SPEED])
         # 3 : memory type
         gpu_details[-1].append(row[GPU_MEMORY_TYPE])
 
@@ -304,4 +362,5 @@ def GPU_details(request):
         # 7 : price
         gpu_details[-1].append(GPUData.get_gpu_price(row))
 
-    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details})
+    gpu_plot = plot([go.Scatter(x=Names,y=MemorySpeed)],output_type="div")
+    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details,'graph':gpu_plot})

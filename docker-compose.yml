@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000 "
+    container_name: Capstone18_build
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+
+
+# version: "3"
+
+# services:
+
+#   web:
+#     build: 
+#     ports:
+#       - "8000:8000"
+#     volumes:
+#       - ./web:/code
+#     # command: python3 /web/code/manage.py runserver

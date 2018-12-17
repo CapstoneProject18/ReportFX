@@ -134,8 +134,23 @@
         </table>
     </div>
 
-    <div class='col-lg-6 col-md-6 mb-6'>
-        <h1>Space for Graph</h1>
+    <div id="plotly" class='col-lg-6 col-md-6 mb-6'>
+        <div class="dropdown show">
+            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Select Graph
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="motherboard_details?graph=1">Price</a>
+                <a class="dropdown-item" href="motherboard_details?graph=2">Memory Speed</a>
+                <a class="dropdown-item" href="motherboard_details?graph=3">Memory Capacity</a>
+                <a class="dropdown-item" href="motherboard_details?graph=4">Price (pred)</a>
+                <a class="dropdown-item" href="motherboard_details?graph=5">Memory Speed (pred)</a>
+                <a class="dropdown-item" href="motherboard_details?graph=6">Memory Capacity (pred)</a>
+            </div>
+        </div>
+        <div id="graph" class="row">{{Graph|safe}}</div>
     </div>
 </div>
 

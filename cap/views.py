@@ -566,6 +566,7 @@ def motherboard_details(request):
     INTEL_ONLY = True  # set to False to include AMD motherboards
     csv_data = BI.get_all_motherboards()
     motherboard_details = []
+    names = []
 
     unique_dates_and_frequency = {}
 
@@ -589,6 +590,7 @@ def motherboard_details(request):
         motherboard_details.append([])
 
         # 0 : name
+        names.append(row[MOTHERBOARD_NAME])
         motherboard_details[-1].append(row[MOTHERBOARD_NAME])
         
         # 1 : max memory supported
@@ -644,8 +646,84 @@ def motherboard_details(request):
     dates_to_int = range(len(dates))
     dates_to_int = np.asarray(dates_to_int)
     future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+    price = np.asarray(list_of_prices)
+    speed = np.asarray(list_of_speed)
+    capacity = np.asarray(list_of_capacity)
+
+    clf = MLPRegressor()
+    clf.fit(dates_to_int.reshape((-1,1)), price)
+    pred_price = clf.predict(future_dates.reshape(-1,1))
     
-    return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
+    clf.fit(dates_to_int.reshape((-1,1)), speed)
+    pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)), capacity)
+    pred_capacity = clf.predict(future_dates.reshape((-1,1)))
+
+    graph = int(request.GET.get('graph'))
+    
+    if (graph == 1):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = price,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 2):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = speed,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 3):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = capacity,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 4):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = price,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_price,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    elif (graph == 5):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = speed,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    elif (graph == 6):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = capacity,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_capacity,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    else:
+            print("Empty res Response")
+    
+    return render(request, 'web/motherboard_details.html', {'Graph':graph_div, 'motherboard_details':motherboard_details})
 
 def comp(a,b):
     a_parts = a.split()

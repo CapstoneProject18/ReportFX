@@ -14,7 +14,7 @@
             <!-- <p>Value1</p><input name="val1" id="val1" type="text"> -->
 
 
-            <table class="table table-hover">
+            <table id="CPU" class="table table-hover">
                 <thead>
                     <tr>
                         <th>CPU Name</th>
@@ -44,9 +44,11 @@
                 </tbody>
             </table>
             <div style="text-align:center">
-                <button type="submit" class='btn btn-lg btn-info center-block'>Submit</button>
-            </div>
+                    <button onclick="$(this).closest('CPU').submit();" class='btn btn-lg btn-info center-block'>Submit</button>
+                    <button type="button" class='btn btn-lg btn-success center-block' onclick="javascript:location.href='cpu_details?graph=1'">CPU Details</button>
+                </div>     
         </form>
+        
     </div>
     <div class='col-lg-6 col-md-6 mb-6'>
 

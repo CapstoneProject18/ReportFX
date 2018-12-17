@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^common$',views.Step9,name='step9'),
     url(r'^cart$',views.Step8,name='cart'),
     url(r'^motherboard_details', views.motherboard_details, name='motherboard_details'),
-    url(r'^gpu_details', views.GPU_details, name='GPU_details'),
+    url(r'^gpu_details$', views.gpu_details, name='gpu_details'),
+    url(r'^cpu_details$',views.cpu_details,name='cpu_details'),
+    url(r'^memory_details$',views.memory_details,name='memory_details'),
     url(r'^',views.index,name='index')
     ]

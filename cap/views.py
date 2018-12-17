@@ -373,6 +373,37 @@ def cpu_details(request):
             list_thread.append(average_thread_pre_unique_date[date])
 
         graph = int(request.GET.get('graph'))  
+
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))
+        
+        price = np.asarray(list_price)
+        tdp = np.asarray(list_tdp)
+        lith = np.asarray(list_lith)
+        thread = np.asarray(list_thread)
+        core = np.asarray(list_core)
+        base_freq = np.asarray(list_base_freq)
+
+        clf =  MLPRegressor()
+        clf.fit(dates_to_int.reshape((-1,1)),price)
+        pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),tdp)
+        pred_tdp = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),lith)
+        pred_lith = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),thread)
+        pred_thread = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),core)
+        pred_core = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),base_freq)
+        pred_base_freq = clf.predict(future_dates.reshape((-1,1)))
+
         if(graph == 1):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
@@ -452,7 +483,78 @@ def cpu_details(request):
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 ) ], output_type='div')
-        
+    if (graph == 12):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = price,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_price,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 13):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = tdp,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_tdp,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 14):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = lith,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_lith,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 15):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = thread,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_thread,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 16):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = core,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_core,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 17):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = base_freq,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_base_freq,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')        
     else:
         print("Empty res Response")
     
@@ -538,7 +640,11 @@ def motherboard_details(request):
         list_of_prices.append(average_price_pre_unique_date[date])
         list_of_speed.append(average_speed_pre_unique_date[date])
         list_of_capacity.append(average_capacity_pre_unique_date[date])
-
+    
+    dates_to_int = range(len(dates))
+    dates_to_int = np.asarray(dates_to_int)
+    future_dates = np.asarray(range(len(dates),len(dates)+10))
+    
     return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
 
 def comp(a,b):
@@ -675,6 +781,32 @@ def gpu_details(request):
 
     graph = int(request.GET.get('graph'))
 
+    dates_to_int = range(len(dates))
+    dates_to_int = np.asarray(dates_to_int)
+    future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+    cores = np.asarray(list_core)
+    max_pow = np.asarray(list_max_pow)
+    price = np.asarray(list_price)
+    size = np.asarray(list_size)
+    speed = np.asarray(list_speed)
+
+    clf = linear_model.LinearRegression()
+    clf.fit(dates_to_int.reshape((-1,1)),cores)
+    pred_cores = clf.predict(future_dates.reshape(-1,1))
+    
+    clf.fit(dates_to_int.reshape((-1,1)),max_pow)
+    pred_max_pow = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),price)
+    pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),size)
+    pred_size = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),speed)
+    pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
     if(graph == 1):
         my_plot_div = plot([go.Scatter(
                         x=Names,
@@ -719,7 +851,66 @@ def gpu_details(request):
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
-
+    if (graph == 7):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = cores,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_cores,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 8):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = max_pow,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_max_pow,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 9):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = price,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_price,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 10):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = size,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_size,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 11):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_speed,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
     return render(request, 'web/gpu_details.html', {'Graph1':my_plot_div,'gpu_details':gpu_details})
 
 
@@ -808,7 +999,24 @@ def memory_details(request):
             list_of_speed.append(average_speed_pre_unique_date[date])
             list_of_size.append(average_size_pre_unique_date[date])
 
-            
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))    
+        
+        prices = np.asarray(list_of_prices)
+        speed = np.asarray(list_of_speed)
+        size = np.asarray(list_of_size)
+
+        clf = linear_model.LinearRegression()
+        clf.fit(dates_to_int.reshape((-1,1)),prices)
+        pred_prices = clf.predict(future_dates.reshape((-1,1)))
+        
+        clf.fit(dates_to_int.reshape((-1,1)),speed)
+        pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),size)
+        pred_size = clf.predict(future_dates.reshape((-1,1)))
+
         #print('__________________________________________',Latency_mem,'__________________________________________')
         #print('__________________________________________',Price_mem,'__________________________________________')
         #print('__________________________________________',Size_mem,'__________________________________________')
@@ -851,6 +1059,42 @@ def memory_details(request):
                         mode = 'markers',
                         name = 'lines+markers'
                 )], output_type='div')
+        if (graph == 6):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_speed,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+        if (graph == 7):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = prices,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_prices,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+        if (graph == 8):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = size,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_size,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
     else:
         print("Empty res Response")
     #print(graph)

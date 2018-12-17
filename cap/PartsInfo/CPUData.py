@@ -66,7 +66,7 @@ class CPUData:
     
     def get_cpu_max_memory_bandwidth(row):
         bw = row[CPU_MAX_MEMORY_BANDWIDTH]
-        print(CPUData.extract_num_data(bw, 0, 'G'))
+        #print(CPUData.extract_num_data(bw, 0, 'G'))
         return CPUData.extract_num_data(bw, 0, 'G')
     
     def cpu_is_ecc_supported(row):
@@ -98,3 +98,9 @@ class CPUData:
     
     def cpu_is_secure_key_supported(row):
         return True if row[CPU_SECURE_KEY] == 'Yes' else False
+
+    def get_cpu_no_of_cores(row):
+        return int(row[CPU_NO_OF_CORES])
+    
+    def get_no_of_thread(row):
+        return int(row[CPU_NO_OF_THREADS])

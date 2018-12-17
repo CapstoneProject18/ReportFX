@@ -7,7 +7,7 @@ class MemoryData:
     Additional required information, wherever necessary, has been specified.
     '''
     def get_memory_price(row):
-        return float(re.findall("\d+\.\d+",row[MEMORY_PRICES])[0])
+        return float(re.findall("\d+\.\d+", row[MEMORY_PRICES])[0])
     
     def get_memory_performance_score(row):
         return MemoryData.get_memory_cas_latency(row) + \

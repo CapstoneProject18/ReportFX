@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 baseURL = CAP_DIR + '/datasets/'
 
-BI = BuildInfo(baseURL+'cpu_clean.csv',baseURL+'gpu_clean.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean_new.csv')
+BI = BuildInfo(baseURL+'cpu_clean_new.csv',baseURL+'gpu_clean_new.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean_new.csv')
 CPU = -1
 GPU= -1
 RAM = -1
@@ -238,48 +238,152 @@ def Step9(request):
     return render(request,'web/common.html')
 
 def cpu_details(request):
-    res = BI.get_all_cpus()
+    csv_data = BI.get_all_cpus()
+    cpu_details = []
+
+    del csv_data[0]
+
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+
+    lith_sum_per_unique_date = {}
+    average_lith_pre_unique_date = {}
+
+    thread_sum_per_unique_date = {}
+    average_thread_pre_unique_date = {}
+
+    base_freq_sum_per_unique_date = {}
+    average_base_freq_pre_unique_date = {}
+
+    core_sum_per_unique_date = {}
+    average_core_pre_unique_date = {}
+
+    tdp_sum_per_unique_date = {}
+    average_tdp_pre_unique_date = {}
+
     Names = []
-    score = []
-    lith = []
-    core = []
-    thread = []
-    base_freq = []
-    catche = []
-    tdp = []
-    max_mem = []
-    max_mem_bw = []
-    graphics_base_freq = []
-    graphics_max_freq = []
+    Models = []
+    Score = []
+    Lith = []
+    Core = []
+    Thread = []
+    Base_Freq = []
+    Catche = []
+    Tdp = []
+    Max_Mem = []
+    Max_Mem_Bw = []
+    Graphics_Base_Freq = []
+    Graphics_Max_Freq = []
+    Price = []
+
     # print(res[4][CPU_PERFORMANCE_SCORE])
-    if(len(res)!=0):
-        print(len(res))
-        for i in range(len(res)-1):
-            Names.append(res[i+1][CPU_PROCESSOR_NUMBER])
-            score.append(CPUData.get_cpu_performance_score(res[i+1]))
-            lith.append(CPUData.get_cpu_lithography(res[i+1]))
-            core.append(int(res[i+1][CPU_NO_OF_CORES]))
-            thread.append(int(res[i+1][CPU_NO_OF_THREADS]))
-            base_freq.append(CPUData.get_cpu_base_frequency(res[i+1]))
-            catche.append(CPUData.get_cpu_cache(res[i+1]))
-            tdp.append(CPUData.get_cpu_tdp(res[i+1]))
-            max_mem.append(CPUData.get_cpu_max_memory(res[i+1]))
-            max_mem_bw.append(CPUData.get_cpu_max_memory_bandwidth(res[i+1]))
-            graphics_base_freq.append(CPUData.get_cpu_graphics_base_freq(res[i+1]))
-            graphics_max_freq.append(CPUData.get_cpu_graphics_max_mem(res[i+1]))
+    
+    if(len(csv_data)!=0):
+        for row in csv_data:
+
+            date = row[CPU_LAUNCHED]
+
+            cpu_details.append([])   
+
+            Names.append(row[CPU_PROCESSOR_FAMILY])
+            cpu_details[-1].append(row[CPU_PROCESSOR_FAMILY])
+
+            Models.append(row[CPU_PROCESSOR_NUMBER])
+            cpu_details[-1].append(row[CPU_PROCESSOR_NUMBER])
+
+            Lith.append(CPUData.get_cpu_lithography(row))
+            cpu_details[-1].append(CPUData.get_cpu_lithography(row))
+
+            Core.append(CPUData.get_cpu_no_of_cores(row))
+            cpu_details[-1].append(CPUData.get_cpu_no_of_cores(row))
+
+            Thread.append(CPUData.get_no_of_thread(row))
+            cpu_details[-1].append(CPUData.get_no_of_thread(row))
+
+            Base_Freq.append(CPUData.get_cpu_base_frequency(row))
+            cpu_details[-1].append(CPUData.get_cpu_base_frequency(row))
+
+            Catche.append(CPUData.get_cpu_cache(row))
+            cpu_details[-1].append(CPUData.get_cpu_cache(row))
+
+            Tdp.append(CPUData.get_cpu_tdp(row))
+            cpu_details[-1].append(CPUData.get_cpu_tdp(row))
+
+            Max_Mem.append(CPUData.get_cpu_max_memory(row))
+            cpu_details[-1].append(CPUData.get_cpu_max_memory(row))
+
+            Max_Mem_Bw.append(CPUData.get_cpu_max_memory_bandwidth(row))
+            cpu_details[-1].append(CPUData.get_cpu_max_memory_bandwidth(row))
+
+            Graphics_Base_Freq.append(CPUData.get_cpu_graphics_base_freq(row))
+            cpu_details[-1].append(CPUData.get_cpu_graphics_base_freq(row))
+
+            Graphics_Max_Freq.append(CPUData.get_cpu_graphics_max_mem(row))
+            cpu_details[-1].append(CPUData.get_cpu_graphics_max_mem(row))
+
+            Price.append(CPUData.get_cpu_price(row))
+            cpu_details[-1].append(CPUData.get_cpu_price(row))
+
+            Score.append(CPUData.get_cpu_performance_score(row))
+            cpu_details[-1].append(CPUData.get_cpu_performance_score(row))
+
+            if date in unique_dates_and_frequency:
+                price_sum_per_unique_date[date] += CPUData.get_cpu_price(row)
+                lith_sum_per_unique_date[date] += CPUData.get_cpu_lithography(row)
+                thread_sum_per_unique_date[date] += CPUData.get_no_of_thread(row)
+                base_freq_sum_per_unique_date[date] += CPUData.get_cpu_base_frequency(row)
+                core_sum_per_unique_date[date] += CPUData.get_cpu_no_of_cores(row)
+                tdp_sum_per_unique_date[date] += CPUData.get_cpu_tdp(row)
+                unique_dates_and_frequency[date] += 1
+            else:
+                price_sum_per_unique_date[date] = CPUData.get_cpu_price(row)
+                lith_sum_per_unique_date[date] = CPUData.get_cpu_lithography(row)
+                thread_sum_per_unique_date[date] = CPUData.get_no_of_thread(row)
+                base_freq_sum_per_unique_date[date] = CPUData.get_cpu_base_frequency(row)
+                core_sum_per_unique_date[date] = CPUData.get_cpu_no_of_cores(row)
+                tdp_sum_per_unique_date[date] = CPUData.get_cpu_tdp(row)
+                unique_dates_and_frequency[date] = 1
+
+        for key, value in unique_dates_and_frequency.items():
+            average_base_freq_pre_unique_date[key] = base_freq_sum_per_unique_date[key] / value
+            average_core_pre_unique_date[key] = core_sum_per_unique_date[key] / value
+            average_lith_pre_unique_date[key] = lith_sum_per_unique_date[key] / value
+            average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+            average_tdp_pre_unique_date[key] = tdp_sum_per_unique_date[key] / value
+            average_thread_pre_unique_date[key] = thread_sum_per_unique_date[key] / value
+
+        dates = list(unique_dates_and_frequency.keys())
+        dates.sort(key= functools.cmp_to_key(comp))
+
+        list_price = []
+        list_tdp = []
+        list_lith = []
+        list_thread = []
+        list_core = []
+        list_base_freq = []
+
+        for date in dates:
+            list_base_freq.append(average_base_freq_pre_unique_date[date])
+            list_core.append(average_core_pre_unique_date[date])
+            list_lith.append(average_lith_pre_unique_date[date])
+            list_price.append(average_price_pre_unique_date[date])
+            list_tdp.append(average_tdp_pre_unique_date[date])
+            list_thread.append(average_thread_pre_unique_date[date])
 
         graph = int(request.GET.get('graph'))  
         if(graph == 1):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=score,
+                        y=Score,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 2):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=lith,
+                        y=Lith,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
@@ -287,73 +391,74 @@ def cpu_details(request):
         if(graph == 3):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=core,
+                        y=Core,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 4):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=thread,
+                        y=Thread,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
-                print("call from graph 4")
+                #print("call from graph 4")
         if(graph == 5):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=base_freq,
+                        y=Base_Freq,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 6):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=catche,
+                        y=Catche,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 7):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=tdp,
+                        y=Tdp,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 8):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=max_mem,
+                        y=Max_Mem,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 9):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=max_mem_bw,
+                        y=Max_Mem_Bw,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 10):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=graphics_base_freq,
+                        y=Graphics_Base_Freq,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
         if(graph == 11):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
-                        y=graphics_max_freq,
+                        y=Graphics_Max_Freq,
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 ) ], output_type='div')
         
     else:
         print("Empty res Response")
-    del res[0]
-    print(graph)
-    return render(request,'web/cpu_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : res })
+    
+    #print(graph)
+    
+    return render(request,'web/cpu_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : cpu_details })
 
 def motherboard_details(request):
     INTEL_ONLY = True  # set to False to include AMD motherboards
@@ -458,6 +563,23 @@ def gpu_details(request):
 
     del csv_data[0]  # remove headers
     
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+
+    speed_sum_per_unique_date = {}
+    average_speed_pre_unique_date = {}
+
+    core_sum_per_unique_date = {}
+    average_core_pre_unique_date = {}
+
+    max_pow_sum_per_unique_date = {}
+    average_max_pow_pre_unique_date = {}
+
+    size_sum_per_unique_date = {}
+    average_size_pre_unique_date = {}
+
     Names = []
     Price = []
     Memeory_Size = []
@@ -469,6 +591,8 @@ def gpu_details(request):
 
     for row in csv_data:
         
+        date = row[GPU_LAUNCHED]
+
         gpu_details.append([])
 
         # 0 : Name
@@ -476,12 +600,12 @@ def gpu_details(request):
         gpu_details[-1].append(row[GPU_NAME])
         
         # 1 : Memory Size
-        mem_size = re.findall('\d+', row[GPU_MEMORY])[0]
+        mem_size = float(re.findall('\d+', row[GPU_MEMORY])[0])
         Memeory_Size.append(mem_size)
         gpu_details[-1].append(mem_size)
 
         # 2 : memory speed
-        mem_speed = re.findall('\d+', row[GPU_MEMORY_SPEED])[0]
+        mem_speed = float(re.findall('\d+', row[GPU_MEMORY_SPEED])[0])
         Memory_Speed.append(mem_speed)
         gpu_details[-1].append(mem_speed)
         
@@ -490,7 +614,7 @@ def gpu_details(request):
         gpu_details[-1].append(row[GPU_MEMORY_TYPE])
 
         # 4 : Core SPEED
-        core_speed = re.findall('\d+', row[GPU_CORE_SPEED])[0]
+        core_speed = float(re.findall('\d+', row[GPU_CORE_SPEED])[0])
         Core_Speed.append(core_speed)
         gpu_details[-1].append(core_speed)
 
@@ -498,18 +622,56 @@ def gpu_details(request):
         x = re.findall('\d+', row[GPU_BOOST_CLOCK])
         boost_clock = 0
         if len(x) != 0:
-            boost_clock = x[0] 
+            boost_clock = float(x[0]) 
         Boost_Clock.append(boost_clock)
         gpu_details[-1].append(boost_clock)
 
         # 6 : max Power
-        max_pow = re.findall('\d+', row[GPU_MAX_POWER])[0]
+        max_pow = float(re.findall('\d+', row[GPU_MAX_POWER])[0])
         Max_Power.append(max_pow)
         gpu_details[-1].append(max_pow)
 
         # 7 : price
         Price.append(GPUData.get_gpu_price(row))
         gpu_details[-1].append(GPUData.get_gpu_price(row))
+
+        if date in unique_dates_and_frequency:
+            price_sum_per_unique_date[date] += GPUData.get_gpu_price(row)
+            core_sum_per_unique_date[date] += core_speed
+            speed_sum_per_unique_date[date] += mem_speed
+            size_sum_per_unique_date[date] += mem_size
+            max_pow_sum_per_unique_date[date] += max_pow
+            unique_dates_and_frequency[date] += 1
+        else:
+            price_sum_per_unique_date[date] = GPUData.get_gpu_price(row)
+            core_sum_per_unique_date[date] = core_speed
+            speed_sum_per_unique_date[date] = mem_speed
+            size_sum_per_unique_date[date] = mem_size
+            max_pow_sum_per_unique_date[date] = max_pow
+            unique_dates_and_frequency[date] = 1
+
+    for key, value in unique_dates_and_frequency.items():
+        average_core_pre_unique_date[key] = core_sum_per_unique_date[key] / value
+        average_max_pow_pre_unique_date[key] = max_pow_sum_per_unique_date[key] / value
+        average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+        average_size_pre_unique_date[key] = size_sum_per_unique_date[key] / value
+        average_speed_pre_unique_date[key] = speed_sum_per_unique_date[key] / value
+
+    dates = list(unique_dates_and_frequency.keys())
+    dates.sort(key= functools.cmp_to_key(comp))
+
+    list_core = []
+    list_max_pow = []
+    list_speed = []
+    list_size = []
+    list_price = []
+
+    for date in dates:
+        list_core.append(average_core_pre_unique_date[date])
+        list_max_pow.append(average_max_pow_pre_unique_date[date])
+        list_price.append(average_price_pre_unique_date[date])
+        list_size.append(average_size_pre_unique_date[date])
+        list_speed.append(average_speed_pre_unique_date[date])
 
     graph = int(request.GET.get('graph'))
 
@@ -542,7 +704,7 @@ def gpu_details(request):
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
-                print("call from graph 4")
+                #print("call from graph 4")
     if(graph == 5):
                 my_plot_div = plot([go.Scatter(
                         x=Names,

@@ -146,14 +146,37 @@
         </div>
     </div>
 
-    <div class='col-lg-6 col-md-6 mb-6'>
-        <div id="graph" class="row">{{graph|safe}}</div>
-    </div>
+    <div id="plotly" class='col-lg-6 col-md-6 mb-6'>
+
+        <div class="dropdown show">
+                <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Graph 
+                </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="gpu_details?graph=1">Memory Size</a>
+                  <a class="dropdown-item" href="gpu_details?graph=2">Memory Speed</a>
+                  <a class="dropdown-item" href="gpu_details?graph=3">Core Speed</a>
+                  <a class="dropdown-item" href="gpu_details?graph=4">Boost Clock</a>
+                  <a class="dropdown-item" href="gpu_details?graph=5">Max Power</a>
+                  <a class="dropdown-item" href="gpu_details?graph=6">Price</a>
+                </div>
+              </div>
+
+
+
+      
+    
+              <div id="graph1"  class="row">{{Graph1|safe}}</div>
+    
+    
+    
+</div>
 </div>
 
 <div style="text-align: center">
     <br />
-    <button class="btn btn-info btn-lg">Back</button>
+    <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>
 </div>
 
 {% endblock %}

@@ -83,7 +83,7 @@
 </head>
 
 <br />
-<h1 class="text-center">Detailed Memory Information</h1><br>
+<h1 class="text-center">Detailed CPU Information</h1><br>
 <div class="row" style="font-size: 90%">
     <div class='col-lg-6 col-md-6 mb-6'>
         <div class="">
@@ -91,29 +91,52 @@
             <table id="motherboardTable" class="table table-striped table-bordered table-sm">
                 <thead>
                     <tr>
-                           
                         <th>#</th>
                         <th>Name</th>
-                        <th>Latency</th>
+                        <th>Model</th>
+                        <th>Lithography</th>
+                        <th>Cores</th>
+                        <th>Threads</th>
+                        <th>Base Frequency</th>
+                        <!-- <th>Max Turbo Frequency</th> -->
+                        <th>Catche</th>
+                        <th>TDP</th>
+                        <th>Max Memory</th>
+                        <th>Max Memory Bandwidth</th>
+                        <th>Graphics Base Frequency</th>
+                        <th>Graphics Video Max Memory</th>
                         <th>Price</th>
-                        <th>Size</th>
-                        <th>DDR3 Speed</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for row in memory_details %}
+                    {% for row in cpu_details %}
                     <tr>
                         <td>
                             {{ forloop.counter }}
                         </td>
                         <td>
-                            {{ row.3 }}
-                        </td>
-                        <td>
                             {{ row.0 }}
                         </td>
                         <td>
+                            {{ row.1 }}
+                        </td>
+                        <td>
+                            {{ row.2 }}
+                        </td>
+                        <td>
+                            {{ row.3 }}
+                        </td>
+                        <td>
+                            {{ row.4 }}
+                        </td>
+                        <td>
                             {{ row.5 }}
+                        </td>
+                        <!-- <td>
+                            {{ row.8 }}
+                        </td> -->
+                        <td>
+                            {{ row.6 }}
                         </td>
                         <td>
                             {{ row.7 }}
@@ -121,7 +144,18 @@
                         <td>
                             {{ row.8 }}
                         </td>
-                        
+                        <td>
+                            {{ row.9 }}
+                        </td>
+                        <td>
+                            {{ row.10 }}
+                        </td>
+                        <td>
+                            {{ row.11 }}
+                        </td>
+                        <td>
+                            {{ row.12 }}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -136,14 +170,26 @@
                     <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Select Graph 
                     </a>
+                  
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="memory_details?graph=1">Latency</a>
-                            <a class="dropdown-item" href="memory_details?graph=2">Price</a>
-                            <a class="dropdown-item" href="memory_details?graph=3">Size</a>
-                            <a class="dropdown-item" href="memory_details?graph=4">DDR3 Speed</a>
-                            <a class="dropdown-item" href="memory_details?graph=5">Score</a>
+                      <a class="dropdown-item" href="cpu_details?graph=1">Default</a>
+                      <a class="dropdown-item" href="cpu_details?graph=2">Lithography</a>
+                      <a class="dropdown-item" href="cpu_details?graph=3">Cores</a>
+                      <a class="dropdown-item" href="cpu_details?graph=4">Threads</a>
+                      <a class="dropdown-item" href="cpu_details?graph=5">Base Frequency</a>
+                      <a class="dropdown-item" href="cpu_details?graph=6">Catche</a>
+                      <a class="dropdown-item" href="cpu_details?graph=7">TDP</a>
+                      <a class="dropdown-item" href="cpu_details?graph=8">Max Memory</a>
+                      <a class="dropdown-item" href="cpu_details?graph=9">Max Mem. Bandwidth</a>
+                      <a class="dropdown-item" href="cpu_details?graph=10">Graphics Base Frequency</a>
+                      <a class="dropdown-item" href="cpu_details?graph=11">Graphics Video Max Memory</a>
                     </div>
                   </div>
+
+
+
+          
+        
                   <div id="graph1"  class="row">{{Graph1|safe}}</div>
         
         
@@ -158,5 +204,7 @@
 <div style="text-align: center">
     <br />
     <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>
+   
 </div>
+
 {% endblock %}

@@ -4,3 +4,5 @@ capstone18/__pycache__
 cap/migrations/__pycache__
 cap_project
 .vscode
+cap/PartsInfo/.coverage
+cap/PartsInfo/htmlcov

@@ -91,7 +91,7 @@ class CPUData:
     
     def get_cpu_T(row):
         temp = row[CPU_T]
-        return CPUData.extract_num_data(temp, 0, 'Â')
+        return CPUData.extract_num_data(temp, 0, '°C')
     
     def cpu_is_ht_supported(row):
         return True if row[CPU_HT] == 'Yes' else False

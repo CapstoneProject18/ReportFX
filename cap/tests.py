@@ -90,7 +90,7 @@ class HomePageTests(SimpleTestCase):
     # Test motherboard details
     #==========================
 
-    def test_motherboard_details(self):
+    def test_view_url_motherboard_details(self):
         '''
         Tests the webpage motherboard_details for all possible graphs
         '''

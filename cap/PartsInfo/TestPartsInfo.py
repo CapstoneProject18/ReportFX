@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import unittest
-from BuildInfo       import *
 from CPUData         import *
 from CSVinfo         import *
 from GPUData         import *
@@ -8,9 +7,26 @@ from MemoryData      import *
 from MotherboardData import *
 from StorageData     import *
 
-CPU_ROW = ['4th Generation Intel® Core™ i7 Processors', 'i7-4790S', 'Q2 2014', '22 nm', '$303.00 - $312.00', '4', '8', '3.20 GHz', '4.00 GHz', '8 MB SmartCache', '65 W', '32 GB', 'DDR3-1333/1600, DDR3L-1333/1600 @ 1.5V', '2', '25.6 GB/s', 'No', '350 MHz', '1.20 GHz', '2 GB', 'eDP/DP/HDMI/DVI/VGA', '', '4096x2304@24Hz', '3840x2160@60Hz', '3840x2160@60Hz', '11.2/12', '', 'Up to 3.0', 'Up to 1x16, 2x8, 1x8+2x4', '16', '71.35°C', 'Yes', 'SSE4.1/4.2, AVX 2.0', 'Yes', 'Yes', 'Yes', 'LGA1150']
-GPU_ROW = ['Pascal P107', '1920 x 1080', '1392 MHz', '1290 MHz', '1', 'DX 12.1', '1', '1', '1024KB', 'Nvidia', '75 Watts', '4096 MB', '112.1GB/sec', '128 Bit', '1752 MHz', 'GDDR5', 'GeForce GTX 1050 Ti PNY 4GB', '4.5', '300 Watt & 27 Amps', '45 GPixel/s', '16nm', '$150.00', '7680x4320', 'No', '5', '67 GTexel/s', '0', 'Q3 2014']
-MEMORY_ROW = ['9', 'No', 'Yes', 'Corsair', 'Corsair XMS3 4GB (2 x 2GB) DDR3-1333 Memory', '$11.25', '[44.99]', '4GB (2 x 2GB)', 'DDR3-1333', 'False', '1333', '', '1333', 'Q3 2006']
+CPU_ROW = ['4th Generation Intel® Core™ i7 Processors', 'i7-4790S', 'Q2 2014', '22 nm', \
+            '$303.00 - $312.00', '4', '8', '3.20 GHz', '4.00 GHz', '8 MB SmartCache', '65 W', \
+            '32 GB', 'DDR3-1333/1600, DDR3L-1333/1600 @ 1.5V', '2', '25.6 GB/s', 'No', \
+            '350 MHz', '1.20 GHz', '2 GB', 'eDP/DP/HDMI/DVI/VGA', '', '4096x2304@24Hz', \
+            '3840x2160@60Hz', '3840x2160@60Hz', '11.2/12', '', 'Up to 3.0', \
+            'Up to 1x16, 2x8, 1x8+2x4', '16', '71.35°C', 'Yes', 'SSE4.1/4.2, AVX 2.0', 'Yes', \
+            'Yes', 'Yes', 'LGA1150']
+GPU_ROW = ['Pascal P107', '1920 x 1080', '1392 MHz', '1290 MHz', '1', 'DX 12.1', '1', '1', \
+            '1024KB', 'Nvidia', '75 Watts', '4096 MB', '112.1GB/sec', '128 Bit', '1752 MHz', \
+            'GDDR5', 'GeForce GTX 1050 Ti PNY 4GB', '4.5', '300 Watt & 27 Amps', '45 GPixel/s', \
+            '16nm', '$150.00', '7680x4320', 'No', '5', '67 GTexel/s', '0', 'Q3 2014']
+MEMORY_ROW = ['9', 'No', 'Yes', 'Corsair', 'Corsair XMS3 4GB (2 x 2GB) DDR3-1333 Memory', \
+                '$11.25', '[44.99]', '4GB (2 x 2GB)', 'DDR3-1333', 'False', '1333', '', '1333', \
+                'Q3 2006']
+MOTHERBOARD_ROW = ['LGA1151', 'Intel C236', 'No', 'ATX', 'Asus', '64GB', 'DDR4-2133', \
+                    'Asus P10S-E/4L ATX LGA1151 Motherboard', '4 x 10/100/1000 Mbps', 'Yes', \
+                    'Yes', '[289.0, 291.99]', 'Yes', 'No', 'Q3 2015']
+STORAGE_ROW = ['16MB', '500GB', '', 'Hitachi', \
+                'Hitachi Travelstar 500GB 2.5" 7200RPM Internal Hard Drive', '', '$0.12', \
+                '[52.99]', '7200', 'No']
 
 class TestPartsInfo(unittest.TestCase):
 
@@ -165,6 +181,110 @@ class TestPartsInfo(unittest.TestCase):
     def test_get_gpu_vga_connection(self):
         expected_value = 0
         self.assertEqual(GPUData.get_gpu_vga_connection(GPU_ROW), expected_value)
+    
+    #=================
+    # TEST MemoryData
+    #=================
+    
+    def test_get_memory_price(self):
+        expected_value = 44.99
+        self.assertEqual(MemoryData.get_memory_price(MEMORY_ROW), expected_value)
+    
+    def test_get_memory_performance_score(self):
+        expected_value = 52
+        self.assertEqual(int(MemoryData.get_memory_performance_score(MEMORY_ROW)), expected_value)
+    
+    def test_get_memory_cas_latency(self):
+        expected_value = 9.0
+        self.assertEqual(MemoryData.get_memory_cas_latency(MEMORY_ROW), expected_value)
+    
+    def test_is_memory_ecc_supported(self):
+        expected_value = False
+        self.assertEqual(MemoryData.is_memory_ecc_supported(MEMORY_ROW), expected_value)
+    
+    def test_is_memory_heat_spreader_supported(self):
+        expected_value = True
+        self.assertEqual(MemoryData.is_memory_heat_spreader_supported(MEMORY_ROW), expected_value)
+    
+    def test_get_memory_size(self):
+        expected_value = 4.0
+        self.assertEqual(MemoryData.get_memory_size(MEMORY_ROW), expected_value)
+    
+    def test_is_memory_ddr4(self):
+        expected_value = False
+        self.assertEqual(MemoryData.is_memory_ddr4(MEMORY_ROW), expected_value)
+    
+    def test_get_memory_ddr3_speed(self):
+        expected_value = 1333.0
+        self.assertEqual(MemoryData.get_memory_ddr3_speed(MEMORY_ROW), expected_value)
+    
+    def test_get_memory_ddr4_speed(self):
+        with self.assertRaises(ValueError):
+            expected_value = MemoryData.get_memory_ddr4_speed(MEMORY_ROW)
+    
+    def test_get_memory_speed(self):
+        expected_value = 1333.0
+        self.assertEqual(MemoryData.get_memory_speed(MEMORY_ROW), expected_value)
+    
+    def test_get_memory_name(self):
+        expected_value = 'Corsair XMS3 4GB (2 x 2GB) DDR3-1333 Memory'
+        self.assertEqual(MemoryData.get_memory_name(MEMORY_ROW), expected_value)
+    
+    #======================
+    # TEST MotherboardData
+    #======================
+    
+    def test_get_motherboard_price(self):
+        expected_value = 289.0
+        self.assertEqual(MotherboardData.get_motherboard_price(MOTHERBOARD_ROW), expected_value)
+    
+    def test_get_motherboard_performance_score(self):
+        expected_value = 150
+        self.assertEqual(MotherboardData.get_motherboard_performance_score(MOTHERBOARD_ROW), expected_value)
+    
+    def test_get_motherboard_ethernet_score(self):
+        expected_value = 100
+        self.assertEqual(MotherboardData.get_motherboard_ethernet_score(MOTHERBOARD_ROW), expected_value)
+    
+    def test_is_motherboard_usb3_header(self):
+        expected_value = True
+        self.assertEqual(MotherboardData.is_motherboard_usb3_header(MOTHERBOARD_ROW), expected_value)
+    
+    #==================
+    # TEST StorageData
+    #==================
+
+    def test_get_storage_price(self):
+        expected_value = 52.99
+        self.assertEqual(StorageData.get_storage_price(STORAGE_ROW), expected_value)
+    
+    def test_get_storage_performance_score(self):
+        expected_value = 123
+        self.assertEqual(int(StorageData.get_storage_performance_score(STORAGE_ROW)), expected_value)
+    
+    def test_get_storage_cache(self):
+        expected_value = 16.0
+        self.assertEqual(StorageData.get_storage_cache(STORAGE_ROW), expected_value)
+    
+    def test_get_storage_capacity(self):
+        expected_value = 500.0
+        self.assertEqual(StorageData.get_storage_capacity(STORAGE_ROW), expected_value)
+    
+    def test_get_storage_hybrid_ssd_cache(self):
+        expected_value = 0
+        self.assertEqual(StorageData.get_storage_hybrid_ssd_cache(STORAGE_ROW), expected_value)
+    
+    def test_is_storage_power_loss_protection(self):
+        expected_value = False
+        self.assertEqual(StorageData.is_storage_power_loss_protection(STORAGE_ROW), expected_value)
+    
+    def test_is_storage_ssd(self):
+        expected_value = False
+        self.assertEqual(StorageData.is_storage_ssd(STORAGE_ROW), expected_value)
+    
+    def test_get_storage_rpm(self):
+        expected_value = 7200.0
+        self.assertEqual(StorageData.get_storage_rpm(STORAGE_ROW), expected_value)
 
 if __name__ == '__main__':
     unittest.main()

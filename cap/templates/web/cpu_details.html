@@ -203,8 +203,13 @@
 </script>
 <div style="text-align: center">
     <br />
-    <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>
-
+   
+    <div class="col-md-6">
+        <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>    
+        <a href="{{ request.build_absolute_uri }}" download="HTMLReport.html" >
+            
+            <button  class='btn btn-lg btn-info center-block' >Save as HTML</button></a>
+        </div>
 </div>
 
 {% endblock %}

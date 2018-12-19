@@ -106,3 +106,24 @@ class HomePageTests(SimpleTestCase):
         '''
         response = self.client.get('/motherboard_details' , {'graph' : str(graph_num)})
         self.assertEquals(response.status_code, 200)
+
+    #==========================
+    # Test gpu details
+    #==========================
+
+    def test_view_url_gpu_details(self):
+        '''
+        Tests the webpage gpu_details for all possible graphs
+        '''
+        for i in range(1, 7):
+            self.is_gpu_details_graph_ok(i)
+    
+    def is_gpu_details_graph_ok(self, graph_num):
+        '''
+        Test the webpage gpu_details for a specific graph.
+
+        Arguments:
+          graph_num: The graph number to test
+        '''
+        response = self.client.get('/gpu_details' , {'graph' : str(graph_num)})
+        self.assertEquals(response.status_code, 200)

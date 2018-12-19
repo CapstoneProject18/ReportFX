@@ -3,7 +3,7 @@
 {% block content %}
 
 <head>
-        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -14,6 +14,7 @@
         td {
             white-space: nowrap;
         }
+
         table.dataTable thead>tr>td.sorting,
         table.dataTable thead>tr>td.sorting_asc,
         table.dataTable thead>tr>td.sorting_desc,
@@ -22,6 +23,7 @@
         table.dataTable thead>tr>th.sorting_desc {
             padding-right: 30px
         }
+
         table.dataTable thead .sorting,
         table.dataTable thead .sorting_asc,
         table.dataTable thead .sorting_asc_disabled,
@@ -30,6 +32,7 @@
             cursor: pointer;
             position: relative
         }
+
         table.dataTable thead .sorting:after,
         table.dataTable thead .sorting:before,
         table.dataTable thead .sorting_asc:after,
@@ -45,6 +48,7 @@
             display: block;
             opacity: .3
         }
+
         table.dataTable thead .sorting:before,
         table.dataTable thead .sorting_asc:before,
         table.dataTable thead .sorting_asc_disabled:before,
@@ -53,6 +57,7 @@
             right: 1em;
             font-size: 1rem
         }
+
         table.dataTable thead .sorting:after,
         table.dataTable thead .sorting_asc:after,
         table.dataTable thead .sorting_asc_disabled:after,
@@ -61,10 +66,12 @@
             right: 16px;
             font-size: 1rem
         }
+
         table.dataTable thead .sorting_asc:before,
         table.dataTable thead .sorting_desc:after {
             opacity: 1
         }
+
         table.dataTable thead .sorting_asc_disabled:before,
         table.dataTable thead .sorting_desc_disabled:after {
             opacity: 0
@@ -166,45 +173,38 @@
 
     <div id="plotly" class='col-lg-6 col-md-6 mb-6'>
 
-            <div class="dropdown show">
-                    <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Select Graph 
-                    </a>
-                  
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="cpu_details?graph=1">Default</a>
-                      <a class="dropdown-item" href="cpu_details?graph=2">Lithography</a>
-                      <a class="dropdown-item" href="cpu_details?graph=3">Cores</a>
-                      <a class="dropdown-item" href="cpu_details?graph=4">Threads</a>
-                      <a class="dropdown-item" href="cpu_details?graph=5">Base Frequency</a>
-                      <a class="dropdown-item" href="cpu_details?graph=6">Catche</a>
-                      <a class="dropdown-item" href="cpu_details?graph=7">TDP</a>
-                      <a class="dropdown-item" href="cpu_details?graph=8">Max Memory</a>
-                      <a class="dropdown-item" href="cpu_details?graph=9">Max Mem. Bandwidth</a>
-                      <a class="dropdown-item" href="cpu_details?graph=10">Graphics Base Frequency</a>
-                      <a class="dropdown-item" href="cpu_details?graph=11">Graphics Video Max Memory</a>
-                    </div>
-                  </div>
+        <div class="dropdown show">
+            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Select Graph
+            </a>
 
-
-
-          
-        
-                  <div id="graph1"  class="row">{{Graph1|safe}}</div>
-        
-        
-        
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="cpu_details?graph=1">Default</a>
+                <a class="dropdown-item" href="cpu_details?graph=2">Lithography</a>
+                <a class="dropdown-item" href="cpu_details?graph=3">Cores</a>
+                <a class="dropdown-item" href="cpu_details?graph=4">Threads</a>
+                <a class="dropdown-item" href="cpu_details?graph=5">Base Frequency</a>
+                <a class="dropdown-item" href="cpu_details?graph=6">Catche</a>
+                <a class="dropdown-item" href="cpu_details?graph=7">TDP</a>
+                <a class="dropdown-item" href="cpu_details?graph=8">Max Memory</a>
+                <a class="dropdown-item" href="cpu_details?graph=9">Max Mem. Bandwidth</a>
+                <a class="dropdown-item" href="cpu_details?graph=10">Graphics Base Frequency</a>
+                <a class="dropdown-item" href="cpu_details?graph=11">Graphics Video Max Memory</a>
+            </div>
+        </div>
+        <div id="graph1" class="row">{{Graph1|safe}}</div>
     </div>
 </div>
 
-    <script>
+<script>
 
-       
-    </script>
+
+</script>
 <div style="text-align: center">
     <br />
     <button class="btn btn-info btn-lg" onclick="javascript:window.history.back()">Back</button>
-   
+
 </div>
 
 {% endblock %}

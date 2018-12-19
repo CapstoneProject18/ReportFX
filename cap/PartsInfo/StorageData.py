@@ -56,3 +56,7 @@ class StorageData:
         if not rpm:
             return 0
         return float(rpm)
+
+    def get_price_per_GB(row):
+        return StorageData.extract_num_data(row[STORAGE_PRICE_PER_GB], 1, ',')
+

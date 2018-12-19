@@ -23,8 +23,9 @@ from plotly.offline import plot
 import plotly.graph_objs as go
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPRegressor
-path_wkthmltopdf = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
-config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+# path_wkthmltopdf = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
+# config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+
 
 
 
@@ -33,7 +34,7 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 baseURL = CAP_DIR + '/datasets/'
 
-BI = BuildInfo(baseURL+'cpu_clean_new.csv',baseURL+'gpu_clean_new.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean_new.csv')
+BI = BuildInfo(baseURL+'cpu_clean_new.csv',baseURL+'gpu_clean_new.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean_new.csv',baseURL+'motherboard_clean_new.csv')
 CPU = -1
 GPU= -1
 RAM = -1
@@ -177,7 +178,7 @@ def Step6(request):
 def Step7(request):
     url = "http://127.0.0.1:8000/Step6?CPU={}&GPU={}&RAM={}&STORAGE={}&MB={}".format(CPU,GPU,RAM,STORAGE,MB)
 
-    pdf = pdfkit.from_url(url, False,configuration=config)
+    pdf = pdfkit.from_url(url, False)
     response = HttpResponse(pdf,content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="repo.pdf"'
 
@@ -727,7 +728,12 @@ def motherboard_details(request):
 
 def comp(a,b):
     a_parts = a.split()
+    print(a_parts)
     b_parts = b.split()
+    print(b_parts)
+
+    if a_parts == '' or b_parts == "":
+            return -1
 
     if int(a_parts[1]) > int(b_parts[1]):
         return 1
@@ -1177,3 +1183,218 @@ def memory_details(request):
         print("Empty res Response")
     #print(graph)
     return render(request,'web/memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : memory_details })
+
+def storage_details(request):
+
+        csv_data = BI.get_all_storages()
+        storage_details = []
+
+        Storage_Name = []
+        Storage_Capacity = []
+        Storage_Cache = []
+        Storage_Price_Per_GB = []
+        Storage_Prices = []
+
+        unique_dates_and_frequency = {}
+
+        price_sum_per_unique_date = {}
+        average_price_pre_unique_date = {}
+
+        cache_sum_per_unique_date = {}
+        average_cache_pre_unique_date = {}
+
+        capacity_sum_per_unique_date = {}
+        average_capacity_pre_unique_date = {}
+
+        price_per_GB_sum_per_unique_date = {}
+        average_price_per_GB_pre_unique_date = {}
+
+        del csv_data[0]  # remove headers
+        print(csv_data[1])
+
+        for row in csv_data:
+                date = row[STORAGE_LAUNCHED]
+                print(date)
+                
+                storage_details.append([])
+
+                # 0 : Name
+                storage_details[-1].append(row[STORAGE_NAME])
+                Storage_Name.append(row[STORAGE_NAME])
+                
+                # 1 :STORAGE_CAPACITY
+                storage_details[-1].append(row[STORAGE_CAPACITY])
+                Storage_Capacity.append(row[STORAGE_CAPACITY])
+
+                # 2 :STORAGE_CACHE
+                x = re.findall('\d+', row[STORAGE_CACHE])
+                y = "N/A"
+                if len(x) != 0:
+                        y = x[0] 
+                storage_details[-1].append(y)
+                Storage_Cache.append(y)
+
+                # 3 : STORAGE_PRICE_PER_GB 
+                storage_details[-1].append(row[STORAGE_PRICE_PER_GB])
+                Storage_Price_Per_GB.append(row[STORAGE_PRICE_PER_GB])
+
+                
+                # 5 : STORAGE_RPM
+                x = re.findall('\d+', row[STORAGE_RPM])
+                y = "N/A"
+                if len(x) != 0:
+                        y = x[0] 
+                storage_details[-1].append(y)
+
+                # 4 : STORAGE_PRICES
+                storage_details[-1].append(StorageData.get_storage_price(row))
+                Storage_Prices.append(StorageData.get_storage_price(row))
+
+                if date in unique_dates_and_frequency:
+                        price_sum_per_unique_date[date] += StorageData.get_storage_price(row)
+                        cache_sum_per_unique_date[date] += StorageData.get_storage_cache(row)
+                        capacity_sum_per_unique_date[date] += StorageData.get_storage_capacity(row)
+                        price_per_GB_sum_per_unique_date[date] += StorageData.get_price_per_GB(row)
+                
+                        unique_dates_and_frequency[date] += 1
+                else:
+                        price_sum_per_unique_date[date] = StorageData.get_storage_price(row)
+                        cache_sum_per_unique_date[date] = StorageData.get_storage_cache(row)
+                        capacity_sum_per_unique_date[date] = StorageData.get_storage_capacity(row)
+                        price_per_GB_sum_per_unique_date[date] = StorageData.get_price_per_GB(row)
+                        
+                        unique_dates_and_frequency[date] = 1
+
+        for key, value in unique_dates_and_frequency.items():
+                average_cache_pre_unique_date[key] = cache_sum_per_unique_date[key] / value
+                average_capacity_pre_unique_date[key] = capacity_sum_per_unique_date[key] / value
+                average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+                average_price_per_GB_pre_unique_date[key] = price_per_GB_sum_per_unique_date[key] / value
+        
+
+        dates = list(unique_dates_and_frequency.keys())
+        dates.sort(key= functools.cmp_to_key(comp))
+
+        list_cache = []
+        list_capacity = []
+        list_price_per_GB = []
+        list_price = []
+
+        for date in dates:
+                list_cache.append(average_cache_pre_unique_date[date])
+                list_capacity.append(average_capacity_pre_unique_date[date])
+                list_price.append(average_price_pre_unique_date[date])
+                list_price_per_GB.append(average_price_per_GB_pre_unique_date[date])
+                
+
+        
+        graph = int(request.GET.get('graph'))
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+        price = np.asarray(list_price)
+        cache = np.asarray(list_cache)
+        capacity = np.asarray(list_capacity)
+        price_per_GB = np.asarray(list_price_per_GB)
+        
+
+        clf =  MLPRegressor()
+        clf.fit(dates_to_int.reshape((-1,1)),price)
+        pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),cache)
+        pred_cache = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),capacity)
+        pred_capacity = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),price_per_GB)
+        pred_price_per_GB = clf.predict(future_dates.reshape((-1,1)))
+
+
+
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Capacity,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Cache,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+
+        if(graph == 3):
+                        my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Price_Per_GB,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        if(graph == 4):
+                        my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Prices,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        
+        if (graph == 5):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = price,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_price,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 6):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = cache,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_cache,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 7):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = capacity,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_capacity,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 8):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = price_per_GB,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_price_per_GB,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+
+
+        return render(request, 'web/storage_details.html', {'Graph1' : my_plot_div,'storage_details':storage_details})

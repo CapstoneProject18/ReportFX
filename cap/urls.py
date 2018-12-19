@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^gpu_details$', views.gpu_details, name='gpu_details'),
     url(r'^cpu_details$',views.cpu_details,name='cpu_details'),
     url(r'^memory_details$',views.memory_details,name='memory_details'),
+    url(r'^storage_details', views.storage_details, name='storage_details'),
     url(r'^',views.index,name='index')
     ]

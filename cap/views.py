@@ -407,154 +407,155 @@ def cpu_details(request):
 
         if(graph == 1):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Score,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
+                        
                 )], output_type='div')
         if(graph == 2):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Lith,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
 
         if(graph == 3):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Core,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 4):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Thread,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
                 #print("call from graph 4")
         if(graph == 5):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Base_Freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 6):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Catche,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 7):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Tdp,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 8):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Max_Mem,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 9):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Max_Mem_Bw,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 10):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Graphics_Base_Freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 11):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
+                        x=Models,
                         y=Graphics_Max_Freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        mode = 'markers',
+                        name = 'markers'
                 ) ], output_type='div')
     if (graph == 12):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = price,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'Price'),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_price,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')
     if (graph == 13):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = tdp,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'TDP'),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_tdp,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')
     if (graph == 14):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = lith,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'Lithography'  ),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_lith,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')
     if (graph == 15):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = thread,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'Threads'),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_thread,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')
     if (graph == 16):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = core,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'Cores'),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_core,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')
     if (graph == 17):
         my_plot_div = plot([go.Scatter(
                             x = dates_to_int,
                             y = base_freq,
-                            mode = 'lines+markers',
-                            name = 'lines+markers'),
+                            mode = 'markers',
+                            name = 'Base Freq'),
                             go.Scatter(
                                 x = future_dates,
                                 y = pred_base_freq,
                                 mode = 'lines+markers',
-                                name = 'lines+markers'
+                                name = 'Prediction'
                             )],output_type='div')        
     else:
         print("Empty res Response")

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-coverage run TestPartsInfo.py
-coverage html
+python -m coverage run TestPartsInfo.py
+python -m coverage html

@@ -23,10 +23,6 @@ from plotly.offline import plot
 import plotly.graph_objs as go
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPRegressor
-# path_wkthmltopdf = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
-# config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-
-
 
 
 
@@ -232,7 +228,6 @@ def Step8(request):
             cart_price.append(MotherboardData.get_motherboard_price(mb))
     
     list_cart = zip(cart_content,cart_price)
-    #print(cart_content)
     return render(request,'web/cart.html',{'cart_content':list_cart})
     
 def Step9(request):
@@ -278,8 +273,6 @@ def cpu_details(request):
     Graphics_Base_Freq = []
     Graphics_Max_Freq = []
     Price = []
-
-    # print(res[4][CPU_PERFORMANCE_SCORE])
     
     if(len(csv_data)!=0):
         for row in csv_data:
@@ -435,7 +428,6 @@ def cpu_details(request):
                         mode = 'markers',
                         name = 'markers'
                 )], output_type='div')
-                #print("call from graph 4")
         if(graph == 5):
                 my_plot_div = plot([go.Scatter(
                         x=Models,
@@ -559,8 +551,6 @@ def cpu_details(request):
                             )],output_type='div')        
     else:
         print("Empty res Response")
-    
-    #print(graph)
     
     return render(request,'web/cpu_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : cpu_details })
 
@@ -729,9 +719,7 @@ def motherboard_details(request):
 
 def comp(a,b):
     a_parts = a.split()
-    print(a_parts)
     b_parts = b.split()
-    print(b_parts)
 
     if a_parts == '' or b_parts == "":
             return -1
@@ -921,7 +909,6 @@ def gpu_details(request):
                         mode = 'lines+markers',
                         name = 'lines+markers'
                 )], output_type='div')
-                #print("call from graph 4")
     if(graph == 5):
                 my_plot_div = plot([go.Scatter(
                         x=Names,
@@ -1182,7 +1169,6 @@ def memory_details(request):
                             )],output_type='div')
     else:
         print("Empty res Response")
-    #print(graph)
     return render(request,'web/memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : memory_details })
 
 def storage_details(request):
@@ -1211,11 +1197,8 @@ def storage_details(request):
         average_price_per_GB_pre_unique_date = {}
 
         del csv_data[0]  # remove headers
-        print(csv_data[1])
-
         for row in csv_data:
                 date = row[STORAGE_LAUNCHED]
-                print(date)
                 
                 storage_details.append([])
 

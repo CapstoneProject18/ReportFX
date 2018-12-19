@@ -127,3 +127,25 @@ class HomePageTests(SimpleTestCase):
         '''
         response = self.client.get('/gpu_details' , {'graph' : str(graph_num)})
         self.assertEquals(response.status_code, 200)
+
+
+ #==========================
+    # Test storage details
+    #==========================
+
+    def test_view_url_storage_details(self):
+        '''
+        Tests the webpage storage_details for all possible graphs
+        '''
+        for i in range(1, 9):
+            self.is_storage_details_graph_ok(i)
+    
+    def is_storage_details_graph_ok(self, graph_num):
+        '''
+        Test the webpage storage_details for a specific graph.
+
+        Arguments:
+          graph_num: The graph number to test
+        '''
+        response = self.client.get('/storage_details' , {'graph' : str(graph_num)})
+        self.assertEquals(response.status_code, 200)

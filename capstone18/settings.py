@@ -34,9 +34,9 @@ ALLOWED_HOSTS = ["127.0.0.1","localhost","0.0.0.0",".ngrok.io"]
 CAP_DIR = os.path.join(os.getcwd(),'cap')
 
 if(sys.platform=="linux"):
-    WKHTMLTOPDF_CMD = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
+    WKHTMLTOPDF_CMD = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltox.deb')
 else:
-    WKHTMLTOPDF_CMD = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.deb')
+    WKHTMLTOPDF_CMD = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
 
 # Application definition
 

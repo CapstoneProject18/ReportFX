@@ -1041,6 +1041,9 @@ def memory_details(request):
             Price_mem.append(MemoryData.get_memory_price(row))
             memory_details[-1].append(MemoryData.get_memory_price(row))
 
+            Score_mem.append(MemoryData.get_memory_performance_score(row))
+
+
             if date in unique_dates_and_frequency:
                 price_sum_per_unique_date[date] += MemoryData.get_memory_price(row)
                 speed_sum_per_unique_date[date] += MemoryData.get_memory_speed(row)
@@ -1052,7 +1055,6 @@ def memory_details(request):
                 size_sum_per_unique_date[date] = MemoryData.get_memory_size(row)
                 unique_dates_and_frequency[date] = 1    
 
-            Score_mem.append(MemoryData.get_memory_performance_score(row))
         
         for key, value in unique_dates_and_frequency.items():
             average_price_pre_unique_date[key] = price_sum_per_unique_date[key]/value
@@ -1127,7 +1129,7 @@ def memory_details(request):
         if(graph == 5):
                 my_plot_div = plot([go.Scatter(
                         x=Name_mem,
-                        y=score_mem,
+                        y=Score_mem,
                         mode = 'markers',
                         name = 'lines+markers'
                 )], output_type='div')

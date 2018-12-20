@@ -180,3 +180,18 @@ class HomePageTests(SimpleTestCase):
         response = self.client.get('/memory_details' , {'graph' : '4'} )
         self.assertEquals(response.status_code, 200)
 
+    def test_view_url_memory_details_graph_5(self):
+        response = self.client.get('/memory_details' , {'graph' : '5'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_memory_details_graph_6(self):
+        response = self.client.get('/memory_details' , {'graph' : '6'} )
+        self.assertEquals(response.status_code, 200)
+    
+    def test_view_url_memory_details_graph_7(self):
+        response = self.client.get('/memory_details' , {'graph' : '7'} )
+        self.assertEquals(response.status_code, 200)
+    
+    def test_view_url_memory_details_graph_8(self):
+        response = self.client.get('/memory_details' , {'graph' : '8'} )
+        self.assertEquals(response.status_code, 200)

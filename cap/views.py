@@ -1,7 +1,11 @@
 import sys
 import os
+import sklearn
+import numpy as np
+from sklearn import datasets, linear_model
 import pdfkit
 CAP_DIR = os.path.join(os.getcwd(),'cap')
+import functools
 
 sys.path.append(os.path.join(CAP_DIR,'PartsInfo')) #Path to BuildInfo directory
 from django.shortcuts import render
@@ -17,10 +21,8 @@ import logging
 import re
 from plotly.offline import plot
 import plotly.graph_objs as go
-
-path_wkthmltopdf = os.path.join(os.path.join(CAP_DIR,'static'),'wkhtmltopdf.exe')
-config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-
+import matplotlib.pyplot as plt
+from sklearn.neural_network import MLPRegressor
 
 
 
@@ -28,7 +30,7 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 baseURL = CAP_DIR + '/datasets/'
 
-BI = BuildInfo(baseURL+'cpu_clean.csv',baseURL+'gpu_clean.csv',baseURL+'memory_clean.csv',baseURL+'storage_clean.csv',baseURL+'motherboard_clean.csv')
+BI = BuildInfo(baseURL+'cpu_clean_new.csv',baseURL+'gpu_clean_new.csv',baseURL+'memory_clean_new.csv',baseURL+'storage_clean_new.csv',baseURL+'motherboard_clean_new.csv')
 CPU = -1
 GPU= -1
 RAM = -1
@@ -172,7 +174,7 @@ def Step6(request):
 def Step7(request):
     url = "http://127.0.0.1:8000/Step6?CPU={}&GPU={}&RAM={}&STORAGE={}&MB={}".format(CPU,GPU,RAM,STORAGE,MB)
 
-    pdf = pdfkit.from_url(url, False,configuration=config)
+    pdf = pdfkit.from_url(url, False)
     response = HttpResponse(pdf,content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="repo.pdf"'
 
@@ -226,144 +228,361 @@ def Step8(request):
             cart_price.append(MotherboardData.get_motherboard_price(mb))
     
     list_cart = zip(cart_content,cart_price)
-    #print(cart_content)
     return render(request,'web/cart.html',{'cart_content':list_cart})
     
 def Step9(request):
     return render(request,'web/common.html')
 
-def Step10(request):
-    res = BI.get_all_cpus()
+def cpu_details(request):
+    csv_data = BI.get_all_cpus()
+    cpu_details = []
+
+    del csv_data[0]
+
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+
+    lith_sum_per_unique_date = {}
+    average_lith_pre_unique_date = {}
+
+    thread_sum_per_unique_date = {}
+    average_thread_pre_unique_date = {}
+
+    base_freq_sum_per_unique_date = {}
+    average_base_freq_pre_unique_date = {}
+
+    core_sum_per_unique_date = {}
+    average_core_pre_unique_date = {}
+
+    tdp_sum_per_unique_date = {}
+    average_tdp_pre_unique_date = {}
+
     Names = []
-    score = []
-    lith = []
-    core = []
-    thread = []
-    base_freq = []
-    catche = []
-    tdp = []
-    max_mem = []
-    max_mem_bw = []
-    graphics_base_freq = []
-    graphics_max_freq = []
-    # print(res[4][CPU_PERFORMANCE_SCORE])
-    if(len(res)!=0):
-        print(len(res))
-        for i in range(len(res)-1):
-            Names.append(res[i+1][CPU_PROCESSOR_NUMBER])
-            score.append(CPUData.get_cpu_performance_score(res[i+1]))
-            lith.append(CPUData.get_cpu_lithography(res[i+1]))
-            core.append(int(res[i+1][CPU_NO_OF_CORES]))
-            thread.append(int(res[i+1][CPU_NO_OF_THREADS]))
-            base_freq.append(CPUData.get_cpu_base_frequency(res[i+1]))
-            catche.append(CPUData.get_cpu_cache(res[i+1]))
-            tdp.append(CPUData.get_cpu_tdp(res[i+1]))
-            max_mem.append(CPUData.get_cpu_max_memory(res[i+1]))
-            max_mem_bw.append(CPUData.get_cpu_max_memory_bandwidth(res[i+1]))
-            graphics_base_freq.append(CPUData.get_cpu_graphics_base_freq(res[i+1]))
-            graphics_max_freq.append(CPUData.get_cpu_graphics_max_mem(res[i+1]))
+    Models = []
+    Score = []
+    Lith = []
+    Core = []
+    Thread = []
+    Base_Freq = []
+    Catche = []
+    Tdp = []
+    Max_Mem = []
+    Max_Mem_Bw = []
+    Graphics_Base_Freq = []
+    Graphics_Max_Freq = []
+    Price = []
+    
+    if(len(csv_data)!=0):
+        for row in csv_data:
+
+            date = row[CPU_LAUNCHED]
+
+            cpu_details.append([])   
+
+            Names.append(row[CPU_PROCESSOR_FAMILY])
+            cpu_details[-1].append(row[CPU_PROCESSOR_FAMILY])
+
+            Models.append(row[CPU_PROCESSOR_NUMBER])
+            cpu_details[-1].append(row[CPU_PROCESSOR_NUMBER])
+
+            Lith.append(CPUData.get_cpu_lithography(row))
+            cpu_details[-1].append(CPUData.get_cpu_lithography(row))
+
+            Core.append(CPUData.get_cpu_no_of_cores(row))
+            cpu_details[-1].append(CPUData.get_cpu_no_of_cores(row))
+
+            Thread.append(CPUData.get_no_of_thread(row))
+            cpu_details[-1].append(CPUData.get_no_of_thread(row))
+
+            Base_Freq.append(CPUData.get_cpu_base_frequency(row))
+            cpu_details[-1].append(CPUData.get_cpu_base_frequency(row))
+
+            Catche.append(CPUData.get_cpu_cache(row))
+            cpu_details[-1].append(CPUData.get_cpu_cache(row))
+
+            Tdp.append(CPUData.get_cpu_tdp(row))
+            cpu_details[-1].append(CPUData.get_cpu_tdp(row))
+
+            Max_Mem.append(CPUData.get_cpu_max_memory(row))
+            cpu_details[-1].append(CPUData.get_cpu_max_memory(row))
+
+            Max_Mem_Bw.append(CPUData.get_cpu_max_memory_bandwidth(row))
+            cpu_details[-1].append(CPUData.get_cpu_max_memory_bandwidth(row))
+
+            Graphics_Base_Freq.append(CPUData.get_cpu_graphics_base_freq(row))
+            cpu_details[-1].append(CPUData.get_cpu_graphics_base_freq(row))
+
+            Graphics_Max_Freq.append(CPUData.get_cpu_graphics_max_mem(row))
+            cpu_details[-1].append(CPUData.get_cpu_graphics_max_mem(row))
+
+            Price.append(CPUData.get_cpu_price(row))
+            cpu_details[-1].append(CPUData.get_cpu_price(row))
+
+            Score.append(CPUData.get_cpu_performance_score(row))
+            cpu_details[-1].append(CPUData.get_cpu_performance_score(row))
+
+            if date in unique_dates_and_frequency:
+                price_sum_per_unique_date[date] += CPUData.get_cpu_price(row)
+                lith_sum_per_unique_date[date] += CPUData.get_cpu_lithography(row)
+                thread_sum_per_unique_date[date] += CPUData.get_no_of_thread(row)
+                base_freq_sum_per_unique_date[date] += CPUData.get_cpu_base_frequency(row)
+                core_sum_per_unique_date[date] += CPUData.get_cpu_no_of_cores(row)
+                tdp_sum_per_unique_date[date] += CPUData.get_cpu_tdp(row)
+                unique_dates_and_frequency[date] += 1
+            else:
+                price_sum_per_unique_date[date] = CPUData.get_cpu_price(row)
+                lith_sum_per_unique_date[date] = CPUData.get_cpu_lithography(row)
+                thread_sum_per_unique_date[date] = CPUData.get_no_of_thread(row)
+                base_freq_sum_per_unique_date[date] = CPUData.get_cpu_base_frequency(row)
+                core_sum_per_unique_date[date] = CPUData.get_cpu_no_of_cores(row)
+                tdp_sum_per_unique_date[date] = CPUData.get_cpu_tdp(row)
+                unique_dates_and_frequency[date] = 1
+
+        for key, value in unique_dates_and_frequency.items():
+            average_base_freq_pre_unique_date[key] = base_freq_sum_per_unique_date[key] / value
+            average_core_pre_unique_date[key] = core_sum_per_unique_date[key] / value
+            average_lith_pre_unique_date[key] = lith_sum_per_unique_date[key] / value
+            average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+            average_tdp_pre_unique_date[key] = tdp_sum_per_unique_date[key] / value
+            average_thread_pre_unique_date[key] = thread_sum_per_unique_date[key] / value
+
+        dates = list(unique_dates_and_frequency.keys())
+        dates.sort(key= functools.cmp_to_key(comp))
+
+        list_price = []
+        list_tdp = []
+        list_lith = []
+        list_thread = []
+        list_core = []
+        list_base_freq = []
+
+        for date in dates:
+            list_base_freq.append(average_base_freq_pre_unique_date[date])
+            list_core.append(average_core_pre_unique_date[date])
+            list_lith.append(average_lith_pre_unique_date[date])
+            list_price.append(average_price_pre_unique_date[date])
+            list_tdp.append(average_tdp_pre_unique_date[date])
+            list_thread.append(average_thread_pre_unique_date[date])
 
         graph = int(request.GET.get('graph'))  
+
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))
+        
+        price = np.asarray(list_price)
+        tdp = np.asarray(list_tdp)
+        lith = np.asarray(list_lith)
+        thread = np.asarray(list_thread)
+        core = np.asarray(list_core)
+        base_freq = np.asarray(list_base_freq)
+
+        clf =  MLPRegressor()
+        clf.fit(dates_to_int.reshape((-1,1)),price)
+        pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),tdp)
+        pred_tdp = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),lith)
+        pred_lith = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),thread)
+        pred_thread = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),core)
+        pred_core = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),base_freq)
+        pred_base_freq = clf.predict(future_dates.reshape((-1,1)))
+
         if(graph == 1):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=score,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Score,
+                        mode = 'markers',
+                        name = 'markers'
+                        
                 )], output_type='div')
         if(graph == 2):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=lith,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Lith,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
 
         if(graph == 3):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=core,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Core,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 4):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=thread,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Thread,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
-                print("call from graph 4")
         if(graph == 5):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=base_freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Base_Freq,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 6):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=catche,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Catche,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 7):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=tdp,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Tdp,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 8):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=max_mem,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Max_Mem,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 9):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=max_mem_bw,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Max_Mem_Bw,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 10):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=graphics_base_freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Graphics_Base_Freq,
+                        mode = 'markers',
+                        name = 'markers'
                 )], output_type='div')
         if(graph == 11):
                 my_plot_div = plot([go.Scatter(
-                        x=Names,
-                        y=graphics_max_freq,
-                        mode = 'lines+markers',
-                        name = 'lines+markers'
+                        x=Models,
+                        y=Graphics_Max_Freq,
+                        mode = 'markers',
+                        name = 'markers'
                 ) ], output_type='div')
-        
+    if (graph == 12):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = price,
+                            mode = 'markers',
+                            name = 'Price'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_price,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')
+    if (graph == 13):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = tdp,
+                            mode = 'markers',
+                            name = 'TDP'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_tdp,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')
+    if (graph == 14):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = lith,
+                            mode = 'markers',
+                            name = 'Lithography'  ),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_lith,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')
+    if (graph == 15):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = thread,
+                            mode = 'markers',
+                            name = 'Threads'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_thread,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')
+    if (graph == 16):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = core,
+                            mode = 'markers',
+                            name = 'Cores'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_core,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')
+    if (graph == 17):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = base_freq,
+                            mode = 'markers',
+                            name = 'Base Freq'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_base_freq,
+                                mode = 'lines+markers',
+                                name = 'Prediction'
+                            )],output_type='div')        
     else:
         print("Empty res Response")
-    del res[0]
-    print(graph)
-    return render(request,'web/CPU_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : res })
+    
+    return render(request,'web/cpu_details.html' , {'Graph1' : my_plot_div ,'cpu_details' : cpu_details })
 
 def motherboard_details(request):
     INTEL_ONLY = True  # set to False to include AMD motherboards
     csv_data = BI.get_all_motherboards()
     motherboard_details = []
+    names = []
 
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+    
+    speed_sum_per_unique_date = {}
+    average_speed_pre_unique_date = {}
+
+    capacity_sum_per_unique_date = {}
+    average_capacity_pre_unique_date = {}
+    
     del csv_data[0]  # remove headers
     
     for row in csv_data:
         if INTEL_ONLY and not row[MOTHERBOARD_CPU_SOCKET].startswith('LGA'):
             continue
         
+        date = row[MOTHERBOARD_LAUNCHED]
+        
         motherboard_details.append([])
 
         # 0 : name
+        names.append(row[MOTHERBOARD_NAME])
         motherboard_details[-1].append(row[MOTHERBOARD_NAME])
         
         # 1 : max memory supported
@@ -372,92 +591,510 @@ def motherboard_details(request):
 
         # 2 : max memory speed
         all_speeds = row[MOTHERBOARD_MEMORY_TYPE][5:].split('/')
-        motherboard_details[-1].append(all_speeds[-1].strip())
+        speed = all_speeds[-1].strip()
+        motherboard_details[-1].append(speed)
 
         # 3 : max ethernet speed
         speed = int(row[MOTHERBOARD_ONBOARD_ETHERNET][:-4].split('/')[-1].strip())
         if row[MOTHERBOARD_ONBOARD_ETHERNET].strip().endswith('Gbps'): speed *= 1000
+        
         motherboard_details[-1].append(speed)
 
         # 4 : num of ethernet ports
         motherboard_details[-1].append(row[MOTHERBOARD_ONBOARD_ETHERNET].strip()[0])
 
         # 5 : price
-        motherboard_details[-1].append('$' + str(MotherboardData.get_motherboard_price(row)))
+        motherboard_details[-1].append(MotherboardData.get_motherboard_price(row))
 
-    return render(request, 'web/motherboard_details.html', {'motherboard_details':motherboard_details})
+        if date in unique_dates_and_frequency:
+            price_sum_per_unique_date[date] += MotherboardData.get_motherboard_price(row)
+            speed_sum_per_unique_date[date] += speed
+            capacity_sum_per_unique_date[date] += capacity
+            unique_dates_and_frequency[date] += 1
+        else:
+            price_sum_per_unique_date[date] = MotherboardData.get_motherboard_price(row)
+            speed_sum_per_unique_date[date] = speed
+            capacity_sum_per_unique_date[date] = capacity
+            unique_dates_and_frequency[date] = 1
+
     
-def GPU_details(request):
+    for key, value in unique_dates_and_frequency.items():
+        average_price_pre_unique_date[key] = price_sum_per_unique_date[key]/value
+        average_speed_pre_unique_date[key] = speed_sum_per_unique_date[key]/value
+        average_capacity_pre_unique_date[key] = capacity_sum_per_unique_date[key]/value
+
+    dates = list(unique_dates_and_frequency.keys())
+    dates.sort(key= functools.cmp_to_key(comp))
+
+    list_of_prices = []
+    list_of_speed = []
+    list_of_capacity = []
+
+    for date in dates:
+        list_of_prices.append(average_price_pre_unique_date[date])
+        list_of_speed.append(average_speed_pre_unique_date[date])
+        list_of_capacity.append(average_capacity_pre_unique_date[date])
+    
+    dates_to_int = range(len(dates))
+    dates_to_int = np.asarray(dates_to_int)
+    future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+    price = np.asarray(list_of_prices)
+    speed = np.asarray(list_of_speed)
+    capacity = np.asarray(list_of_capacity)
+
+    clf = MLPRegressor()
+    clf.fit(dates_to_int.reshape((-1,1)), price)
+    pred_price = clf.predict(future_dates.reshape(-1,1))
+    
+    clf.fit(dates_to_int.reshape((-1,1)), speed)
+    pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)), capacity)
+    pred_capacity = clf.predict(future_dates.reshape((-1,1)))
+
+    graph = int(request.GET.get('graph'))
+    
+    if (graph == 1):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = price,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 2):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = speed,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 3):
+            graph_div = plot([go.Scatter(
+                    x = names,
+                    y = capacity,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'
+            )], output_type='div')
+    elif (graph == 4):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = price,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_price,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    elif (graph == 5):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = speed,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    elif (graph == 6):
+            graph_div = plot([go.Scatter(
+                    x = dates_to_int,
+                    y = capacity,
+                    mode = 'lines+markers',
+                    name = 'lines+markers'),
+                    go.Scatter (
+                            x = future_dates,
+                            y = pred_capacity,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'
+                    )], output_type='div')
+    else:
+            print("Empty res Response")
+    
+    return render(request, 'web/motherboard_details.html', {'Graph':graph_div, 'motherboard_details':motherboard_details})
+
+def comp(a,b):
+    a_parts = a.split()
+    b_parts = b.split()
+
+    if a_parts == '' or b_parts == "":
+            return -1
+
+    if int(a_parts[1]) > int(b_parts[1]):
+        return 1
+    elif int(a_parts[1]) == int(b_parts[1]):
+        if int(a_parts[0][1]) > int(b_parts[0][1]):
+            return 1
+        elif  int(a_parts[0][1]) == int(b_parts[0][1]):
+            return 0
+        else:
+            return -1
+    else:
+        return -1
+
+def gpu_details(request):
     csv_data = BI.get_all_gpus()
     gpu_details = []
 
     del csv_data[0]  # remove headers
     
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+
+    speed_sum_per_unique_date = {}
+    average_speed_pre_unique_date = {}
+
+    core_sum_per_unique_date = {}
+    average_core_pre_unique_date = {}
+
+    max_pow_sum_per_unique_date = {}
+    average_max_pow_pre_unique_date = {}
+
+    size_sum_per_unique_date = {}
+    average_size_pre_unique_date = {}
+
+    Names = []
+    Price = []
+    Memeory_Size = []
+    Memory_Speed = []
+    Memory_Type = []
+    Core_Speed = []
+    Boost_Clock = []
+    Max_Power = []
+
     for row in csv_data:
         
+        date = row[GPU_LAUNCHED]
+
         gpu_details.append([])
 
         # 0 : Name
+        Names.append(row[GPU_NAME])
         gpu_details[-1].append(row[GPU_NAME])
         
         # 1 : Memory Size
-        gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY])[0])
+        mem_size = float(re.findall('\d+', row[GPU_MEMORY])[0])
+        Memeory_Size.append(mem_size)
+        gpu_details[-1].append(mem_size)
 
         # 2 : memory speed
-        gpu_details[-1].append(re.findall('\d+', row[GPU_MEMORY_SPEED])[0])
-
+        mem_speed = float(re.findall('\d+', row[GPU_MEMORY_SPEED])[0])
+        Memory_Speed.append(mem_speed)
+        gpu_details[-1].append(mem_speed)
+        
         # 3 : memory type
+        Memory_Type.append(row[GPU_MEMORY_TYPE])
         gpu_details[-1].append(row[GPU_MEMORY_TYPE])
 
         # 4 : Core SPEED
-        gpu_details[-1].append(re.findall('\d+', row[GPU_CORE_SPEED])[0])
+        core_speed = float(re.findall('\d+', row[GPU_CORE_SPEED])[0])
+        Core_Speed.append(core_speed)
+        gpu_details[-1].append(core_speed)
 
         # 5 : Boost clock
         x = re.findall('\d+', row[GPU_BOOST_CLOCK])
-        y = 0
+        boost_clock = 0
         if len(x) != 0:
-            y = x[0] 
-        gpu_details[-1].append(y)
+            boost_clock = float(x[0]) 
+        Boost_Clock.append(boost_clock)
+        gpu_details[-1].append(boost_clock)
 
         # 6 : max Power
-        gpu_details[-1].append(re.findall('\d+', row[GPU_MAX_POWER])[0])
+        max_pow = float(re.findall('\d+', row[GPU_MAX_POWER])[0])
+        Max_Power.append(max_pow)
+        gpu_details[-1].append(max_pow)
 
         # 7 : price
+        Price.append(GPUData.get_gpu_price(row))
         gpu_details[-1].append(GPUData.get_gpu_price(row))
 
-    return render(request, 'web/gpu_details.html', {'gpu_details':gpu_details})
+        if date in unique_dates_and_frequency:
+            price_sum_per_unique_date[date] += GPUData.get_gpu_price(row)
+            core_sum_per_unique_date[date] += core_speed
+            speed_sum_per_unique_date[date] += mem_speed
+            size_sum_per_unique_date[date] += mem_size
+            max_pow_sum_per_unique_date[date] += max_pow
+            unique_dates_and_frequency[date] += 1
+        else:
+            price_sum_per_unique_date[date] = GPUData.get_gpu_price(row)
+            core_sum_per_unique_date[date] = core_speed
+            speed_sum_per_unique_date[date] = mem_speed
+            size_sum_per_unique_date[date] = mem_size
+            max_pow_sum_per_unique_date[date] = max_pow
+            unique_dates_and_frequency[date] = 1
+
+    for key, value in unique_dates_and_frequency.items():
+        average_core_pre_unique_date[key] = core_sum_per_unique_date[key] / value
+        average_max_pow_pre_unique_date[key] = max_pow_sum_per_unique_date[key] / value
+        average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+        average_size_pre_unique_date[key] = size_sum_per_unique_date[key] / value
+        average_speed_pre_unique_date[key] = speed_sum_per_unique_date[key] / value
+
+    dates = list(unique_dates_and_frequency.keys())
+    dates.sort(key= functools.cmp_to_key(comp))
+
+    list_core = []
+    list_max_pow = []
+    list_speed = []
+    list_size = []
+    list_price = []
+
+    for date in dates:
+        list_core.append(average_core_pre_unique_date[date])
+        list_max_pow.append(average_max_pow_pre_unique_date[date])
+        list_price.append(average_price_pre_unique_date[date])
+        list_size.append(average_size_pre_unique_date[date])
+        list_speed.append(average_speed_pre_unique_date[date])
+
+    graph = int(request.GET.get('graph'))
+
+    dates_to_int = range(len(dates))
+    dates_to_int = np.asarray(dates_to_int)
+    future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+    cores = np.asarray(list_core)
+    max_pow = np.asarray(list_max_pow)
+    price = np.asarray(list_price)
+    size = np.asarray(list_size)
+    speed = np.asarray(list_speed)
+
+    clf = linear_model.LinearRegression()
+    clf.fit(dates_to_int.reshape((-1,1)),cores)
+    pred_cores = clf.predict(future_dates.reshape(-1,1))
+    
+    clf.fit(dates_to_int.reshape((-1,1)),max_pow)
+    pred_max_pow = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),price)
+    pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),size)
+    pred_size = clf.predict(future_dates.reshape((-1,1)))
+
+    clf.fit(dates_to_int.reshape((-1,1)),speed)
+    pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
+    if(graph == 1):
+        my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Memeory_Size,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    if(graph == 2):
+        my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Memory_Speed,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+
+    if(graph == 3):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Core_Speed,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    if(graph == 4):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Boost_Clock,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    if(graph == 5):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Max_Power,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    if(graph == 6):
+                my_plot_div = plot([go.Scatter(
+                        x=Names,
+                        y=Price,
+                        mode = 'lines+markers',
+                        name = 'lines+markers'
+                )], output_type='div')
+    if (graph == 7):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = cores,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_cores,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 8):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = max_pow,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_max_pow,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 9):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = price,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_price,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 10):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = size,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_size,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    if (graph == 11):
+        my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_speed,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+    return render(request, 'web/gpu_details.html', {'Graph1':my_plot_div,'gpu_details':gpu_details})
 
 
 
 
-def Step11(request):
-    res = BI.get_all_memories()
-    print('+++++++++++',res,'++++++++++++\n\n\n')
+def memory_details(request):
+    '''
+		This function represents Memory details page
+    '''
+    csv_data = BI.get_all_memories()
+    del csv_data[0]
+
+    #print('+++++++++++',res,'++++++++++++\n\n\n')
+    memory_details = []
+    
     Name_mem = []
     Latency_mem = []
     Price_mem = []
     Size_mem = []
-    ddr3_mem = []
-    score_mem = []
-    if(len(res)!=0):
+    Speed_mem = []
+    Score_mem = []
+
+    unique_dates_and_frequency = {}
+
+    price_sum_per_unique_date = {}
+    average_price_pre_unique_date = {}
+    
+    speed_sum_per_unique_date = {}
+    average_speed_pre_unique_date = {}
+
+    size_sum_per_unique_date = {}
+    average_size_pre_unique_date = {}
+
+
+    if(len(csv_data)!=0):
         """print(len(res))"""
-        for i in range(len(res)-1):
-                Latency_mem.append(MemoryData.get_memory_cas_latency(res[i+1]))
-                Price_mem.append(MemoryData.get_memory_price(res[i+1]))
-                Size_mem.append(MemoryData.get_memory_size(res[i+1]))
-                ddr3_mem.append(MemoryData.get_memory_ddr3_speed(res[i+1]))
-                score_mem.append(MemoryData.get_memory_performance_score(res[i+1]))
-                Name_mem.append(res[i+1][MEMORY_NAME])
 
+        for row in csv_data:
 
-        print('__________________________________________',Latency_mem,'__________________________________________')
-        print('__________________________________________',Price_mem,'__________________________________________')
-        print('__________________________________________',Size_mem,'__________________________________________')
-        print('__________________________________________',ddr3_mem,'__________________________________________')
-        print('__________________________________________',score_mem,'__________________________________________')
-        print('__________________________________________',Name_mem,'__________________________________________')
+            memory_details.append([])
+            
+            date = row[MEMORY_LAUNCHED]
+
+            Name_mem.append(MemoryData.get_memory_name(row))
+            memory_details[-1].append(MemoryData.get_memory_name(row))
+
+            Latency_mem.append(MemoryData.get_memory_cas_latency(row))
+            memory_details[-1].append(MemoryData.get_memory_cas_latency(row))
+
+            Size_mem.append(MemoryData.get_memory_size(row))
+            memory_details[-1].append(MemoryData.get_memory_size(row))
+
+            Speed_mem.append(MemoryData.get_memory_speed(row))
+            memory_details[-1].append(MemoryData.get_memory_speed(row))
+
+            Price_mem.append(MemoryData.get_memory_price(row))
+            memory_details[-1].append(MemoryData.get_memory_price(row))
+
+            if date in unique_dates_and_frequency:
+                price_sum_per_unique_date[date] += MemoryData.get_memory_price(row)
+                speed_sum_per_unique_date[date] += MemoryData.get_memory_speed(row)
+                size_sum_per_unique_date[date] += MemoryData.get_memory_size(row)
+                unique_dates_and_frequency[date] += 1
+            else:
+                price_sum_per_unique_date[date] = MemoryData.get_memory_price(row)
+                speed_sum_per_unique_date[date] = MemoryData.get_memory_speed(row)
+                size_sum_per_unique_date[date] = MemoryData.get_memory_size(row)
+                unique_dates_and_frequency[date] = 1    
+
+            Score_mem.append(MemoryData.get_memory_performance_score(row))
         
+        for key, value in unique_dates_and_frequency.items():
+            average_price_pre_unique_date[key] = price_sum_per_unique_date[key]/value
+            average_speed_pre_unique_date[key] = speed_sum_per_unique_date[key]/value
+            average_size_pre_unique_date[key] = size_sum_per_unique_date[key]/value
+        
+        dates = list(unique_dates_and_frequency.keys())
+        dates.sort(key= functools.cmp_to_key(comp))
 
+        list_of_prices = []
+        list_of_speed = []
+        list_of_size = []
+
+        for date in dates:
+            list_of_prices.append(average_price_pre_unique_date[date])
+            list_of_speed.append(average_speed_pre_unique_date[date])
+            list_of_size.append(average_size_pre_unique_date[date])
+
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))    
+        
+        prices = np.asarray(list_of_prices)
+        speed = np.asarray(list_of_speed)
+        size = np.asarray(list_of_size)
+
+        clf = linear_model.LinearRegression()
+        clf.fit(dates_to_int.reshape((-1,1)),prices)
+        pred_prices = clf.predict(future_dates.reshape((-1,1)))
+        
+        clf.fit(dates_to_int.reshape((-1,1)),speed)
+        pred_speed = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),size)
+        pred_size = clf.predict(future_dates.reshape((-1,1)))
+
+        #print('__________________________________________',Latency_mem,'__________________________________________')
+        #print('__________________________________________',Price_mem,'__________________________________________')
+        #print('__________________________________________',Size_mem,'__________________________________________')
+        #print('__________________________________________',ddr3_mem,'__________________________________________')
+        #print('__________________________________________',score_mem,'__________________________________________')
+        #print('__________________________________________',Name_mem,'__________________________________________')
         graph = int(request.GET.get('graph'))  
         if(graph == 1):
                 my_plot_div = plot([go.Scatter(
@@ -483,7 +1120,7 @@ def Step11(request):
         if(graph == 4):
                 my_plot_div = plot([go.Scatter(
                         x=Name_mem,
-                        y=ddr3_mem,
+                        y=Speed_mem,
                         mode = 'markers',
                         name = 'lines+markers'
                 )], output_type='div')
@@ -494,8 +1131,254 @@ def Step11(request):
                         mode = 'markers',
                         name = 'lines+markers'
                 )], output_type='div')
+        if (graph == 6):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = speed,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_speed,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+        if (graph == 7):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = prices,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_prices,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
+        if (graph == 8):
+            my_plot_div = plot([go.Scatter(
+                            x = dates_to_int,
+                            y = size,
+                            mode = 'lines+markers',
+                            name = 'lines+markers'),
+                            go.Scatter(
+                                x = future_dates,
+                                y = pred_size,
+                                mode = 'lines+markers',
+                                name = 'lines+markers'
+                            )],output_type='div')
     else:
         print("Empty res Response")
-    del res[0]
-    print(graph)
-    return render(request,'web/Memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : res })
+    return render(request,'web/memory_details.html' , {'Graph1' : my_plot_div ,'memory_details' : memory_details })
+
+def storage_details(request):
+
+        csv_data = BI.get_all_storages()
+        storage_details = []
+
+        Storage_Name = []
+        Storage_Capacity = []
+        Storage_Cache = []
+        Storage_Price_Per_GB = []
+        Storage_Prices = []
+
+        unique_dates_and_frequency = {}
+
+        price_sum_per_unique_date = {}
+        average_price_pre_unique_date = {}
+
+        cache_sum_per_unique_date = {}
+        average_cache_pre_unique_date = {}
+
+        capacity_sum_per_unique_date = {}
+        average_capacity_pre_unique_date = {}
+
+        price_per_GB_sum_per_unique_date = {}
+        average_price_per_GB_pre_unique_date = {}
+
+        del csv_data[0]  # remove headers
+        for row in csv_data:
+                date = row[STORAGE_LAUNCHED]
+                
+                storage_details.append([])
+
+                # 0 : Name
+                storage_details[-1].append(row[STORAGE_NAME])
+                Storage_Name.append(row[STORAGE_NAME])
+                
+                # 1 :STORAGE_CAPACITY
+                storage_details[-1].append(row[STORAGE_CAPACITY])
+                Storage_Capacity.append(row[STORAGE_CAPACITY])
+
+                # 2 :STORAGE_CACHE
+                x = re.findall('\d+', row[STORAGE_CACHE])
+                y = "N/A"
+                if len(x) != 0:
+                        y = x[0] 
+                storage_details[-1].append(y)
+                Storage_Cache.append(y)
+
+                # 3 : STORAGE_PRICE_PER_GB 
+                storage_details[-1].append(row[STORAGE_PRICE_PER_GB])
+                Storage_Price_Per_GB.append(row[STORAGE_PRICE_PER_GB])
+
+                
+                # 5 : STORAGE_RPM
+                x = re.findall('\d+', row[STORAGE_RPM])
+                y = "N/A"
+                if len(x) != 0:
+                        y = x[0] 
+                storage_details[-1].append(y)
+
+                # 4 : STORAGE_PRICES
+                storage_details[-1].append(StorageData.get_storage_price(row))
+                Storage_Prices.append(StorageData.get_storage_price(row))
+
+                if date in unique_dates_and_frequency:
+                        price_sum_per_unique_date[date] += StorageData.get_storage_price(row)
+                        cache_sum_per_unique_date[date] += StorageData.get_storage_cache(row)
+                        capacity_sum_per_unique_date[date] += StorageData.get_storage_capacity(row)
+                        price_per_GB_sum_per_unique_date[date] += StorageData.get_price_per_GB(row)
+                
+                        unique_dates_and_frequency[date] += 1
+                else:
+                        price_sum_per_unique_date[date] = StorageData.get_storage_price(row)
+                        cache_sum_per_unique_date[date] = StorageData.get_storage_cache(row)
+                        capacity_sum_per_unique_date[date] = StorageData.get_storage_capacity(row)
+                        price_per_GB_sum_per_unique_date[date] = StorageData.get_price_per_GB(row)
+                        
+                        unique_dates_and_frequency[date] = 1
+
+        for key, value in unique_dates_and_frequency.items():
+                average_cache_pre_unique_date[key] = cache_sum_per_unique_date[key] / value
+                average_capacity_pre_unique_date[key] = capacity_sum_per_unique_date[key] / value
+                average_price_pre_unique_date[key] = price_sum_per_unique_date[key] / value
+                average_price_per_GB_pre_unique_date[key] = price_per_GB_sum_per_unique_date[key] / value
+        
+
+        dates = list(unique_dates_and_frequency.keys())
+        dates.sort(key= functools.cmp_to_key(comp))
+
+        list_cache = []
+        list_capacity = []
+        list_price_per_GB = []
+        list_price = []
+
+        for date in dates:
+                list_cache.append(average_cache_pre_unique_date[date])
+                list_capacity.append(average_capacity_pre_unique_date[date])
+                list_price.append(average_price_pre_unique_date[date])
+                list_price_per_GB.append(average_price_per_GB_pre_unique_date[date])
+                
+
+        
+        graph = int(request.GET.get('graph'))
+        dates_to_int = range(len(dates))
+        dates_to_int = np.asarray(dates_to_int)
+        future_dates = np.asarray(range(len(dates),len(dates)+10))
+
+        price = np.asarray(list_price)
+        cache = np.asarray(list_cache)
+        capacity = np.asarray(list_capacity)
+        price_per_GB = np.asarray(list_price_per_GB)
+        
+
+        clf =  MLPRegressor()
+        clf.fit(dates_to_int.reshape((-1,1)),price)
+        pred_price = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),cache)
+        pred_cache = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),capacity)
+        pred_capacity = clf.predict(future_dates.reshape((-1,1)))
+
+        clf.fit(dates_to_int.reshape((-1,1)),price_per_GB)
+        pred_price_per_GB = clf.predict(future_dates.reshape((-1,1)))
+
+
+
+        if(graph == 1):
+                my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Capacity,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        if(graph == 2):
+                my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Cache,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+
+        if(graph == 3):
+                        my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Price_Per_GB,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        if(graph == 4):
+                        my_plot_div = plot([go.Scatter(
+                                x=Storage_Name,
+                                y=Storage_Prices,
+                                mode = 'markers',
+                                name = 'markers'
+                        )], output_type='div')
+        
+        if (graph == 5):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = price,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_price,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 6):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = cache,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_cache,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 7):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = capacity,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_capacity,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+        
+        if (graph == 8):
+                        my_plot_div = plot([go.Scatter(
+                                        x = dates_to_int,
+                                        y = price_per_GB,
+                                        mode = 'lines+markers',
+                                        name = 'lines+markers'),
+                                        go.Scatter(
+                                                x = future_dates,
+                                                y = pred_price_per_GB,
+                                                mode = 'lines+markers',
+                                                name = 'lines+markers'
+                                        )],output_type='div')
+
+
+        return render(request, 'web/storage_details.html', {'Graph1' : my_plot_div,'storage_details':storage_details})

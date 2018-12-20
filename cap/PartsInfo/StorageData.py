@@ -6,7 +6,10 @@ class StorageData:
     Additional required information, wherever necessary, has been specified.
     '''
     def get_storage_price(row):
-        return StorageData.extract_num_data(row[STORAGE_PRICES], 1, ',')
+        price = StorageData.extract_num_data(row[STORAGE_PRICES], 1, ',')
+        if price == 0:
+            price = StorageData.extract_num_data(row[STORAGE_PRICES], 1, ']')
+        return price
     
     def get_storage_performance_score(row):
         return abs(StorageData.get_storage_cache(row) / 10) + \
@@ -53,3 +56,7 @@ class StorageData:
         if not rpm:
             return 0
         return float(rpm)
+
+    def get_price_per_GB(row):
+        return StorageData.extract_num_data(row[STORAGE_PRICE_PER_GB], 1, ',')
+

@@ -1,4 +1,5 @@
 from CSVinfo import *
+import re
 
 class MemoryData:
     '''
@@ -6,7 +7,7 @@ class MemoryData:
     Additional required information, wherever necessary, has been specified.
     '''
     def get_memory_price(row):
-        return MemoryData.extract_num_data(row[MEMORY_PRICES], 1, ',')
+        return float(re.findall("\d+\.\d+", row[MEMORY_PRICES])[0])
     
     def get_memory_performance_score(row):
         return MemoryData.get_memory_cas_latency(row) + \
@@ -45,3 +46,9 @@ class MemoryData:
     
     def get_memory_ddr4_speed(row):
         return float(row[MEMORY_DDR4_SPEED])
+
+    def get_memory_speed(row):
+        return float(row[MEMORY_DDR_SPEED])
+    
+    def get_memory_name(row):
+        return row[MEMORY_NAME]

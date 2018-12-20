@@ -93,7 +93,32 @@ class HomePageTests(SimpleTestCase):
     def test_view_url_cpu_details_graph_11(self):
         response = self.client.get('/cpu_details' , {'graph' : '11'} )
         self.assertEquals(response.status_code, 200)
+
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '12'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '13'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '14'} )
+        self.assertEquals(response.status_code, 200)
     
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '15'} )
+        self.assertEquals(response.status_code, 200)
+    
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '16'} )
+        self.assertEquals(response.status_code, 200)
+    
+    def test_view_url_cpu_details_graph_11(self):
+        response = self.client.get('/cpu_details' , {'graph' : '17'} )
+        self.assertEquals(response.status_code, 200)
+    
+
     #==========================
     # Test motherboard details
     #==========================

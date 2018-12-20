@@ -38,6 +38,14 @@ class HomePageTests(SimpleTestCase):
         response = self.client.get('/Step6',{'CPU' : '1' , 'GPU': '1' , 'RAM' : '0', 'STORAGE' : '1' , 'MB' : '2'} )
         self.assertEquals(response.status_code, 200)
 
+    def test_view_url_cart(self):
+        response = self.client.get('/cart',{'CPU' : '1' , 'GPU': '1' , 'RAM' : '0', 'STORAGE' : '1' , 'MB' : '2'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_cart2(self):
+        response = self.client.get('/cart',{'CPU' : '1' ,  'RAM' : '0', 'STORAGE' : '1' , 'MB' : '2'} )
+        self.assertEquals(response.status_code, 200)
+    
     #==================
     # Test CPU details
     #==================
@@ -149,3 +157,26 @@ class HomePageTests(SimpleTestCase):
         '''
         response = self.client.get('/storage_details' , {'graph' : str(graph_num)})
         self.assertEquals(response.status_code, 200)
+
+
+    #==================
+    # Test memory details
+    #==================
+    
+
+    def test_view_url_memory_details_graph_1(self):
+        response = self.client.get('/memory_details' , {'graph' : '1'} )
+        self.assertEquals(response.status_code, 200)
+    
+    def test_view_url_memory_details_graph_2(self):
+        response = self.client.get('/memory_details' , {'graph' : '2'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_memory_details_graph_3(self):
+        response = self.client.get('/memory_details' , {'graph' : '3'} )
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_memory_details_graph_4(self):
+        response = self.client.get('/memory_details' , {'graph' : '4'} )
+        self.assertEquals(response.status_code, 200)
+

@@ -4,13 +4,14 @@ We will create a web application which will allow users to upload data in a spec
 ## Installation
 ```pip3 -r install requirements.txt```
 
-## Deploing the application
+## Deploing the Application
 ```python3 manage.py runserver```
 
 ## Testing the Application
 ```python3 manage.py test```
 
-## Technology stack used
+## Technology Stack Used
+
 * Django
 * jinja Templating
 * Scikit-learn (Predicting different CPU-GPU-RAM-STORAGE-MOTHERBOARD etc.)
